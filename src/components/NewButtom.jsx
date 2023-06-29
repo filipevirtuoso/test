@@ -10,15 +10,12 @@ import { useGetEventsQuery } from '../slices/eventsApiSlice'
 
 const SectionWrapper = styled.section`
   height: 12vh;
+
   display: flex;
   justify-content: space-around;
   align-items: center;
-
-
-  // display: flex;
-  // flex-wrap: nowrap;
-  // overflow-x: scroll;
   gap: .1rem;
+  margin-top: .1rem;
 `
 
 // const Button = styled.button`
@@ -66,8 +63,8 @@ const Test = styled.div`
 `
 
 const Div = styled.div`
-  height: 8vh;
-  width: 8vh;
+  height: 9vh;
+  width: 9vh;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -126,7 +123,7 @@ const NewButtom = () => {
         </Link>
       </ButtonWrapper>
 
-      <ButtonWrapper>
+      {/* <ButtonWrapper>
         <Link to='/' style={linkStyle}>
           <Test>
 
@@ -136,7 +133,7 @@ const NewButtom = () => {
           </Text>
           </Test>
         </Link>
-      </ButtonWrapper>
+      </ButtonWrapper> */}
 
       <ButtonWrapper>
         <Link to='/' style={linkStyle}>
