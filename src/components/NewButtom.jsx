@@ -69,6 +69,7 @@ const Div = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1.2rem;
 
   background: rgb(20,117,28);
   background: linear-gradient(132deg, rgba(20,117,28,1) 0%, rgba(34,187,83,1) 90%);
