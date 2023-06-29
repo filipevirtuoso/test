@@ -3,6 +3,11 @@ import styled from 'styled-components'
 import { FaExclamationTriangle, FaPlus, FaQuestion, FaListUl, FaHandsHelping, FaMapMarkerAlt } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
+import Message from '../components/Message'
+
+// RTK
+import { useGetEventsQuery } from '../slices/eventsApiSlice'
+
 const SectionWrapper = styled.section`
   height: 12vh;
   display: flex;
@@ -79,10 +84,14 @@ const linkStyle = {
 };
 
 const NewButtom = () => {
+  const { data: response, isLoading, error } = useGetEventsQuery();
   return (
+    
     <SectionWrapper>
+      {isLoading ? null : error ? (<Message variant='danger'>{error?.data?.message || error.error}</Message>) : (
 
-      <ButtonWrapper>
+        <>
+        <ButtonWrapper>
         <Link to='/addevent' style={linkStyle}>
           <Test>
           <Div><FaPlus color='#f2f2f2' /></Div>
@@ -153,10 +162,15 @@ const NewButtom = () => {
           </Test>
         </Link>
       </ButtonWrapper>
-
-      {/* <ButtonWrapper><Link to='/faq' style={linkStyle}><FaQuestionCircle color='#f2f2f2' /><Text>FAQ</Text></Link></ButtonWrapper> */}
+      </>
+      )}
     </SectionWrapper>
   )
 }
 
 export default NewButtom
+
+
+
+
+
