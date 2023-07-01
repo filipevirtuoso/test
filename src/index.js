@@ -41,7 +41,7 @@ const router = createBrowserRouter(
         <Route path='/addevent' element={<AddEvent />} />
         <Route path='/map' element={<Map />} />
         <Route path='/profile' element={<Profile />} />
-        <Route path='/edituser/:id' element={<EditUser />} />
+        <Route path='/edituser' element={<EditUser />} />
       </Route>
     </Route>
   ])
