@@ -58,10 +58,6 @@ const EditUser = () => {
   const [indigenous_territory, setIndigenous_territory] = useState('')
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
-  // const {id: userId} = useParams();
-
-
-  console.log(name, village, indigenous_territory, phone, email, userId)
 
 
 
