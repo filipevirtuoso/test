@@ -123,7 +123,7 @@ const AddEvent = () => {
             <Form.Control
               type='file'
               // value={image1}
-              required
+              // required
               onChange={handleImage}>
             </Form.Control>
           </Form.Group>
