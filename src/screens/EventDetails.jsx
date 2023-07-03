@@ -64,7 +64,7 @@ const Wrapper = styled.section`
   border-radius: 20px;
   width: 80%;
   height: 65%;
-  background-color: #529e56;
+  // background-color: #f2f2f2;
   margin-top: 2rem;
 `
 
