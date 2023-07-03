@@ -49,7 +49,19 @@ export const eventApiSlice = apiSlice.injectEndpoints({
       }        
       }),
     }),
+    editEvent: builder.mutation({
+      query: (data) => ({
+        url: `${EVENTS_URL}${data.get("id")}`,
+        method: 'PATCH',
+        body: data,
+        prepareHeaders: (headers, { getState }) => {
+          headers.set('Access-Control-Allow-Origin', '*');
+          headers.set("Content-Type", "multipart/form-data");
+          return headers
+      }        
+      })
+    }),
   }),
 })
 
-export const { useAddEventMutation, useGetEventsQuery, useGetUserEventsQuery ,  useGetEventDetailsQuery, useGetStatisticsQuery } = eventApiSlice
+export const { useAddEventMutation, useEditEventMutation, useGetEventsQuery, useGetUserEventsQuery ,  useGetEventDetailsQuery, useGetStatisticsQuery } = eventApiSlice

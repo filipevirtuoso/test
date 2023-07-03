@@ -4,8 +4,8 @@ import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
 
 // Router
-import {useParams} from 'react-router-dom'
 import {Link} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 
 // Components
 import { FaArrowCircleLeft } from 'react-icons/fa'

@@ -227,7 +227,7 @@ const AddEvent = () => {
             <FaCamera />
             </InpButton>
             <Form.Control
-              ref={hiddenFileInput}
+              ref={hiddenFileInput2}
               style={{display:'none'}}
               type='file'
               onChange={handleImage2}>
@@ -240,7 +240,7 @@ const AddEvent = () => {
             <FaCamera />
             </InpButton>
             <Form.Control
-              ref={hiddenFileInput}
+              ref={hiddenFileInput3}
               style={{display:'none'}}
               type='file'
               onChange={handleImage3}>

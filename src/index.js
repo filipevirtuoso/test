@@ -22,6 +22,7 @@ import Map from './screens/Map';
 import Profile from './screens/Profile';
 import EditUser from './screens/EditProfile';
 import MyEvents from './screens/MyEvents';
+import EditEvent from './screens/EditEvent';
 import PrivateRoute from './components/PrivateRoute';
 
 // Style
@@ -44,6 +45,8 @@ const router = createBrowserRouter(
         <Route path='/profile' element={<Profile />} />
         <Route path='/edituser' element={<EditUser />} />
         <Route path='/myevents' element={<MyEvents />} />
+        <Route path='/editevent' element={<EditEvent />} />
+
         
       </Route>
     </Route>

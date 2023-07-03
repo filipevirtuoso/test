@@ -7,6 +7,7 @@ import Message from '../components/Message';
 
 import { FaEdit } from 'react-icons/fa'
 
+import { Link } from 'react-router-dom'
 
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
@@ -18,10 +19,17 @@ const Title = styled.h2`
   text-decoration: underline;
 `
 
+const linkStyle = {
+  textDecoration: "none",
+  // display: "flex",
+  // alignItems: "center",
+  color: '#444'
+};
 
 const MyEvents = () => {
 
   const { data: events, isLoading, error } = useGetUserEventsQuery();
+  console.log(events)
 
   return (
     <>
@@ -48,7 +56,7 @@ const MyEvents = () => {
               <td>{event.complaint}</td>
               <td>{event.date_occurrence.split('-').reverse().join('/')}</td>
               <td>{event.description}</td>
-              <td><FaEdit /></td>
+              <td><Link to='/editevent' style={linkStyle} state={{id: event.id}}><FaEdit /></Link></td>
             </tr>
           ) )}
         </tbody>
