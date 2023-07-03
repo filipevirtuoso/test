@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import Logo from '../assets/images/logo.png'
 import BGImage from '../assets/images/login.png'
+import Tribal from '../assets/images/bg-home.png'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../components/Loader'
 
@@ -76,6 +77,18 @@ const Input = styled.input`
 const Wrapper = styled.div`
   display: flex;
   justify-content: center
+`
+
+const TribalBG = styled.section`
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+
+  background-image: url(${Tribal}); 
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.3;
 `
 
 const Login = () => {
@@ -160,6 +173,7 @@ const Login = () => {
           </Wrapper>
         </Form>
       </FormContainer>
+      <TribalBG />
     </>
   )
 }
