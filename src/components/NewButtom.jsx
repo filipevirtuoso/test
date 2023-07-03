@@ -101,7 +101,7 @@ const NewButtom = () => {
       </ButtonWrapper>
 
       <ButtonWrapper>
-        <Link to='/' style={linkStyle}>
+        <Link to='/myevents' style={linkStyle}>
           <Test>
 
           <Div><FaListUl color='#f2f2f2' /></Div>

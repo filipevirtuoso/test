@@ -183,9 +183,6 @@ const linkStyle = {
   color: '#f2f2f2'
 };
 
-const Status = styled.span`
-  background-color: #008CBA;
-`
 
 const Profile = () => {
 
@@ -237,7 +234,7 @@ const Profile = () => {
           </RightWrapper>
         </HeaderWrapper>
         <ContentWrapper>
-          <Button>Minhas ocorrências</Button>
+          <Button><Link to='/myevents' style={linkStyle}>Minhas ocorrências</Link></Button>
           <Button2><Link to='/edituser' style={linkStyle}>Editar perfil</Link></Button2>
           <Button3 onClick={logoutHandler}>Sair</Button3>
         </ContentWrapper>
