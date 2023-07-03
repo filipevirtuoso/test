@@ -183,6 +183,10 @@ const linkStyle = {
   color: '#f2f2f2'
 };
 
+const Status = styled.span`
+  background-color: #008CBA;
+`
+
 const Profile = () => {
 
   const { data: user, isLoading, error} = useUserDetailQuery();

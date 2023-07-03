@@ -63,7 +63,7 @@ const Footer = () => {
         </Link>
       </Div>
       <Div>
-        <Link to='/map'>
+        <Link to='/'>
         <FaSearch  color={"#f2f2f2"} size={20} />
         </Link>
         <Link to='/profile'>

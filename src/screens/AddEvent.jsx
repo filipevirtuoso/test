@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { FaArrowCircleLeft, FaEraser } from 'react-icons/fa'
+import { FaArrowCircleLeft, FaEraser, FaCamera } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { Form }from 'react-bootstrap'
 import Button from 'react-bootstrap/Button';
@@ -29,7 +29,7 @@ const Title = styled.h2`
 `
 
 const FormContainer = styled.section`
-  height: 100vh;
+  height: 160vh;
   display: flex;
   flex-direction: column;
   padding: 2rem;
@@ -44,15 +44,29 @@ const Div = styled.div`
   // height: 400px;
 `
 
-const Input = styled.input`
-  width: 80%;
+const InpButton  = styled.button`
+  border-radius: 50%;
+  height: 4rem;
+  width: 4rem;
+  outline: 0;
+  border: 0;
+  border: 1px solid #444;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
 `
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: center
 
-  
+`
+
+const InputWrapper = styled.section`
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 1rem;
 `
 
 const icon = L.icon({
@@ -83,6 +97,8 @@ const AddEvent = () => {
   const [time_occurrence, setTimeOccurrence] = useState('')
   const [coordinates, setCoordinates] = useState('')
   const [image1, setImage1] = useState('')
+  const [image2, setImage2] = useState('')
+  const [image3, setImage3] = useState('')
 
   const [showMap, setShowMap] = useState(0);
   const center = [-19.5124837, -42.5636109];
@@ -94,8 +110,26 @@ const AddEvent = () => {
   const { data, isLoading: isLoadingUser, error } = useUserDetailQuery();
 
 
+
   const [mapData, setMapData] = useState([])
 
+  const hiddenFileInput = React.useRef(null);
+  const hiddenFileInput2 = React.useRef(null);
+  const hiddenFileInput3 = React.useRef(null);
+
+
+  const handleClick = event => {
+    hiddenFileInput.current.click();
+  };
+
+
+  const handleClick2 = event => {
+    hiddenFileInput2.current.click();
+  };
+
+  const handleClick3 = event => {
+    hiddenFileInput3.current.click();
+  };
 
   const handleMap = () => {
     setShowMap(!showMap);
@@ -120,6 +154,8 @@ const AddEvent = () => {
     eventData.append("date_occurrence", date_occurrence)
     eventData.append("time_occurrence", time_occurrence)
     eventData.append("image1", image1)
+    eventData.append("image2", image2)
+    eventData.append("image3", image3)
     eventData.append("teste", "teste")
     eventData.append("user", data.id)
     eventData.append("coordinates", coordinates)
@@ -143,6 +179,14 @@ const AddEvent = () => {
     setImage1(e.target.files[0])
   }
 
+  const handleImage2 = (e) => {
+    setImage2(e.target.files[0])
+  }
+
+  const handleImage3 = (e) => {
+    setImage3(e.target.files[0])
+  }
+
 
 
   const saveMarkers = (newMarkerCoords) => {
@@ -154,6 +198,8 @@ const AddEvent = () => {
     // setMapData((prevState) => ({ ...prevState, markerInfo }));
   };
 
+  
+
   return (
     <>
       <Title>Abrir ocorrência</Title>
@@ -161,16 +207,46 @@ const AddEvent = () => {
         <Form onSubmit={submitHandler}>
 
 
+        <InputWrapper>
           <Form.Group controlId='image1' className='mt-3'>
-            <Form.Label>Selecione uma imagem</Form.Label>
+            {/* <Form.Label>Selecione uma imagem</Form.Label> */}
+            <InpButton onClick={handleClick} > 
+              <FaCamera />
+            </InpButton >
             <Form.Control
+              ref={hiddenFileInput}
+              style={{display:'none'}}
               type='file'
-              // value={image1}
-              // required
               onChange={handleImage}>
             </Form.Control>
           </Form.Group>
 
+          <Form.Group controlId='image2' className='mt-3'>
+            {/* <Form.Label>Selecione uma imagem</Form.Label> */}
+            <InpButton onClick={handleClick2}>
+            <FaCamera />
+            </InpButton>
+            <Form.Control
+              ref={hiddenFileInput}
+              style={{display:'none'}}
+              type='file'
+              onChange={handleImage2}>
+            </Form.Control>
+          </Form.Group>
+
+          <Form.Group controlId='image3' className='mt-3'>
+            {/* <Form.Label>Selecione uma imagem</Form.Label> */}
+            <InpButton onClick={handleClick2}>
+            <FaCamera />
+            </InpButton>
+            <Form.Control
+              ref={hiddenFileInput}
+              style={{display:'none'}}
+              type='file'
+              onChange={handleImage3}>
+            </Form.Control>
+          </Form.Group>
+          </InputWrapper>
 
 
 
@@ -242,6 +318,7 @@ const AddEvent = () => {
               value={complaint}
               required
               onChange={(e) => setComplaint(e.target.value)}>
+              <option>Selecione uma opção</option>
               <option>Desmate</option>
               <option>Grilagem</option>
               <option>Invasão</option>
