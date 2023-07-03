@@ -1,4 +1,4 @@
-import { EVENTS_URL } from "../constants";
+import { EVENTS_URL, STATS } from "../constants";
 import {apiSlice} from './apiSlice'
 
 
@@ -18,6 +18,12 @@ export const eventApiSlice = apiSlice.injectEndpoints({
         },
       }),
 
+      keepUnusedDataFor: 5
+    }),
+    getStatistics: builder.query({
+      query: () => ({
+        url: STATS
+      }),
       keepUnusedDataFor: 5
     }),
     getEventDetails: builder.query({
@@ -41,4 +47,4 @@ export const eventApiSlice = apiSlice.injectEndpoints({
   }),
 })
 
-export const { useAddEventMutation, useGetEventsQuery, useGetEventDetailsQuery } = eventApiSlice
+export const { useAddEventMutation, useGetEventsQuery, useGetEventDetailsQuery, useGetStatisticsQuery } = eventApiSlice

@@ -1,10 +1,20 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { FaArrowCircleLeft } from 'react-icons/fa'
+import { FaArrowCircleLeft, FaEraser } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-import { Form, Button } from 'react-bootstrap'
+import { Form }from 'react-bootstrap'
+import Button from 'react-bootstrap/Button';
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Col from 'react-bootstrap/Col';
+import {  FaDraftingCompass } from "react-icons/fa";
+
+import { MapContainer, TileLayer, useMapEvents } from "react-leaflet";
+
+import "leaflet/dist/leaflet.css";
+
+import L from "leaflet";
+import { Draw } from "leaflet-draw";
 
 import { useAddEventMutation } from '../slices/eventsApiSlice'
 
@@ -25,7 +35,14 @@ const FormContainer = styled.section`
   padding: 2rem;
   justify-content: flex-start;
 `
+const ButtonWidth = styled(Button)`
+  width: 100%;
+  
+`
 
+const Div = styled.div`
+  // height: 400px;
+`
 
 const Input = styled.input`
   width: 80%;
@@ -34,7 +51,28 @@ const Input = styled.input`
 const Wrapper = styled.div`
   display: flex;
   justify-content: center
+
+  
 `
+
+const icon = L.icon({
+  iconSize: [25, 41],
+  iconAnchor: [10, 41],
+  popupAnchor: [2, -40],
+  iconUrl: "https://unpkg.com/leaflet@1.6/dist/images/marker-icon.png",
+  shadowUrl: "https://unpkg.com/leaflet@1.6/dist/images/marker-shadow.png"
+});
+
+function MyComponent({ saveMarkers }) {
+  const map = useMapEvents({
+    click: (e) => {
+      const { lat, lng } = e.latlng;
+      L.marker([lat, lng], { icon }).addTo(map);
+      saveMarkers([lat, lng]);
+    }
+  });
+  return null;
+}
 
 const AddEvent = () => {
 
@@ -46,11 +84,29 @@ const AddEvent = () => {
   const [coordinates, setCoordinates] = useState('')
   const [image1, setImage1] = useState('')
 
+  const [showMap, setShowMap] = useState(0);
+  const center = [-19.5124837, -42.5636109];
+
 
   const [addEvent, { isLoading }] = useAddEventMutation()
   const navigate = useNavigate()
 
   const { data, isLoading: isLoadingUser, error } = useUserDetailQuery();
+
+
+  const [mapData, setMapData] = useState([])
+
+
+  const handleMap = () => {
+    setShowMap(!showMap);
+    setCoordinates('')
+  };
+
+  const removeMarkedArea = () => {
+    setShowMap(!showMap);
+    setCoordinates('')
+  };
+
 
 
   const submitHandler = async (e) => {
@@ -76,6 +132,7 @@ const AddEvent = () => {
     try {
       const res = await addEvent(eventData).unwrap();
       // dispatch(setCredentials({...res, }))
+      toast.success('Ocorrência adicionada com sucesso!')
       navigate('/')
     } catch (error) {
       toast.error(error?.data?.message || error.error)
@@ -86,13 +143,100 @@ const AddEvent = () => {
     setImage1(e.target.files[0])
   }
 
+
+
+  const saveMarkers = (newMarkerCoords) => {
+    console.log(newMarkerCoords)
+    setCoordinates(newMarkerCoords)
+    // let markerInfo = [...markerInfo, newMarkerCoords];
+    // console.log(markerInfo)
+    
+    // setMapData((prevState) => ({ ...prevState, markerInfo }));
+  };
+
   return (
     <>
       <Title>Abrir ocorrência</Title>
       <FormContainer>
         <Form onSubmit={submitHandler}>
+
+
+          <Form.Group controlId='image1' className='mt-3'>
+            <Form.Label>Selecione uma imagem</Form.Label>
+            <Form.Control
+              type='file'
+              // value={image1}
+              // required
+              onChange={handleImage}>
+            </Form.Control>
+          </Form.Group>
+
+
+
+
+          <Form.Group controlId='coordinates' className=''>
+            <Form.Label>Coordenadas</Form.Label>
+            <Form.Control
+              type='text'
+              value={coordinates}
+              placeholder="Ex: -15.7801, -47.9292"
+              minLength="1"
+              required
+              readOnly
+              onChange={(e) => setCoordinates(e.target.value)}>
+            </Form.Control>
+          </Form.Group>
+          {/* <Div> */}
+            <ButtonWidth
+              block
+              color="info"
+              variant="primary"
+              className="mt-3 mb-3"
+              onClick={handleMap}
+            >
+              <FaDraftingCompass /> Marcar área
+            </ButtonWidth>
+            {coordinates && (
+                  // <Col lg="12" className="mb-3">
+                    <ButtonWidth
+                    
+                      block
+                      variant="danger"
+                      className="mt-1"
+                      onClick={removeMarkedArea}
+                    >
+                      <FaEraser /> Limpar marcação
+                    </ButtonWidth>
+                  // </Col>
+                )}
+          {/* </Div> */}
+          {!!showMap && (
+                  <Col lg="12">
+                    <Form.Group>
+                      {/* <Div id="map"></Div> */}
+                      <Div className="mt-3">
+                      <MapContainer
+          className="Map"
+          center={{ lat: 40.7, lng: -74 }}
+          zoom={15}
+          scrollWheelZoom={false}
+          style={{ height: "30vh" }}
+        >
+          <TileLayer
+            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <MyComponent saveMarkers={saveMarkers} />
+        </MapContainer>
+        </Div>
+                    </Form.Group>
+                  </Col>
+            )}
+
+
+
           <Form.Group controlId='complaint'>
-            <Form.Label>Tipo</Form.Label>
+            <Form.Label className="mt-3">Tipo</Form.Label>
             <Form.Select
               type='select'
               value={complaint}
@@ -107,6 +251,9 @@ const AddEvent = () => {
             </Form.Select>
           </Form.Group>
 
+        
+          
+
           <Form.Group controlId='description' className='mt-3'>
             <Form.Label>Descrição</Form.Label>
             <Form.Control
@@ -115,16 +262,6 @@ const AddEvent = () => {
               value={description}
               required
               onChange={(e) => setDescription(e.target.value)}>
-            </Form.Control>
-          </Form.Group>
-
-          <Form.Group controlId='image1' className='mt-3'>
-            <Form.Label>Selecione uma imagem</Form.Label>
-            <Form.Control
-              type='file'
-              // value={image1}
-              // required
-              onChange={handleImage}>
             </Form.Control>
           </Form.Group>
 
@@ -148,15 +285,7 @@ const AddEvent = () => {
             </Form.Control>
           </Form.Group>
 
-          <Form.Group controlId='coordinates' className=''>
-            <Form.Label>Coordenadas</Form.Label>
-            <Form.Control
-              type='text'
-              value={coordinates}
-              required
-              onChange={(e) => setCoordinates(e.target.value)}>
-            </Form.Control>
-          </Form.Group>
+
           <Wrapper>
             <Button type='submit' variant='success' className='mt-2' >Enviar</Button>
             {/* { isLoading && <Loader />} */}

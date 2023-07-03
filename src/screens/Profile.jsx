@@ -170,6 +170,12 @@ const Image = styled.section`
   opacity: 0.3;
 `
 
+const ProfilePic = styled.img`
+  border-radius: 50%;
+  width: 50%;
+  height: 100%:
+` 
+
 const linkStyle = {
   textDecoration: "none",
   // display: "flex",
@@ -207,14 +213,14 @@ const Profile = () => {
   }
 
 
-  console.log(user.id)
   return (
     <>
     { isLoading  ? '' : error ? (<Message variant='danger'>{error?.data?.message || error.error}</Message>) : (
       <>
         <HeaderWrapper>
           <LeftWrapper>
-            <FaUserCircle  size={60} />
+            {/* <FaUserCircle  size={60} /> */}
+            {user.profile_pic ? <ProfilePic src={user.profile_pic} /> : <FaUserCircle  size={60} /> }
             <Name>{user.name}</Name>
           </LeftWrapper>
           <RightWrapper>
@@ -228,7 +234,7 @@ const Profile = () => {
         </HeaderWrapper>
         <ContentWrapper>
           <Button>Minhas ocorrências</Button>
-          <Button2><Link to={`/edituser/${user.id}`} style={linkStyle}>Editar perfil</Link></Button2>
+          <Button2><Link to='/edituser' style={linkStyle}>Editar perfil</Link></Button2>
           <Button3 onClick={logoutHandler}>Sair</Button3>
         </ContentWrapper>
         <Image />

@@ -58,6 +58,7 @@ const EditUser = () => {
   const [indigenous_territory, setIndigenous_territory] = useState('')
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
+  const [profile_pic, setProfile_pic] = useState('')
 
 
 
@@ -67,6 +68,7 @@ const EditUser = () => {
   const { data, isLoading: isLoadingUser, error, refetch} = useUserDetailQuery();
   const [updateUser, {isLoading: loadingUpdate}] = useUpdateUserMutation();
 
+  console.log(data)
   useEffect(() => {
     if(data) {
       setName(data.name);
@@ -74,13 +76,13 @@ const EditUser = () => {
       setIndigenous_territory(data.indigenous_territory)
       setEmail(data.email)
       setPhone(data.phone);
+      // setProfile_pic(data.profile_pic)
     }
   }, data)
 
 
   const submitHandler = async (e) => {
     e.preventDefault()
-
 
     let userData = new FormData()
 
@@ -90,6 +92,11 @@ const EditUser = () => {
     userData.append("email", email)
     userData.append("indigenous_territory", indigenous_territory)
     userData.append("phone", phone)
+    if(profile_pic) {
+      console.log(profile_pic)
+      userData.append("profile_pic", profile_pic)
+    }
+
 
 
 
@@ -110,15 +117,25 @@ const EditUser = () => {
     }
   }
 
-  // const handleImage = (e) => {
-  //   setImage1(e.target.files[0])
-  // }
+  const handleImage = (e) => {
+    setProfile_pic(e.target.files[0])
+  }
 
   return (
     <>
       <Title>Editar perfil</Title>
       <FormContainer>
         <Form onSubmit={submitHandler}>
+
+        <Form.Group controlId='profile_pic' className='mt-3'>
+            <Form.Label>Selecione uma imagem</Form.Label>
+            <Form.Control
+              type='file'
+              // value={image1}
+              // required
+              onChange={handleImage}>
+            </Form.Control>
+          </Form.Group>
           
           <Form.Group controlId='name' className=''>
             <Form.Label className='mt-1'>Nome</Form.Label>

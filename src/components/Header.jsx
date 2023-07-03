@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 // Icons
 import { FaUnderline, FaUserCircle } from 'react-icons/fa'
@@ -9,6 +9,7 @@ import styled from "styled-components";
 // RTK
 import { useUserDetailQuery } from '../slices/usersSlice';
 import { useGetEventsQuery } from '../slices/eventsApiSlice'
+import { useGetStatisticsQuery } from '../slices/eventsApiSlice';
 
 // Router
 import { Link } from 'react-router-dom';
@@ -19,6 +20,7 @@ import Message from '../components/Message'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 import BGImage from '../assets/images/owl.png'
+import { Spinner } from 'react-bootstrap';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -135,31 +137,6 @@ const Image = styled.section`
   opacity: 0.3;
 `
 
-export const chartInfo = {
-  datasets: [
-    {
-      label: 'Ocorrências:',
-      data: [1, 2, 1, 1],
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.9)',
-        'rgba(54, 162, 235, 0.9)',
-        'rgba(255, 206, 86, 0.9)',
-        'rgba(75, 192, 192, 0.9)',
-        'rgba(153, 102, 255, 0.9)',
-        'rgba(255, 159, 64, 0.9)',
-      ],
-      borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        // 'rgba(153, 102, 255, 1)',
-        // 'rgba(255, 159, 64, 1)',
-      ],
-      borderWidth: 1,
-    },
-  ],
-};
 
 const Red = styled.div`
   width: 10px;
@@ -200,15 +177,78 @@ const DD = styled.div`
 
 `
 
+const Coolor = styled.div`
+  width: 10px;
+  height: 10px;
+  background-color: rgba(153, 102, 255, 0.9);
+  color: #f2f2f2;
+  font-weight: bold;
+`
+
+const Cooolor = styled.div`
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 159, 64, 0.9);
+  color: #f2f2f2;
+  font-weight: bold;
+`
+
+
+
 const Header = ({ name, indigenous_territory  }) => {
+
+  
+
+
 
   const { data, isLoading, error} = useUserDetailQuery();
 
   const {data: events, isLoading: isLoadingEvents, error: eventErrors} = useGetEventsQuery();
+  const  {data: stats, isLoading: isLoadingStats, error: statsErros} = useGetStatisticsQuery();
+  const [chartInfo, setChartInfo] = useState('')
+
+  useEffect(() => {
+
+    if(stats) {
+       setChartInfo({datasets: [
+        {
+          label: 'Ocorrências:',
+          data: [stats.total_desmate, stats.total_garimpo, stats.total_grilagem, stats.total_invasão, stats.total_queimadas, stats.total_outros],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.9)',
+            'rgba(54, 162, 235, 0.9)',
+            'rgba(255, 206, 86, 0.9)',
+            'rgba(75, 192, 192, 0.9)',
+            'rgba(153, 102, 255, 0.9)',
+            'rgba(255, 159, 64, 0.9)',
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)',
+          ],
+          borderWidth: 1,
+        },
+      ],})
+    }
+
+    
+  }, stats)
+
+  
+  console.log('chartInfo')
+  console.log(chartInfo)
+  console.log('STATS')
+  console.log(stats)
+  console.log('TEST')
+  console.log(!!chartInfo)
 
   return (
     <>
-    { isLoading  ? '': error ? (<Message variant='danger'>{error?.data?.message || error.error}</Message>) : (
+    { isLoading ? '': error ? (<Message variant='danger'>{error?.data?.message || error.error}</Message>) : (
       <>
       <UserInfoWrapper>
         <Link to='/profile'>
@@ -220,42 +260,32 @@ const Header = ({ name, indigenous_territory  }) => {
         </NameWrapper>
         {/* <Image /> */}
       </UserInfoWrapper>
+
       <InfoWrapper>
 
 
-        {/* <LeftWrapper>
-        <Titlee>Território</Titlee>
-          <p>{data.indigenous_territory}</p>
-        </LeftWrapper> */}
-        <RightWrapper>
-        <Pie data={chartInfo} />
-        <Div>
-        <Titlee>Território:</Titlee>
-        <P>Imbaúbas</P>
-        <DD><Red />Desmate</DD>
-        <DD><Blue />Garimpo</DD>
-        <DD><Yellow />Queimadas</DD>
-        <DD><Green />Invasão</DD>
-        </Div>
-        </RightWrapper>
-        {/* <LeftWrapper>
-          <Title>Território</Title>
-          <p>{data.indigenous_territory}</p>
-        </LeftWrapper>
-        <RightWrapper>
-          <Doughnut data={chartInfo} />;
-          <Title>BEM-VINDO(A)</Title>
-          <Name2>{data.name}</Name2>
 
-          {isLoadingEvents ? '' : (
-            <div>
-              <Title>Ocorrências</Title>
-              <Name2>{events.length}</Name2>
-            </div>
-          )}
-        </RightWrapper> */}
+
+        { !!chartInfo === false ? '': error ? (<Message variant='danger'>{error?.data?.message || error.error}</Message>) : (
+          <RightWrapper>
+          <Pie data={chartInfo} />
+          <Div>
+          <DD><Red />Desmate</DD>
+          <DD><Blue />Garimpo</DD>
+          <DD><Yellow />Grilagem</DD>
+          <DD><Green />Invasão</DD>
+          <DD><Coolor />Queimadas</DD>
+          <DD><Cooolor />Outros</DD>
+          </Div>
+          </RightWrapper>
+        )}
+
+
+
+
       </InfoWrapper>
-      </>)} 
+      </>
+      )} 
     </>
   )
 }

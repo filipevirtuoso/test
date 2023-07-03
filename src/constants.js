@@ -4,6 +4,7 @@ export const LOGOUT_URL = `/api/v1/oauth/revoke_token/`
 export const EVENTS_URL = `/api/v1/monitoring_data/`
 export const USER_DETAIL_URL = `/api/v1/detail/user`
 export const USER = `/api/v1/user/`
+export const STATS = `/api/v1/quantity/monitoring`
 
 //KEYS
 export const REACT_APP_CLIENT_ID = '3uocyWgTKNT0sEOQVMhqX4KZo5YQ7Rp2ikHs8xCy'
