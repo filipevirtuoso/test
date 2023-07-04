@@ -39,6 +39,7 @@ const Image = styled.section`
   height: 8vh;
   display: flex;
   justify-content: center;
+  margin-top: .5rem;
 
   background-image: url(${BGImage}); 
   background-repeat: no-repeat;
@@ -46,9 +47,7 @@ const Image = styled.section`
   opacity: 0.3;
 `
 
-const TES = styled.section`
-  // height: 20vh;
-`
+
 
 const Home = () => {
 
@@ -79,7 +78,6 @@ const Home = () => {
     handlePage(0)
   }, [events.length])
 
-  console.log(events)
   const nextPage = () => {
     setPage((oldPage) => {
       let nextPage = oldPage + 1
@@ -121,7 +119,7 @@ const Home = () => {
             }
           </Events>
           {!!events.length && (
-            <TES>
+
             <PageSelector
               pageCount={events}
               items={events[page]}
@@ -131,7 +129,6 @@ const Home = () => {
               pages={events}
               page={page}
             />
-            </TES>
           )}
           <Image />
         </>)}

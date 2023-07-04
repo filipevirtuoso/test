@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.section`
   width: 100%;
+  background-color: red;
   display: flex;
   justify-content: center;
   flew-wrap: wrap;
