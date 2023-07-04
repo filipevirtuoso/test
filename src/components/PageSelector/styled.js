@@ -5,7 +5,6 @@ export const Container = styled.section`
   display: flex;
   justify-content: center;
   flew-wrap: wrap;
-  margin-top: .5rem;
   overflow-y: scroll
 
   @media (max-width: 1600px) {
