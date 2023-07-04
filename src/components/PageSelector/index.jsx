@@ -15,6 +15,7 @@ const PageSelector = ({prevPage, nextPage, page, pages, setPage, pageCount}) => 
           {index + 1}
         </S.PageButton>
       })} */}
+      <S.PageButton>{page + 1}</S.PageButton>
       <S.PrevButton onClick={() => {nextPage()}}>
         <FaAngleRight size={30} />
       </S.PrevButton>
