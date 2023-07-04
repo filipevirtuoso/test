@@ -10,11 +10,11 @@ const PageSelector = ({prevPage, nextPage, page, pages, setPage, pageCount}) => 
       <S.PrevButton onClick={() => {prevPage()}}>
         <FaAngleLeft />
       </S.PrevButton>
-      {pageCount.map((item, index) => {
+      {/* {pageCount.map((item, index) => {
         return <S.PageButton key={index} onClick={() => setPage(index)} active={index === page? 'true' : false}>
           {index + 1}
         </S.PageButton>
-      })}
+      })} */}
       <S.PrevButton onClick={() => {nextPage()}}>
         <FaAngleRight />
       </S.PrevButton>

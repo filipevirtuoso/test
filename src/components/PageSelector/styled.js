@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
-  width: 50%;
+  width: 100%;
   display: flex;
   justify-content: center;
   flew-wrap: wrap;
-  // margin-top: 1.5rem;
+  margin-top: .5rem;
+  overflow-y: scroll
 
   @media (max-width: 1600px) {
     width: 90%;

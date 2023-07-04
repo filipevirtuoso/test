@@ -304,8 +304,8 @@ const EditEvent = () => {
                         <Div className="mt-3">
                         <MapContainer
             className="Map"
-            center={{ lat: 40.7, lng: -74 }}
-            zoom={15}
+            center={{ lat: -19.5124837, lng: -42.5636109 }} 
+            zoom={5}
             scrollWheelZoom={false}
             style={{ height: "30vh" }}
           >

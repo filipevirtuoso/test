@@ -46,6 +46,10 @@ const Image = styled.section`
   opacity: 0.3;
 `
 
+const TES = styled.section`
+  // height: 20vh;
+`
+
 const Home = () => {
 
   const { data: response, isLoading, error } = useGetEventsQuery();
@@ -117,6 +121,7 @@ const Home = () => {
             }
           </Events>
           {!!events.length && (
+            <TES>
             <PageSelector
               pageCount={events}
               items={events[page]}
@@ -126,6 +131,7 @@ const Home = () => {
               pages={events}
               page={page}
             />
+            </TES>
           )}
           <Image />
         </>)}
