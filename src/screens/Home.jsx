@@ -52,7 +52,6 @@ const Image = styled.section`
 const Home = () => {
 
   const { data: response, isLoading, error } = useGetEventsQuery();
-  console.log(response)
 
   const [events, setEvents] = useState([]);
   const [page, setPage] = useState(0)

@@ -160,10 +160,10 @@ const AddEvent = () => {
     eventData.append("user", data.id)
     eventData.append("coordinates", coordinates)
 
-    for (const value of eventData.values()) {
-      console.log("AQUi")
-      console.log(value);
-    }
+    // for (const value of eventData.values()) {
+    //   console.log("eventData")
+    //   console.log(value);
+    // }
 
     try {
       const res = await addEvent(eventData).unwrap();
@@ -190,7 +190,7 @@ const AddEvent = () => {
 
 
   const saveMarkers = (newMarkerCoords) => {
-    console.log(newMarkerCoords)
+    // console.log(newMarkerCoords)
     setCoordinates(newMarkerCoords)
     // let markerInfo = [...markerInfo, newMarkerCoords];
     // console.log(markerInfo)

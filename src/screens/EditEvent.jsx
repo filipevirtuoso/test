@@ -168,13 +168,11 @@ const EditEvent = () => {
       eventData.append("id", id)
       eventData.append("coordinates", coordinates)
   
-      for (const value of eventData.values()) {
-        console.log("AQUi")
-        console.log(value);
-      }
+      // for (const value of eventData.values()) {
+      //   console.log("eventData")
+      //   console.log(value);
+      // }
 
-      console.log("HAUHSUA")
-      console.log(eventData.get("id"))
   
       try {
         const res = await editEvent(eventData).unwrap();
@@ -198,19 +196,15 @@ const EditEvent = () => {
       setImage3(e.target.files[0])
     }
   
-  
-  
     const saveMarkers = (newMarkerCoords) => {
-      console.log(newMarkerCoords)
+      // console.log(newMarkerCoords)
       setCoordinates(newMarkerCoords)
       // let markerInfo = [...markerInfo, newMarkerCoords];
       // console.log(markerInfo)
       
       // setMapData((prevState) => ({ ...prevState, markerInfo }));
     };
-  
     
-  
     return (
       <>
         <Title>Editar ocorrência</Title>

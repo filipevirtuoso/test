@@ -239,13 +239,6 @@ const Header = ({ name, indigenous_territory  }) => {
   }, stats)
 
   
-  console.log('chartInfo')
-  console.log(chartInfo)
-  console.log('STATS')
-  console.log(stats)
-  console.log('TEST')
-  console.log(!!chartInfo)
-
   return (
     <>
     { isLoading ? '': error ? (<Message variant='danger'>{error?.data?.message || error.error}</Message>) : (

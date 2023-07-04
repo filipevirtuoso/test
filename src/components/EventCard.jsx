@@ -44,7 +44,6 @@ const linkStyle = {
 };
 
 const EventCard = ({image, complaint, date_occurrence, id }) => {
-  console.log(image)
   return (
     <Link to={`/eventdetails/${id}`} style={linkStyle}> 
       <Wrapper>

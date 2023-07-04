@@ -101,8 +101,6 @@ const EventDetails = ( ) => {
   const { data: event, isLoading, error } = useGetEventDetailsQuery(eventId)
   const { trigger,  } = useLazyGetUserNameQuery();
 
-  console.log(event)
-
   useEffect(() => {
     if(event) {
     }

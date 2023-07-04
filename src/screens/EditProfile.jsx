@@ -70,7 +70,6 @@ const EditUser = () => {
   const { data, isLoading: isLoadingUser, error, refetch} = useUserDetailQuery();
   const [updateUser, {isLoading: loadingUpdate}] = useUpdateUserMutation();
 
-  console.log(data)
   useEffect(() => {
     if(data) {
       setName(data.name);
@@ -95,18 +94,13 @@ const EditUser = () => {
     userData.append("indigenous_territory", indigenous_territory)
     userData.append("phone", phone)
     if(profile_pic) {
-      console.log(profile_pic)
       userData.append("profile_pic", profile_pic)
     }
-
-
-
 
     // for (const value of eventData.values()) {
     //   console.log("AQUi")
     //   console.log(value);
     // }
-
 
     try {
       const res = await updateUser(userData).unwrap();

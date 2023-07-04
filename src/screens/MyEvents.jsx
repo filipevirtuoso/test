@@ -29,7 +29,6 @@ const linkStyle = {
 const MyEvents = () => {
 
   const { data: events, isLoading, error } = useGetUserEventsQuery();
-  console.log(events)
 
   return (
     <>

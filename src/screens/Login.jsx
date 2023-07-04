@@ -129,7 +129,6 @@ const Login = () => {
       password,
     }
 
-    console.log(userData)
 
     try {
       const res = await login(userData).unwrap();
