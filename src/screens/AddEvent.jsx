@@ -211,7 +211,8 @@ const AddEvent = () => {
           <Form.Group controlId='image1' className='mt-3'>
             {/* <Form.Label>Selecione uma imagem</Form.Label> */}
             <InpButton onClick={handleClick} > 
-              <FaCamera />
+              {/* <FaCamera /> */}
+              {image1 ? '1' : <FaCamera />}
             </InpButton >
             <Form.Control
               ref={hiddenFileInput}
@@ -224,7 +225,8 @@ const AddEvent = () => {
           <Form.Group controlId='image2' className='mt-3'>
             {/* <Form.Label>Selecione uma imagem</Form.Label> */}
             <InpButton onClick={handleClick2}>
-            <FaCamera />
+            {/* <FaCamera /> */}
+            {image2 ? '2' : <FaCamera />}
             </InpButton>
             <Form.Control
               ref={hiddenFileInput2}
@@ -236,8 +238,9 @@ const AddEvent = () => {
 
           <Form.Group controlId='image3' className='mt-3'>
             {/* <Form.Label>Selecione uma imagem</Form.Label> */}
-            <InpButton onClick={handleClick2}>
-            <FaCamera />
+            <InpButton onClick={handleClick3}>
+            {/* <FaCamera /> */}
+            {image3 ? '3' : <FaCamera />}
             </InpButton>
             <Form.Control
               ref={hiddenFileInput3}
