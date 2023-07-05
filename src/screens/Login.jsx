@@ -135,7 +135,7 @@ const Login = () => {
       dispatch(setCredentials({ ...res, }))
       navigate('/')
     } catch (error) {
-      console.log(error)
+      // console.log(error)
       toast.error(error?.data?.error_description || error.data.error)
     }
   }

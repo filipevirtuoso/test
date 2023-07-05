@@ -5,7 +5,6 @@ import { FaAngleRight } from 'react-icons/fa';
 
 const PageSelector = ({prevPage, nextPage, page, pages, setPage, pageCount}) => {
 
-  console.log(pages, pageCount)
 
   return(
     <S.Container>

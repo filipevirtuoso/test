@@ -192,7 +192,7 @@ const EventDetails = ( ) => {
           </tr>
           <tr>
           <Th>Descrição:</Th>
-          <Td>{event.description}</Td>
+          <Td>{event.description.slice(0, 10) + '...'}</Td>
           </tr>
         </Table>
         </Wrapper>
