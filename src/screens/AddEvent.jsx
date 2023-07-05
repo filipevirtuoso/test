@@ -29,7 +29,7 @@ const Title = styled.h2`
 `
 
 const FormContainer = styled.section`
-  height: 130vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   padding: 2rem;
@@ -386,7 +386,7 @@ const AddEvent = () => {
 
 
           <Wrapper>
-            <MyButton type='submit' variant='success' className='mt-4'>Enviar</MyButton>
+            <MyButton type='submit' variant='success' className='mt-4 mb-5'>Enviar</MyButton>
             {/* { isLoading && <Loader />} */}
           </Wrapper>
         </Form>
