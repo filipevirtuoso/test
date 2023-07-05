@@ -54,7 +54,7 @@ const MyEvents = () => {
             <tr key={event.id}>
               <td>{event.complaint}</td>
               <td>{event.date_occurrence.split('-').reverse().join('/')}</td>
-              <td>{event.description}</td>
+              <td>{event.description.slice(0, 10) + '...'}</td>
               <td><Link to='/editevent' style={linkStyle} state={{id: event.id}}><FaEdit /></Link></td>
             </tr>
           ) )}

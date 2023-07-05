@@ -29,7 +29,7 @@ const Title = styled.h2`
 `
 
 const FormContainer = styled.section`
-  height: 160vh;
+  height: 125vh;
   display: flex;
   flex-direction: column;
   padding: 2rem;
@@ -42,6 +42,7 @@ const ButtonWidth = styled(Button)`
 
 const Div = styled.div`
   // height: 400px;
+  // position: absolute;
 `
 
 const InpButton  = styled.button`
@@ -67,6 +68,22 @@ const InputWrapper = styled.section`
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 1rem;
+`
+
+const MyButton = styled.button`
+  width: 100%;
+  height: 8vh;
+  margin-top: .5rem;
+
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
 `
 
 const icon = L.icon({
@@ -166,12 +183,13 @@ const AddEvent = () => {
     // }
 
     try {
+      toast.info('Enviando')
       const res = await addEvent(eventData).unwrap();
       // dispatch(setCredentials({...res, }))
       toast.success('Ocorrência adicionada com sucesso!')
       navigate('/')
     } catch (error) {
-      toast.error(error?.data?.message || error.error)
+      toast.error(error?.data?.error_description || error.data.error)
     }
   }
 
@@ -192,6 +210,7 @@ const AddEvent = () => {
   const saveMarkers = (newMarkerCoords) => {
     // console.log(newMarkerCoords)
     setCoordinates(newMarkerCoords)
+    setShowMap(!showMap)
     // let markerInfo = [...markerInfo, newMarkerCoords];
     // console.log(markerInfo)
     
@@ -296,10 +315,10 @@ const AddEvent = () => {
                       <Div className="mt-3">
                       <MapContainer
           className="Map"
-          center={{ lat: 40.7, lng: -74 }}
-          zoom={15}
+          center={{ lat: -7.6029958, lng: -58.2951507 }} 
+          zoom={4}
           scrollWheelZoom={false}
-          style={{ height: "30vh" }}
+          style={{ height: "50vh" }}
         >
           <TileLayer
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -367,7 +386,7 @@ const AddEvent = () => {
 
 
           <Wrapper>
-            <Button type='submit' variant='success' className='mt-2' >Enviar</Button>
+            <MyButton type='submit' variant='success' className='mt-4'>Enviar</MyButton>
             {/* { isLoading && <Loader />} */}
           </Wrapper>
         </Form>

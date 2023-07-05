@@ -71,8 +71,18 @@ const Div = styled.div`
   align-items: center;
   font-size: 1.2rem;
 
+  &:hover {
+    background-color: red;
+  }
+
+  &:active {
+    background-color: green;
+  }
+
   background: rgb(20,117,28);
   background: linear-gradient(132deg, rgba(20,117,28,1) 0%, rgba(34,187,83,1) 90%);
+
+
 `
 
 const linkStyle = {

@@ -23,6 +23,7 @@ export const PageButton = styled.button`
   cursor: pointer;
   margin: 0.5rem;
   transition: all 0.3s linear;
+  display: flex;
 `
 
 export const PrevButton = styled.button`
@@ -47,6 +48,11 @@ export const NextButton = styled.button`
   margin: .5rem;
   font-size: 1rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+`
+
+export const Div = styled.div`
   display: flex;
   align-items: center;
 `

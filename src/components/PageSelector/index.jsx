@@ -5,6 +5,8 @@ import { FaAngleRight } from 'react-icons/fa';
 
 const PageSelector = ({prevPage, nextPage, page, pages, setPage, pageCount}) => {
 
+  console.log(pages, pageCount)
+
   return(
     <S.Container>
       <S.PrevButton onClick={() => {prevPage()}}>
@@ -15,10 +17,10 @@ const PageSelector = ({prevPage, nextPage, page, pages, setPage, pageCount}) => 
           {index + 1}
         </S.PageButton>
       })} */}
-      <S.PageButton>{page + 1}</S.PageButton>
-      <S.PrevButton onClick={() => {nextPage()}}>
+      <S.Div>{`${page + 1} / ${pageCount.length} `}</S.Div>
+      <S.NextButton onClick={() => {nextPage()}}>
         <FaAngleRight size={30} />
-      </S.PrevButton>
+      </S.NextButton>
     </S.Container>
   )
 }

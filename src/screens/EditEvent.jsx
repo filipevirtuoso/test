@@ -21,6 +21,7 @@ import L from "leaflet";
 import { Draw } from "leaflet-draw";
 
 import { useEditEventMutation } from '../slices/eventsApiSlice'
+import { useGetEventDetailsQuery } from '../slices/eventsApiSlice';
 
 import { toast } from 'react-toastify'
 
@@ -33,7 +34,7 @@ const Title = styled.h2`
 `
 
 const FormContainer = styled.section`
-  height: 160vh;
+  height: 125vh;
   display: flex;
   flex-direction: column;
   padding: 2rem;
@@ -71,6 +72,22 @@ const InputWrapper = styled.section`
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 1rem;
+`
+
+const MyButton = styled.button`
+  width: 100%;
+  height: 8vh;
+  margin-top: .5rem;
+
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
 `
 
 const icon = L.icon({
@@ -114,7 +131,18 @@ const EditEvent = () => {
     const navigate = useNavigate()
   
     const { data, isLoading: isLoadingUser, error } = useUserDetailQuery();
+    const { data: event, isLoading: isLoadingEvent, error: errorEvent } = useGetEventDetailsQuery(id);
   
+
+    useEffect(() => {
+      if(event) {
+        setComplaint(event.complaint)
+        setDescription(event.description)
+        setDateOccurrence(event.date_occurrence)
+        setTimeOccurrence(event.time_occurrence)
+        setCoordinates(event.coordinates)
+      }
+    }, event)
   
   
     const [mapData, setMapData] = useState([])
@@ -175,6 +203,7 @@ const EditEvent = () => {
 
   
       try {
+        toast.info('Enviando')
         const res = await editEvent(eventData).unwrap();
         // dispatch(setCredentials({...res, }))
         toast.success('Ocorrência adicionada com sucesso!')
@@ -199,6 +228,7 @@ const EditEvent = () => {
     const saveMarkers = (newMarkerCoords) => {
       // console.log(newMarkerCoords)
       setCoordinates(newMarkerCoords)
+      setShowMap(!showMap)
       // let markerInfo = [...markerInfo, newMarkerCoords];
       // console.log(markerInfo)
       
@@ -301,10 +331,10 @@ const EditEvent = () => {
                         <Div className="mt-3">
                         <MapContainer
             className="Map"
-            center={{ lat: -19.5124837, lng: -42.5636109 }} 
-            zoom={5}
+            center={{ lat: -7.6029958, lng: -58.2951507 }} 
+            zoom={4}
             scrollWheelZoom={false}
-            style={{ height: "30vh" }}
+            style={{ height: "50vh" }}
           >
             <TileLayer
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -372,7 +402,7 @@ const EditEvent = () => {
   
   
             <Wrapper>
-              <Button type='submit' variant='success' className='mt-2' >Enviar</Button>
+              <MyButton type='submit' variant='success' className='mt-4' >Enviar</MyButton>
               {/* { isLoading && <Loader />} */}
             </Wrapper>
           </Form>

@@ -232,7 +232,7 @@ const Profile = () => {
           </RightWrapper>
         </HeaderWrapper>
         <ContentWrapper>
-          <Button><Link to='/myevents' style={linkStyle}>Minhas</Link></Button>
+          <Button><Link to='/myevents' style={linkStyle}>Minhas ocorrências</Link></Button>
           <Button2><Link to='/edituser' style={linkStyle}>Editar perfil</Link></Button2>
           <Button3 onClick={logoutHandler}>Sair</Button3>
         </ContentWrapper>
