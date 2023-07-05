@@ -29,7 +29,7 @@ const Title = styled.h2`
 `
 
 const FormContainer = styled.section`
-  height: 125vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   padding: 2rem;

@@ -76,7 +76,7 @@ const Div = styled.div`
   background: linear-gradient(132deg, rgba(20,117,28,1) 0%, rgba(34,187,83,1) 90%);
 
   
-  &:hover {
+  &:active {
     background: red;
   }
 
