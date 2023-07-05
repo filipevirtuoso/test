@@ -23,40 +23,73 @@ const Title = styled.h2`
   margin-bottom: 1.5rem;
 `
 
+const Div = styled.div`
+  height: 120vh;
+`
+
 const Faq = () => {
   return (
     <>
       <Image />
+      <Div>
       <Title>FAQ - Perguntas frequentes</Title>
       <Accordion defaultActiveKey="0">
         <Accordion.Item eventKey="0">
-          <Accordion.Header>Como funciona o aplicativo?</Accordion.Header>
+          <Accordion.Header>Como abrir uma ocorrência?</Accordion.Header>
           <Accordion.Body>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+          No aplicativo, você encontrará uma opção para "Registrar Ocorrência". 
+          Clique nessa opção e siga as instruções para adicionar detalhes da ocorrência, 
+          incluindo fotos e coordenadas GPS.
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="1">
-          <Accordion.Header>Como abrir uma ocorrência?</Accordion.Header>
+          <Accordion.Header>Vou receber notificações sobre as ocorrências que registrei?</Accordion.Header>
           <Accordion.Body>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+          Sim, o aplicativo enviará notificações sobre as ocorrências que você registrou e possíveis atualizações das ações tomadas pelos órgãos responsáveis.
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="2">
-          <Accordion.Header>Como entrar em contato conosco?</Accordion.Header>
+          <Accordion.Header>O que são os "pontos" no mapa interativo do aplicativo?</Accordion.Header>
           <Accordion.Body>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+          Os "pontos" no mapa interativo representam as áreas afetadas pelas ocorrências registradas. 
+          Eles ajudam os gestores a visualizar e monitorar a situação em tempo real.
+          </Accordion.Body>
+        </Accordion.Item>
+
+        <Accordion.Item eventKey="3">
+          <Accordion.Header>Quem são os "gestores"?</Accordion.Header>
+          <Accordion.Body>
+          Os gestores são os responsáveis por acompanhar e gerenciar as ocorrências registradas por você. Eles têm acesso ao painel completo de gerenciamento de ocorrências.
+          </Accordion.Body>
+        </Accordion.Item>
+
+        <Accordion.Item eventKey="4">
+          <Accordion.Header>Como posso editar minhas informações no aplicativo?</Accordion.Header>
+          <Accordion.Body>
+          Para editar suas informações, clique no ícone do boneco, 
+          localizado no canto superior esquerdo. Em seguida, selecione a opção "Editar Perfil". 
+          Lá, você poderá atualizar suas informações conforme necessário. Lembre-se de salvar as alterações antes de sair da página.
+          </Accordion.Body>
+        </Accordion.Item>
+
+        <Accordion.Item eventKey="5">
+          <Accordion.Header>Encontrei um problema técnico no aplicativo. Como posso reportá-lo?</Accordion.Header>
+          <Accordion.Body>
+          Se você encontrar um problema técnico no aplicativo, 
+          encaminhe um email para monitoramento@conafer.org.br. 
+          Sua contribuição é importante para aprimorarmos a experiência de uso do aplicativo.
+          </Accordion.Body>
+        </Accordion.Item>
+
+        <Accordion.Item eventKey="6">
+          <Accordion.Header>Preciso entrar em contato com a CONAFER!</Accordion.Header>
+          <Accordion.Body>
+          Email: monitoramento@conafer.org.br
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
+      </Div>
+
       {/* <Image /> */}
     </>
   )
