@@ -34,7 +34,7 @@ const Title = styled.h2`
 `
 
 const FormContainer = styled.section`
-  height: 125vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   padding: 2rem;
