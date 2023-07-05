@@ -29,7 +29,7 @@ const Title = styled.h2`
 `
 
 const FormContainer = styled.section`
-  height: 100vh;
+  height: 130vh;
   display: flex;
   flex-direction: column;
   padding: 2rem;
@@ -300,7 +300,7 @@ const AddEvent = () => {
                     
                       block
                       variant="danger"
-                      className="mt-1"
+                      className="mt-2"
                       onClick={removeMarkedArea}
                     >
                       <FaEraser /> Limpar marcação
@@ -329,7 +329,7 @@ const AddEvent = () => {
         </Div>
                     </Form.Group>
                   </Col>
-            )}
+            )} 
 
 
 

@@ -75,7 +75,7 @@ const EditUser = () => {
       setName(data.name);
       setVillage(data.village)
       setIndigenous_territory(data.indigenous_territory)
-      setEmail(data.email)
+      setEmail(data.email);
       setPhone(data.phone);
       // setProfile_pic(data.profile_pic)
     }
