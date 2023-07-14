@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { FaExclamationTriangle, FaPlus, FaQuestion, FaListUl, FaHandsHelping, FaMapMarkerAlt } from 'react-icons/fa'
+import { FaExclamationTriangle, FaPlus, FaQuestion, FaListUl, FaHandsHelping, FaMapMarkerAlt, FaMicrophone } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 import Message from '../components/Message'
@@ -147,9 +147,9 @@ const NewButtom = () => {
         <Link to='/call' style={linkStyle}>
           <Test>
 
-          <Div><FaHandsHelping color='#f2f2f2' /></Div>
+          <Div><FaMicrophone color='#f2f2f2' /></Div>
           <Text>
-            Ajuda
+            Enviar áudio
           </Text>
           </Test>
         </Link>
