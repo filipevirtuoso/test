@@ -4,7 +4,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 // Icons
-import { FaArrowCircleLeft, FaUser } from 'react-icons/fa'
+import { FaArrowCircleLeft, FaCentercode, FaUser } from 'react-icons/fa'
 import { FaUserCircle } from 'react-icons/fa'
 
 // Router
@@ -180,7 +180,11 @@ const linkStyle = {
   textDecoration: "none",
   // display: "flex",
   // alignItems: "center",
-  color: '#f2f2f2'
+  width: '100%',
+  color: '#f2f2f2',
+  padding: '0',
+  margin: '0',
+  textAlign: 'center'
 };
 
 
@@ -232,8 +236,8 @@ const Profile = () => {
           </RightWrapper>
         </HeaderWrapper>
         <ContentWrapper>
-          <Button><Link to='/myevents' style={linkStyle}>Minhas ocorrências</Link></Button>
-          <Button2><Link to='/edituser' style={linkStyle}>Editar perfil</Link></Button2>
+          <Link to='/myevents' style={linkStyle}><Button>Minhas ocorrências</Button></Link>
+          <Link to='/edituser' style={linkStyle}><Button2>Editar perfil</Button2></Link>
           <Button3 onClick={logoutHandler}>Sair</Button3>
         </ContentWrapper>
         <Image />
