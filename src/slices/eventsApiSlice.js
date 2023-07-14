@@ -33,7 +33,7 @@ export const eventApiSlice = apiSlice.injectEndpoints({
     }),
     getEventDetails: builder.query({
       query: (eventId) => ({
-        url: `${EVENTS_URL}${eventId}`,
+        url: `${EVENTS_URL}${eventId}/`,
       }),
       keepUnusedDataFor: 5
     }),
