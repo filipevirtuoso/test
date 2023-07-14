@@ -1,4 +1,4 @@
-import { EVENTS_URL, STATS, USER_EVENTS } from "../constants";
+import { EVENTS_URL, STATS, USER_EVENTS, HELP } from "../constants";
 import {apiSlice} from './apiSlice'
 
 
@@ -59,9 +59,37 @@ export const eventApiSlice = apiSlice.injectEndpoints({
           headers.set("Content-Type", "multipart/form-data");
           return headers
       }        
+      }),
+    
+    }),
+    addHelp: builder.mutation({
+      query: (data) => ({
+        url: HELP,
+        method: 'POST',
+        body: data,
+        prepareHeaders: (headers, { getState }) => {
+          headers.set('Access-Control-Allow-Origin', '*');
+          headers.set("Content-Type", "multipart/form-data");
+          return headers
+      }        
       })
+    }),
+    getHelp: builder.query({
+      query: () => ({
+        url: HELP,
+        prepareHeaders: (headers, { getState }) => {
+          const accessToken = getState().auth.userInfo.access_token
+          if (accessToken) {
+            headers.set('authorization', `Bearer ${accessToken}`)
+          }  
+      
+          return headers
+        },
+      }),
+
+      keepUnusedDataFor: 5
     }),
   }),
 })
 
-export const { useAddEventMutation, useEditEventMutation, useGetEventsQuery, useGetUserEventsQuery ,  useGetEventDetailsQuery, useGetStatisticsQuery } = eventApiSlice
+export const { useAddEventMutation, useAddHelpMutation , useEditEventMutation, useGetHelpQuery , useGetEventsQuery, useGetUserEventsQuery ,  useGetEventDetailsQuery, useGetStatisticsQuery } = eventApiSlice

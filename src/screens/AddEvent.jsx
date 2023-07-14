@@ -117,6 +117,8 @@ const AddEvent = () => {
   const [image2, setImage2] = useState('')
   const [image3, setImage3] = useState('')
 
+  const [validated, setValidated] = useState(false);
+
   const [showMap, setShowMap] = useState(0);
   const center = [-19.5124837, -42.5636109];
 
@@ -194,6 +196,7 @@ const AddEvent = () => {
   }
 
   const handleImage = (e) => {
+    console.log(e.target.files[0])
     setImage1(e.target.files[0])
   }
 
@@ -281,6 +284,7 @@ const AddEvent = () => {
               minLength="1"
               required
               readOnly
+              disabled
               onChange={(e) => setCoordinates(e.target.value)}>
             </Form.Control>
           </Form.Group>
@@ -337,8 +341,8 @@ const AddEvent = () => {
             <Form.Label className="mt-3">Tipo</Form.Label>
             <Form.Select
               type='select'
-              value={complaint}
               required
+              value={complaint}
               onChange={(e) => setComplaint(e.target.value)}>
               <option>Selecione uma opção</option>
               <option>Desmate</option>
@@ -357,11 +361,13 @@ const AddEvent = () => {
             <Form.Label>Descrição</Form.Label>
             <Form.Control
               as='textarea'
+              
               placeholder='Informações sobre a ocorrência'
               value={description}
               required
               onChange={(e) => setDescription(e.target.value)}>
             </Form.Control>
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group controlId='date_occurrence' className='mt-3'>

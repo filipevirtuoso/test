@@ -144,7 +144,7 @@ const NewButtom = () => {
       </ButtonWrapper> */}
 
       <ButtonWrapper>
-        <Link to='/' style={linkStyle}>
+        <Link to='/call' style={linkStyle}>
           <Test>
 
           <Div><FaHandsHelping color='#f2f2f2' /></Div>
