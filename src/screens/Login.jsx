@@ -25,7 +25,7 @@ const LogoWrapper = styled.section`
 
   // border-bottom-left-radius: 20px;
   // border-bottom-right-radius: 20px;
-  border-top-right-radius: 50px;
+  // border-top-right-radius: 50px;
 `
 
 const InfoWrapper = styled.section`
