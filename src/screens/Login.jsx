@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import React from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
-import Logo from '../assets/images/logo.png'
+import Logo from '../assets/images/llogo.jpeg'
 import BGImage from '../assets/images/login.png'
 import Tribal from '../assets/images/bg-home.png'
 import { useDispatch, useSelector } from 'react-redux'
@@ -15,12 +15,13 @@ import { useLoginMutation } from '../slices/usersSlice'
 import { setCredentials } from '../slices/authSlice'
 import { toast } from 'react-toastify'
 
-const LogoWrapper = styled.section`
+const LogoWrapper = styled.img`
   height: 45vh;
   width: 100%;
-  background-image: url(${Logo}); 
-  background-repeat: no-repeat;
-  background-size: contain;
+  // background-image: url(${Logo}); 
+  // background-repeat: no-repeat;
+  // background-size: cover
+  object-fit: cover;
 `
 
 // const InfoWrapper = styled.section`
@@ -49,7 +50,7 @@ const Image = styled.section`
   height: 10vh;
   display: flex;
   justify-content: center;
-  margin-top: -.9rem;
+  // margin-top: -.9rem;
 
   background-image: url(${BGImage}); 
   background-repeat: no-repeat;
@@ -139,7 +140,7 @@ const Login = () => {
 
   return (
     <>
-      <LogoWrapper />
+      <LogoWrapper src={Logo} />
       {/* <InfoWrapper> 
         Monitoramento Territorial HÃMUGÃY
       </InfoWrapper> */}
