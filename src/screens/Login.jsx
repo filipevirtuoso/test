@@ -17,6 +17,7 @@ import { toast } from 'react-toastify'
 
 const LogoWrapper = styled.section`
   height: 45vh;
+  width: 100%;
   // background-color: red;
   background-image: url(${Logo}); 
   background-repeat: no-repeat;
