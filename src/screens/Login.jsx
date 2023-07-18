@@ -18,43 +18,38 @@ import { toast } from 'react-toastify'
 const LogoWrapper = styled.section`
   height: 45vh;
   width: 100%;
-  // background-color: red;
   background-image: url(${Logo}); 
   background-repeat: no-repeat;
   background-size: contain;
-  border-bottom-radius: 20px;
-
-  // border-bottom-left-radius: 20px;
-  // border-bottom-right-radius: 20px;
-  // border-top-right-radius: 50px;
 `
 
-const InfoWrapper = styled.section`
-  width: 100%;
-  height: 5vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #444;
-  font-size: 1.6rem;
-  font-weight: bold;
-  font-family: 'Patrick Hand', cursive;
-  background-color: #f2f2f2;
+// const InfoWrapper = styled.section`
+//   width: 100%;
+//   height: 5vh;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   color: #444;
+//   font-size: 1.6rem;
+//   font-weight: bold;
+//   font-family: 'Patrick Hand', cursive;
+//   background-color: #f2f2f2;
 
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+//   // border-top-left-radius: 20px;
+//   // border-top-right-radius: 20px;
 
-  position: absolute;
-  top: 17rem;
+//   position: absolute;
+//   top: 17rem;
 
 
-`
+// `
 
 const Image = styled.section`
   width: 100%;
   height: 10vh;
   display: flex;
   justify-content: center;
+  margin-top: -.9rem;
 
   background-image: url(${BGImage}); 
   background-repeat: no-repeat;
