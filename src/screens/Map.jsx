@@ -46,7 +46,7 @@ const P = styled.div`
 
 const Map = () => {
 
-  const Pin = L.icon({ iconUrl: PinIcon, iconSize: [18, 18], MarkerColor: 'red' });
+  const Pin = L.icon({ iconUrl: PinIcon, iconSize: [25, 25], MarkerColor: 'red' });
   const { data: response, isLoading, error } = useGetEventsQuery();
 
   console.log(response)
