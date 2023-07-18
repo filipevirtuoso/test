@@ -21,7 +21,7 @@ const LogoWrapper = styled.section`
   // background-color: red;
   background-image: url(${Logo}); 
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   border-bottom-radius: 20px;
 
   // border-bottom-left-radius: 20px;
