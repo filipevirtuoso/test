@@ -19,6 +19,8 @@ import { useGetEventsQuery } from '../slices/eventsApiSlice'
 // Icons
 import PinIcon from '../assets/images/map-pin-solid.svg'
 
+import BackButton from '../components/BackButton';
+
 const Container = styled.section`
   width: 100%;
   height: 100%;
@@ -62,6 +64,7 @@ const Map = () => {
     <>
       { isLoading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
         <>
+          <BackButton page="/" />
           <TribalBG />
           <MapContainer style={mapContainerStyle}  center={position}  zoom={3}  scrollWheelZoom={false}>
             <TileLayer

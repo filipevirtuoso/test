@@ -22,17 +22,20 @@ import { toast } from 'react-toastify'
 
 import { useUserDetailQuery } from '../slices/usersSlice';
 
+import BackButton from '../components/BackButton'
+
 const Title = styled.h2`
   text-align: center;
   margin-top: 1rem;
   font-size: 1.3rem;
+  color: #538341;
 `
 
 const FormContainer = styled.section`
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: 1.3rem;
   justify-content: flex-start;
 `
 const ButtonWidth = styled(Button)`
@@ -224,11 +227,10 @@ const AddEvent = () => {
 
   return (
     <>
+      <BackButton page="/" />
       <Title>Abrir ocorrência</Title>
       <FormContainer>
         <Form onSubmit={submitHandler}>
-
-
         <InputWrapper>
           <Form.Group controlId='image1' className='mt-3'>
             {/* <Form.Label>Selecione uma imagem</Form.Label> */}

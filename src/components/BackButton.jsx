@@ -41,9 +41,9 @@ const linkStyle = {
   textDecoration: "none",
 };
 
-const BackButton = () => {
+const BackButton = ({page}) => {
   return (
-    <Link to='/' style={linkStyle} >
+    <Link to={page} style={linkStyle} >
       <UserInfoWrapper>
         <FaArrowCircleLeft color={"white"} size={35} />
         <NameWrapper>

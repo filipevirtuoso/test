@@ -8,10 +8,11 @@ import { FaArrowCircleLeft, FaCentercode, FaUser } from 'react-icons/fa'
 import { FaUserCircle } from 'react-icons/fa'
 
 // Router
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 // Components
 import Message from '../components/Message'
+import BackButton from '../components/BackButton'
 // Bootstrap
 // import Button from 'react-bootstrap/Button';
 
@@ -29,14 +30,16 @@ import Tribal from '../assets/images/bg-home.png'
 
 const HeaderWrapper = styled.section`
   height: 25vh;
-  background-color: #f2f2f2;
+  // background-color: #f2f2f2;
   display: flex;
   // flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   padding-top: 1rem;
-  border-bottom: 2px solid grey;
+  border-bottom: 5px solid #444;
   color: #f2f2f2;
+
+  // background-color: #276939;
   
 
   background-image: url(${BGImage}); 
@@ -194,6 +197,11 @@ const Profile = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const location = useLocation()
+
+
+
   
   const [logoutApiCall] = useLogoutMutation();
 
@@ -220,6 +228,7 @@ const Profile = () => {
     <>
     { isLoading  ? '' : error ? (<Message variant='danger'>{error?.data?.message || error.error}</Message>) : (
       <>
+        <BackButton page="/" />
         <HeaderWrapper>
           <LeftWrapper>
             {/* <FaUserCircle  size={60} /> */}
@@ -236,7 +245,7 @@ const Profile = () => {
           </RightWrapper>
         </HeaderWrapper>
         <ContentWrapper>
-          <Link to='/myevents' style={linkStyle}><Button>Minhas ocorrências</Button></Link>
+          <Link to='/myevents' state={{ pathname: location.pathname }} style={linkStyle}><Button>Minhas ocorrências</Button></Link>
           <Link to='/edituser' style={linkStyle}><Button2>Editar perfil</Button2></Link>
           <Button3 onClick={logoutHandler}>Sair</Button3>
         </ContentWrapper>

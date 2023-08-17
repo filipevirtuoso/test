@@ -21,7 +21,7 @@ function App() {
 
   return (
     <div className="App">
-      {pathname !== '/' && pathname !== '/login' && <BackButton />}
+      {/* {pathname !== '/' && pathname !== '/login' && <BackButton />} */}
       {pathname === '/' && <Header />}
       {pathname === '/' && <NewButtom />}
       <Outlet />

@@ -15,6 +15,8 @@ import Table from 'react-bootstrap/Table';
 
 import moment from 'moment';
 
+import BackButton from '../components/BackButton';
+
 const Wrapper = styled.section`
   width: 100%;
   display: flex;
@@ -24,6 +26,10 @@ const Wrapper = styled.section`
   position: fixed;
   padding-top: 1rem;
   text-align: center;
+`
+
+const Title = styled.h5`
+  color: #538341;
 `
 
 const Status = styled.span`
@@ -84,8 +90,11 @@ const Call = () => {
 
 
   return (
+    <>
+    <BackButton page="/" />
     <Wrapper>
-      <h5>Envie um áudio descrevendo o problema que entraremos em contato.</h5>
+      
+      <Title>Envie um áudio descrevendo o problema que entraremos em contato.</Title>
       <VoiceRecorder onRecordingEnd={submitAudio}  />
       
 
@@ -116,6 +125,7 @@ const Call = () => {
       </Table>
     )}
     </Wrapper>
+    </>
   )
 }
 

@@ -8,6 +8,8 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useAddEventMutation } from '../slices/eventsApiSlice'
 import { useUpdateUserMutation } from '../slices/usersSlice'
 
+import BackButton from '../components/BackButton'
+
 
 import { toast } from 'react-toastify'
 
@@ -17,6 +19,7 @@ const Title = styled.h2`
   text-align: center;
   margin-top: 1rem;
   font-size: 1.3rem;
+  color: #538341;
 `
 
 
@@ -119,6 +122,7 @@ const EditUser = () => {
 
   return (
     <>
+      <BackButton page="/profile" />
       <Title>Editar perfil</Title>
       <FormContainer>
         <Form onSubmit={submitHandler}>

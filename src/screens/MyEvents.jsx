@@ -12,11 +12,16 @@ import { Link } from 'react-router-dom'
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 
+import BackButton from '../components/BackButton';
+
+import { useLocation } from 'react-router-dom';
+
 const Title = styled.h2`
   text-align: center;
   margin-top: 1rem;
   margin-bottom: 1.5rem;
-  text-decoration: underline;
+  // text-decoration: underline;
+  color: #538341;
 `
 
 const linkStyle = {
@@ -26,12 +31,18 @@ const linkStyle = {
   color: '#444'
 };
 
-const MyEvents = () => {
+const MyEvents = (props) => {
 
   const { data: events, isLoading, error } = useGetUserEventsQuery();
 
+  const location = useLocation()
+  const {pathname} = location.state
+
+  console.log(pathname)
+
   return (
     <>
+    <BackButton page={pathname === '/' ? "/" : "/profile"} />
     <Title>Minhas ocorrências</Title>
 
     { isLoading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (

@@ -7,6 +7,7 @@ import Message from '../components/Message'
 
 // RTK
 import { useGetEventsQuery } from '../slices/eventsApiSlice'
+import { useLocation } from 'react-router-dom'
 
 const SectionWrapper = styled.section`
   height: 12vh;
@@ -90,6 +91,12 @@ const linkStyle = {
 
 const NewButtom = () => {
   const { data: response, isLoading, error } = useGetEventsQuery();
+  const location = useLocation()
+  console.log("🚀 ~ file: NewButtom.jsx:95 ~ NewButtom ~ location:", location.pathname)
+
+
+
+  
   return (
     
     <SectionWrapper>
@@ -108,7 +115,7 @@ const NewButtom = () => {
       </ButtonWrapper>
 
       <ButtonWrapper>
-        <Link to='/myevents' style={linkStyle}>
+        <Link to='/myevents' state={{ pathname: location.pathname }} style={linkStyle}>
           <Test>
 
           <Div><FaListUl color='#f2f2f2' /></Div>

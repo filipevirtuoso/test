@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 import BGImage from '../assets/images/login.png'
 import Accordion from 'react-bootstrap/Accordion';
 
+import BackButton from '../components/BackButton'
+
 const Image = styled.section`
   width: 100%;
   height: 10vh;
@@ -21,6 +23,7 @@ const Title = styled.h2`
   text-align: center;
   margin-top: 1rem;
   margin-bottom: 1.5rem;
+  color: #538341;
 `
 
 const Div = styled.div`
@@ -30,6 +33,7 @@ const Div = styled.div`
 const Faq = () => {
   return (
     <>
+      <BackButton page="/" />
       <Image />
       <Div>
       <Title>FAQ - Perguntas frequentes</Title>

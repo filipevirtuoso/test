@@ -14,8 +14,9 @@ import {Link} from 'react-router-dom'
 
 const Wrapper = styled.section`
   // background-color: #198519;
-  background: rgb(24,113,24);
-  background: linear-gradient(90deg, rgba(24,113,24,1) 43%, rgba(26,158,53,1) 100%);
+  // background: rgb(24,113,24);
+  // background: linear-gradient(90deg, rgba(24,113,24,1) 43%, rgba(26,158,53,1) 100%);
+  background-color: #58AE3A;
   width: 100%;
   height: 7vh;
   border-top-left-radius: 20px;
