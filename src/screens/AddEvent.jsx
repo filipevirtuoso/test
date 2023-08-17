@@ -29,6 +29,7 @@ const Title = styled.h2`
   margin-top: 1rem;
   font-size: 1.3rem;
   color: #538341;
+  font-family: "Arboria-Bold";
 `
 
 const FormContainer = styled.section`

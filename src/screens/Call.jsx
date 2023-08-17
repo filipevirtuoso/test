@@ -30,6 +30,7 @@ const Wrapper = styled.section`
 
 const Title = styled.h5`
   color: #538341;
+  font-family: "Arboria-Bold";
 `
 
 const Status = styled.span`

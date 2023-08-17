@@ -24,6 +24,7 @@ const Title = styled.h2`
   margin-top: 1rem;
   margin-bottom: 1.5rem;
   color: #538341;
+  font-family: "Arboria-Bold";
 `
 
 const Div = styled.div`

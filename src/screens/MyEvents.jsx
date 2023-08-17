@@ -22,6 +22,7 @@ const Title = styled.h2`
   margin-bottom: 1.5rem;
   // text-decoration: underline;
   color: #538341;
+  font-family: "Arboria-Bold";
 `
 
 const linkStyle = {
