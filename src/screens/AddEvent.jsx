@@ -240,6 +240,7 @@ const AddEvent = () => {
               {image1 ? '1' : <FaCamera />}
             </InpButton >
             <Form.Control
+              accept="image/png, image/jpeg"
               ref={hiddenFileInput}
               style={{display:'none'}}
               type='file'
