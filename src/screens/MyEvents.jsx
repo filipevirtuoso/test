@@ -190,7 +190,7 @@ const MyEvents = (props) => {
             <th>Tipo</th>
             <th>Data</th>
             <th>Descrição</th>
-            <th>Ações</th>
+            <th>Editar</th>
           </tr>
         </thead>
 
