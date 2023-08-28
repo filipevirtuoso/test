@@ -26,7 +26,8 @@ const Wrapper = styled.section`
   align-items: center;
   position: fixed;
   bottom: 0;
-`
+  z-index: 999999;
+  `
 
 const Button = styled.button`
   height: 60px;

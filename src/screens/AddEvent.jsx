@@ -99,10 +99,18 @@ const icon = L.icon({
 });
 
 function MyComponent({ saveMarkers }) {
+  const [test, setTest] = useState("")
+  let marker;
   const map = useMapEvents({
     click: (e) => {
       const { lat, lng } = e.latlng;
-      L.marker([lat, lng], { icon }).addTo(map);
+      // L.marker([lat, lng], { icon }).addTo(map);
+      if(test) {
+        map.removeLayer(test)
+      }
+      marker = new L.marker([lat, lng], { icon })
+      setTest(marker)
+      map.addLayer(marker);
       saveMarkers([lat, lng]);
     }
   });
@@ -162,6 +170,7 @@ const AddEvent = () => {
   const removeMarkedArea = () => {
     setShowMap(!showMap);
     setCoordinates('')
+
   };
 
 
@@ -295,7 +304,7 @@ const AddEvent = () => {
             </Form.Control>
           </Form.Group>
           {/* <Div> */}
-            <ButtonWidth
+            {/* <ButtonWidth
               block
               color="info"
               variant="primary"
@@ -303,7 +312,7 @@ const AddEvent = () => {
               onClick={handleMap}
             >
               <FaDraftingCompass /> Marcar área
-            </ButtonWidth>
+            </ButtonWidth> */}
             {coordinates && (
                   // <Col lg="12" className="mb-3">
                     <ButtonWidth
@@ -318,7 +327,7 @@ const AddEvent = () => {
                   // </Col>
                 )}
           {/* </Div> */}
-          {!!showMap && (
+          {true && (
                   <Col lg="12">
                     <Form.Group>
                       {/* <Div id="map"></Div> */}
