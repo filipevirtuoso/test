@@ -164,7 +164,7 @@ const MyEvents = (props) => {
             </tr>
             <tr>
             <Th>Descrição:</Th>
-            <Td>{info.description.slice(0, 10) + '...'}</Td>
+            <Td>{info.description}</Td>
             </tr>
           </Table>
 
@@ -175,7 +175,7 @@ const MyEvents = (props) => {
             </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            Fechar
           </Button>
           {/* <Button variant="primary" onClick={handleClose}>
             Save Changes
