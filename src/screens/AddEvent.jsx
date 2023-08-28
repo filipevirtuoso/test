@@ -337,7 +337,7 @@ const AddEvent = () => {
           center={{ lat: -7.6029958, lng: -58.2951507 }} 
           zoom={4}
           scrollWheelZoom={false}
-          style={{ height: "50vh" }}
+          style={{ height: "40vh" }}
         >
           <TileLayer
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
