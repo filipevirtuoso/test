@@ -45,13 +45,13 @@ const linkStyle = {
 
 const EventCard = ({image, complaint, date_occurrence, id }) => {
   return (
-    <Link to={`/eventdetails/${id}`} style={linkStyle}> 
+    // <Link to={`/eventdetails/${id}`} style={linkStyle}> 
       <Wrapper>
-        <Image src={image} alt="Small image" />
+        <Image src={image} alt="Sem imagem" />
         <Type>{complaint}</Type>
         <Date>{date_occurrence.split('-').reverse().join('/')}</Date>
       </Wrapper>
-    </Link>
+    // </Link>
   )
 }
 
