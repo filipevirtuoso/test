@@ -11,7 +11,7 @@ const Wrapper = styled.section`
   margin-top: 1rem;
   height: 130px;
   width: 110px;
-  background-color: #116b20;
+  background-color: #58AE3A;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
