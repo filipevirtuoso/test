@@ -51,7 +51,7 @@ export const eventApiSlice = apiSlice.injectEndpoints({
     }),
     editEvent: builder.mutation({
       query: (data) => ({
-        url: `${EVENTS_URL}${data.get("id")}`,
+        url: `${EVENTS_URL}${data.get("id")}/`,
         method: 'PATCH',
         body: data,
         prepareHeaders: (headers, { getState }) => {
