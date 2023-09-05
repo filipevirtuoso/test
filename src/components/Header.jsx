@@ -6,6 +6,8 @@ import { FaUnderline, FaUserCircle } from 'react-icons/fa'
 //Style
 import styled from "styled-components";
 
+import infoBG from '../assets/images/profile-bg-2.jpeg'
+
 // RTK
 import { useUserDetailQuery } from '../slices/usersSlice';
 import { useGetEventsQuery } from '../slices/eventsApiSlice'
@@ -33,6 +35,8 @@ const UserInfoWrapper = styled.section`
   color: #444;
   padding-left: 2rem;
   border-bottom: 2px solid #444;
+
+
   
   
 `
@@ -64,14 +68,18 @@ const InfoWrapper = styled.section`
   justify-content: center;
   align-items: center;
 
-  background-color: #198519;
+  // background-color: #198519;
+  background-image: url(${infoBG}); 
+  background-repeat: no-repeat;
+  background-size: cover;
+
   // background-color: grey;
   // background-color: #2f663d;
   height: 30vh;
   width: 100%;
-  color: #444;
-  
+  color: #444 ;
 
+  
 
 `
 
@@ -95,6 +103,10 @@ const RightWrapper = styled.section`
   display: flex;
   justify-content: space-evenly;
   margin: 3rem;
+
+
+
+
 
 `
 
@@ -255,7 +267,6 @@ const Header = ({ name, indigenous_territory  }) => {
       </UserInfoWrapper>
 
       <InfoWrapper>
-
 
 
 

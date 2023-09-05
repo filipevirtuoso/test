@@ -24,7 +24,7 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
 // Others
-import BGImage from '../assets/images/profilebg.jpg'
+import BGImage from '../assets/images/profile-bg-2.jpeg'
 import Tribal from '../assets/images/bg-home.png'
 
 
