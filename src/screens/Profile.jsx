@@ -237,7 +237,7 @@ const Profile = () => {
           </LeftWrapper>
           <RightWrapper>
             <InfoBG>
-              <Item><Strong>EESPONSÁVEL:</Strong></Item>
+              <Item><Strong>RESPONSÁVEL:</Strong></Item>
               <Item><Strong>EMAIL:</Strong> {user.email}</Item>
               <Item><Strong>ALDEIA:</Strong> {user.village}</Item>
               <Item><Strong>TERRITÓRIO:</Strong> {user.indigenous_territory}</Item>
