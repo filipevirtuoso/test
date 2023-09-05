@@ -79,7 +79,7 @@ const RightWrapper = styled.section`
 
 const Item = styled.p`
   padding: 0;
-  margin: 0;
+  margin-bottom: .3rem;
   // font-weight: bold;
   line-height: .8rem;
   color: #444;
@@ -175,9 +175,9 @@ const Image = styled.section`
 
 const ProfilePic = styled.img`
   border-radius: 50%;
-  width: 50%;
-  height: 100%:
-` 
+  width: 80px;
+  height: 80px;
+`
 
 const linkStyle = {
   textDecoration: "none",
@@ -237,10 +237,10 @@ const Profile = () => {
           </LeftWrapper>
           <RightWrapper>
             <InfoBG>
-              <Item><Strong>Responsável:</Strong></Item>
-              <Item><Strong>Email:</Strong> {user.email}</Item>
-              <Item><Strong>Aldeia:</Strong> {user.village}</Item>
-              <Item><Strong>Território:</Strong> {user.indigenous_territory}</Item>
+              <Item><Strong>EESPONSÁVEL:</Strong></Item>
+              <Item><Strong>EMAIL:</Strong> {user.email}</Item>
+              <Item><Strong>ALDEIA:</Strong> {user.village}</Item>
+              <Item><Strong>TERRITÓRIO:</Strong> {user.indigenous_territory}</Item>
             </InfoBG>
           </RightWrapper>
         </HeaderWrapper>
