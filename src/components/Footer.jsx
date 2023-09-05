@@ -39,7 +39,7 @@ const Button = styled.button`
 `
 
 const Icon = styled(AiFillHome)`
-  background-color: #198519;
+  background-color: #58AE3A;
   padding: .3rem;
   border-radius: 50%;
 `
