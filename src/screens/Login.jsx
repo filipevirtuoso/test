@@ -141,7 +141,7 @@ const Login = () => {
 
   return (
     <>
-      <LogoWrapper src={Logo2} />
+      <LogoWrapper src={Logo} />
       {/* <InfoWrapper> 
         Monitoramento Territorial HÃMUGÃY
       </InfoWrapper> */}
