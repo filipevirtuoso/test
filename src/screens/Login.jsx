@@ -3,6 +3,7 @@ import React from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import Logo from '../assets/images/llogo.jpeg'
+import Logo2 from '../assets/images/logo2.png'
 import BGImage from '../assets/images/login.png'
 import Tribal from '../assets/images/bg-home.png'
 import { useDispatch, useSelector } from 'react-redux'
@@ -18,7 +19,7 @@ import { toast } from 'react-toastify'
 const LogoWrapper = styled.img`
   height: 45vh;
   width: 100%;
-  // background-image: url(${Logo}); 
+  // background-image: url(${Logo2}); 
   // background-repeat: no-repeat;
   // background-size: cover
   object-fit: cover;
@@ -140,7 +141,7 @@ const Login = () => {
 
   return (
     <>
-      <LogoWrapper src={Logo} />
+      <LogoWrapper src={Logo2} />
       {/* <InfoWrapper> 
         Monitoramento Territorial HÃMUGÃY
       </InfoWrapper> */}
