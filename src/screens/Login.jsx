@@ -63,7 +63,7 @@ const Image = styled.section`
 `
 
 const FormContainer = styled.section`
-  height: 35vh;
+  height: 28vh;
   display: flex;
   flex-direction: column;
   padding: 3rem;
@@ -86,17 +86,26 @@ const Img = styled.img`
   margin-left: 1rem;
 `
 
-const TribalBG = styled.section`
+const LogosWrapper = styled.section`
   width: 100%;
   height: 8vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
+`
+
+const TribalBG = styled.section`
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  margin-top: 1.5rem;
 
 
-  // background-image: url(${Conafer}); 
-  // background-repeat: no-repeat;
-  // background-size: contain;
+
+  background-image: url(${Tribal}); 
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.3;
 `
 
 const Login = () => {
@@ -182,10 +191,11 @@ const Login = () => {
           </Wrapper>
         </Form>
       </FormContainer>
-      <TribalBG>
+      <LogosWrapper>
         <Img src={Conafer} />
         <Img src={Terra} />
-      </TribalBG>
+      </LogosWrapper>
+      <TribalBG />
     </>
   )
 }
