@@ -63,7 +63,7 @@ const Image = styled.section`
 `
 
 const FormContainer = styled.section`
-  height: 28vh;
+  height: 27vh;
   display: flex;
   flex-direction: column;
   padding: 3rem;
@@ -82,7 +82,7 @@ const Wrapper = styled.div`
 `
 
 const Img = styled.img`
-  width: 5rem;
+  width: 4rem;
   margin-right: 1rem;
   margin-left: 1rem;
 `
@@ -97,7 +97,7 @@ const LogosWrapper = styled.section`
 
 const TribalBG = styled.section`
   width: 100%;
-  height: 6vh;
+  height: 5vh;
   display: flex;
   margin-top: 2rem;
 
