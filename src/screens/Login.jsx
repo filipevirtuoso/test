@@ -89,7 +89,7 @@ const Img = styled.img`
 
 const LogosWrapper = styled.section`
   width: 100%;
-  height: 6vh;
+  height: 8vh;
   display: flex;
   justify-content: center;
   align-items: start;
@@ -99,7 +99,7 @@ const TribalBG = styled.section`
   width: 100%;
   height: 6vh;
   display: flex;
-  margin-top: 1.5rem;
+  margin-top: 2rem;
 
 
 
