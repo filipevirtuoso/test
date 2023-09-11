@@ -67,7 +67,7 @@ const FormContainer = styled.section`
   display: flex;
   flex-direction: column;
   padding: 3rem;
-  justify-content: center;
+  justify-content: flex-end;
 `
 
 
@@ -81,7 +81,7 @@ const Wrapper = styled.div`
 `
 
 const Img = styled.img`
-  width: 4rem;
+  width: 5rem;
   margin-right: 1rem;
   margin-left: 1rem;
 `
@@ -177,7 +177,7 @@ const Login = () => {
             </Form.Control>
           </Form.Group>
           <Form.Group controlId='password'>
-            <Form.Label>Senha</Form.Label>
+            <Form.Label className="mt-2">Senha</Form.Label>
             <Form.Control
               type='password'
               placeholder='Informe sua senha'
