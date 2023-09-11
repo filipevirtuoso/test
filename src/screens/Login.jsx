@@ -68,6 +68,7 @@ const FormContainer = styled.section`
   flex-direction: column;
   padding: 3rem;
   justify-content: flex-end;
+  margin-top: 1rem;
 `
 
 
