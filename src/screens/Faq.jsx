@@ -3,6 +3,9 @@ import styled from 'styled-components'
 import { FaArrowCircleLeft } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import BGImage from '../assets/images/login.png'
+
+import Conafer from '../assets/images/conafer-logo.webp'
+import Terra from '../assets/images/terra_bank.webp'
 import Accordion from 'react-bootstrap/Accordion';
 
 import BackButton from '../components/BackButton'
@@ -29,6 +32,21 @@ const Title = styled.h2`
 
 const Div = styled.div`
   height: 120vh;
+`
+
+const Img = styled.img`
+  width: 7rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
+`
+
+const LogosWrapper = styled.section`
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  margin-top: 3rem;
 `
 
 const Faq = () => {
@@ -93,6 +111,10 @@ const Faq = () => {
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
+      <LogosWrapper>
+        <Img src={Conafer} />
+        <Img src={Terra} />
+      </LogosWrapper>
       </Div>
 
       {/* <Image /> */}
