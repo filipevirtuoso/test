@@ -97,7 +97,7 @@ const LogosWrapper = styled.section`
 
 const TribalBG = styled.section`
   width: 100%;
-  height: 5vh;
+  height: 4vh;
   display: flex;
   margin-top: 2rem;
 
