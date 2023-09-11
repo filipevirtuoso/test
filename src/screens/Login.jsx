@@ -6,8 +6,11 @@ import Logo from '../assets/images/llogo.jpeg'
 import Logo2 from '../assets/images/logo2.png'
 import BGImage from '../assets/images/login.png'
 import Tribal from '../assets/images/bg-home.png'
+import Conafer from '../assets/images/conafer-logo.webp'
+import Terra from '../assets/images/terra_bank.webp'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../components/Loader'
+
 
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import { setCacheNameDetails } from 'workbox-core'
@@ -77,16 +80,23 @@ const Wrapper = styled.div`
   justify-content: center
 `
 
+const Img = styled.img`
+  width: 4rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
+`
+
 const TribalBG = styled.section`
   width: 100%;
   height: 8vh;
   display: flex;
   justify-content: center;
+  align-items: center;
 
-  background-image: url(${Tribal}); 
-  background-repeat: no-repeat;
-  background-size: contain;
-  opacity: 0.3;
+
+  // background-image: url(${Conafer}); 
+  // background-repeat: no-repeat;
+  // background-size: contain;
 `
 
 const Login = () => {
@@ -167,12 +177,15 @@ const Login = () => {
             </Form.Control>
           </Form.Group>
           <Wrapper>
-            <Button type='submit' variant='success' className='mt-2' disable={isLoading}>Entrar</Button>
+            <Button type='submit' variant='success' className='mt-3' disable={isLoading}>Entrar</Button>
             {/* { isLoading && <Loader />} */}
           </Wrapper>
         </Form>
       </FormContainer>
-      <TribalBG />
+      <TribalBG>
+        <Img src={Conafer} />
+        <Img src={Terra} />
+      </TribalBG>
     </>
   )
 }
