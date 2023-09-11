@@ -63,7 +63,7 @@ const Image = styled.section`
 `
 
 const FormContainer = styled.section`
-  height: 28vh;
+  height: 26vh;
   display: flex;
   flex-direction: column;
   padding: 3rem;
