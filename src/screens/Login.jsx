@@ -89,7 +89,7 @@ const Img = styled.img`
 
 const LogosWrapper = styled.section`
   width: 100%;
-  height: 7vh;
+  height: 8vh;
   display: flex;
   justify-content: center;
   align-items: start;
