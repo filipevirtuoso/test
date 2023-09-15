@@ -17,6 +17,13 @@ import { useGetEventsQuery } from '../slices/eventsApiSlice'
 
 import paginate from '../utils/paginate'
 
+import Carousel from 'react-bootstrap/Carousel';
+import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+
+import BGImage from '../assets/images/bg-home.png'
+
 const Wrapper = styled.section`
   margin-left: .3rem;
   margin-top: 1rem;
@@ -84,6 +91,40 @@ const Date = styled.p`
   margin: 0;
   padding: 0;
 `
+
+const Image = styled.section`
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  margin-top: .5rem;
+
+  background-image: url(${BGImage}); 
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.3;
+`
+
+const Th = styled.th`
+  border: 2px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+text-align: left;
+`
+
+const Td = styled.td`
+  border: 2px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+text-align: left;
+`
+
+const linkStyle = {
+  textDecoration: "none",
+  // display: "flex",
+  // alignItems: "center",
+  color: '#444'
+};
 
 
 function Search() {
@@ -185,6 +226,104 @@ function Search() {
       <EventsWrapper>
         {isLoading ? (<Loader />) : error ? (<Message variant='danger'>{error?.data?.message || error.error}</Message>) : (
           <>
+<Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>{"Detalhes"}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+
+
+        
+
+
+        { !info ? <Loader /> :  (
+
+
+<>
+<Carousel activeIndex={index} onSelect={handleSelect} className="mb-4">
+
+        
+<Carousel.Item>
+  <img
+    className="d-block w-100"
+    src={info.image1}
+    alt="First slide"
+  />
+</Carousel.Item>
+
+{!info.image2 ? '' : (
+
+  <Carousel.Item>
+  <img
+    className="d-block w-100"
+    src={info.image2}
+    alt="Second slide"
+  />
+  </Carousel.Item>
+
+)}
+
+
+{!info.image3 ? '' : (
+
+<Carousel.Item>
+<img
+  className="d-block w-100"
+  src={info.image3}
+  alt="Third slide"
+/>
+</Carousel.Item>
+
+)}
+
+
+
+
+
+</Carousel>
+
+
+
+
+
+
+        <Table >
+            <tr>
+            <Th>Tipo:</Th>
+            <Td>{info.complaint}</Td>
+            </tr>
+            <tr>
+            <Th>Data:</Th>
+            <Td>{info.date_occurrence.split('-').reverse().join('/')}</Td>
+            </tr>
+            <tr>
+            <Th>Horário:</Th>
+            <Td>{info.time_occurrence}</Td>
+            </tr>
+            <tr>
+            <Th>Status:</Th>
+            <Td>{info.status}</Td>
+            </tr>
+            <tr>
+            <Th>Descrição:</Th>
+            <Td>{info.description}</Td>
+            </tr>
+          </Table>
+
+          </>
+        )}
+
+
+            </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Fechar
+          </Button>
+          {/* <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button> */}
+        </Modal.Footer>
+        </Modal>
             <Events>
               {
                 events.length > 0 ?                 items.map((item, index) => (
