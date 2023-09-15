@@ -25,6 +25,7 @@ import MyEvents from './screens/MyEvents';
 import EditEvent from './screens/EditEvent';
 import PrivateRoute from './components/PrivateRoute';
 import Call from './screens/Call'
+import Search from './screens/Search'
 
 // Style
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -48,6 +49,7 @@ const router = createBrowserRouter(
         <Route path='/myevents' element={<MyEvents />} />
         <Route path='/editevent' element={<EditEvent />} />
         <Route path='/call' element={<Call />} />
+        <Route path='/search' element={<Search />} />
 
         
       </Route>
