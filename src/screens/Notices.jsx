@@ -75,11 +75,11 @@ const Notices = (props) => {
   };  
 
 
-  console.log(info)
+  console.log(pathname)
 
   return (
     <>
-    <BackButton page={pathname === '/' ? "/" : "/profile"} />
+    <BackButton page={pathname === '/notices' ? "/" : "/"} />
     <Title>Avisos</Title>
 
     { isLoading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
