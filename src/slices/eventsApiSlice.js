@@ -1,4 +1,4 @@
-import { EVENTS_URL, STATS, USER_EVENTS, HELP } from "../constants";
+import { EVENTS_URL, NOTICES_URL, STATS, USER_EVENTS, HELP } from "../constants";
 import {apiSlice} from './apiSlice'
 
 
@@ -8,6 +8,21 @@ export const eventApiSlice = apiSlice.injectEndpoints({
     getEvents: builder.query({
       query: () => ({
         url: EVENTS_URL,
+        prepareHeaders: (headers, { getState }) => {
+          const accessToken = getState().auth.userInfo.access_token
+          if (accessToken) {
+            headers.set('authorization', `Bearer ${accessToken}`)
+          }  
+      
+          return headers
+        },
+      }),
+
+      keepUnusedDataFor: 5
+    }),
+    getNotices: builder.query({
+      query: () => ({
+        url: NOTICES_URL,
         prepareHeaders: (headers, { getState }) => {
           const accessToken = getState().auth.userInfo.access_token
           if (accessToken) {
@@ -92,4 +107,4 @@ export const eventApiSlice = apiSlice.injectEndpoints({
   }),
 })
 
-export const { useAddEventMutation, useAddHelpMutation , useEditEventMutation, useGetHelpQuery , useGetEventsQuery, useGetUserEventsQuery ,  useGetEventDetailsQuery, useGetStatisticsQuery } = eventApiSlice
+export const { useAddEventMutation, useAddHelpMutation , useEditEventMutation, useGetHelpQuery , useGetEventsQuery, useGetNoticesQuery, useGetUserEventsQuery ,  useGetEventDetailsQuery, useGetStatisticsQuery } = eventApiSlice

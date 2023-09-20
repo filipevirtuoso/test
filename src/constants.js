@@ -2,6 +2,7 @@ export const BASE_URL = process.env.REACT_APP_API = 'https://monitoramento.conaf
 export const LOGIN_URL = `/api/v1/oauth/token/`
 export const LOGOUT_URL = `/api/v1/oauth/revoke_token/`
 export const EVENTS_URL = `/api/v1/monitoring_data/`
+export const NOTICES_URL = `/api/v1/notice/`
 export const USER_DETAIL_URL = `/api/v1/detail/user/`
 export const USER = `/api/v1/user/`
 export const STATS = `/api/v1/quantity/monitoring/`
