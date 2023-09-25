@@ -249,7 +249,7 @@ const AddEvent = () => {
               {image1 ? '1' : <FaCamera />}
             </InpButton >
             <Form.Control
-              accept="image/png, image/jpeg"
+              // accept="image/png, image/jpeg"
               ref={hiddenFileInput}
               style={{display:'none'}}
               type='file'
@@ -264,7 +264,7 @@ const AddEvent = () => {
             {image2 ? '2' : <FaCamera />}
             </InpButton>
             <Form.Control
-              accept="image/png, image/jpeg"
+              // accept="image/png, image/jpeg"
               ref={hiddenFileInput2}
               style={{display:'none'}}
               type='file'
@@ -279,7 +279,7 @@ const AddEvent = () => {
             {image3 ? '3' : <FaCamera />}
             </InpButton>
             <Form.Control
-              accept="image/png, image/jpeg"
+              // accept="image/png, image/jpeg"
               ref={hiddenFileInput3}
               style={{display:'none'}}
               type='file'
