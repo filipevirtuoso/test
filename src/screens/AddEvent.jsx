@@ -133,6 +133,7 @@ const AddEvent = () => {
 
   const [showMap, setShowMap] = useState(0);
   const center = [-19.5124837, -42.5636109];
+  // const center = [-15.430353232647043, -39.603865730464356];
 
 
   const [addEvent, { isLoading }] = useAddEventMutation()
@@ -334,8 +335,10 @@ const AddEvent = () => {
                       <Div className="mt-3">
                       <MapContainer
           className="Map"
-          center={{ lat: -7.6029958, lng: -58.2951507 }} 
-          zoom={4}
+          center={{ lat: -15.431131, lng:  -39.601252 }} 
+
+
+          zoom={9}
           scrollWheelZoom={false}
           style={{ height: "40vh" }}
         >
