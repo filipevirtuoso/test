@@ -1,0 +1,8 @@
+xyz/appmaker/qyavbi/Application.java
+ xyz.appmaker.qyavbi.Application
+xyz/appmaker/qyavbi/LauncherActivity.java
+ xyz.appmaker.qyavbi.LauncherActivity
+xyz/appmaker/qyavbi/BuildConfig.java
+ xyz.appmaker.qyavbi.BuildConfig
+xyz/appmaker/qyavbi/DelegationService.java
+ xyz.appmaker.qyavbi.DelegationService
