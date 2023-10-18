@@ -106,8 +106,6 @@ const Date = styled.p`
   padding: 0;
 `
 
-
-
 const Home = () => {
 
   const { data: response, isLoading, error } = useGetEventsQuery();
@@ -126,7 +124,6 @@ const Home = () => {
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };  
-
 
 
   function handlePage(index) {
@@ -183,11 +180,6 @@ const Home = () => {
           <Modal.Title>{"Detalhes"}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-
-
-        
-
-
         { !info ? <Loader /> :  (
 
 
