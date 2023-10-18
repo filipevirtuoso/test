@@ -285,16 +285,6 @@ const Home = () => {
           <Events>
             {
               items.map((item, index) => (
-
-                // <EventCard 
-                //   onClick={() => (handleShow(), setInfo(item))}
-                //   image={item.image1}
-                //   complaint={item.complaint}
-                //   date_occurrence={item.date_occurrence}
-                //   id={item.id}
-                //   key={Math.random()}
-                //   index={index}
-                // />
                 <Wrapper onClick={() => (handleShow(), setInfo(item))}>
                 <CardImage src={item.image1} alt="Indisponível" />
                 <Type>{item.complaint}</Type>

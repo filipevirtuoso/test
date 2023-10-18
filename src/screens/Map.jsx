@@ -19,6 +19,7 @@ import { useGetEventsQuery } from '../slices/eventsApiSlice'
 // Icons
 import PinIcon from '../assets/images/map-pin-solid.svg'
 
+// Components
 import BackButton from '../components/BackButton';
 
 const Container = styled.section`
@@ -51,8 +52,6 @@ const Map = () => {
   const Pin = L.icon({ iconUrl: PinIcon, iconSize: [25, 25], MarkerColor: 'red' });
   const { data: response, isLoading, error } = useGetEventsQuery();
 
-  console.log(response)
-
   const mapContainerStyle = {
     // marginTop: "5rem",
     width: "100%",
@@ -72,7 +71,7 @@ const Map = () => {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             {response.map((event) => (
-              <Marker position={event.coordinates.split(',')} icon={Pin}>
+              <Marker position={event.coordinates.split(',')} icon={Pin} key={event.id}>
                 <Popup>
                   <P>{event.description}</P>
                 </Popup>
