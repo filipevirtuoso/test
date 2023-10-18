@@ -17,7 +17,14 @@ import Tribal from '../assets/images/bg-home.png'
 import { useGetEventsQuery } from '../slices/eventsApiSlice'
 
 // Icons
-import PinIcon from '../assets/images/map-pin-solid.svg'
+import PinIcon from '../assets/images/map/map-pin-solid.svg'
+import FireIcon from '../assets/images/map/fire.png'
+import DeforestationIcon from '../assets/images/map/log.png'
+import LandGrabbingIcon from '../assets/images/map/thief.png'
+import InvasionIcon from '../assets/images/map/invasion.png'
+import MiningIcon from '../assets/images/map/mining.png'
+import OtherIcon from '../assets/images/map/other.png'
+
 
 // Components
 import BackButton from '../components/BackButton';
@@ -49,7 +56,17 @@ const P = styled.div`
 
 const Map = () => {
 
-  const Pin = L.icon({ iconUrl: PinIcon, iconSize: [25, 25], MarkerColor: 'red' });
+  const Pin = L.icon({ iconUrl: PinIcon, iconSize: [25, 25]});
+  const Fire = L.icon({ iconUrl: FireIcon, iconSize: [25, 25]});
+  const Deforestation = L.icon({ iconUrl: DeforestationIcon, iconSize: [25, 25]});
+  const LandGrabbing = L.icon({ iconUrl: LandGrabbingIcon, iconSize: [25, 25]});
+  const Invasion = L.icon({ iconUrl: InvasionIcon, iconSize: [25, 25]});
+  const Mining = L.icon({ iconUrl: MiningIcon, iconSize: [25, 25]});
+  const Other = L.icon({ iconUrl: OtherIcon, iconSize: [25, 25]});
+
+
+
+
   const { data: response, isLoading, error } = useGetEventsQuery();
 
   const mapContainerStyle = {
@@ -71,10 +88,10 @@ const Map = () => {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             {response.map((event) => (
-              <Marker position={event.coordinates.split(',')} icon={Pin} key={event.id}>
-                <Popup>
+              <Marker position={event.coordinates.split(',')} icon={event.complaint === "Desmate" ? Deforestation : event.complaint === "Queimadas" ? Fire : event.complaint === "Grilagem" ? LandGrabbing : event.complaint === "Invasão" ? Invasion : event.complaint === "Garimpo" ? Mining : Other } key={event.id}>
+                {/* <Popup>
                   <P>{event.description}</P>
-                </Popup>
+                </Popup> */}
               </Marker>
             ))}
           </MapContainer>
