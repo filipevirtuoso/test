@@ -77,6 +77,8 @@ const Notices = (props) => {
 
   console.log(pathname)
 
+  console.log(info.image)
+
   return (
     <>
     <BackButton page={pathname === '/notices' ? "/" : "/"} />
@@ -99,47 +101,17 @@ const Notices = (props) => {
 
 
 <>
-{/* <Carousel activeIndex={index} onSelect={handleSelect} className="mb-4">
+<Carousel activeIndex={index} onSelect={handleSelect} className="mb-4">
 
-        
 <Carousel.Item>
   <img
     className="d-block w-100"
-    src={info.image1}
+    src={info.image}
     alt="First slide"
   />
 </Carousel.Item>
 
-{!info.image2 ? '' : (
-
-  <Carousel.Item>
-  <img
-    className="d-block w-100"
-    src={info.image2}
-    alt="Second slide"
-  />
-  </Carousel.Item>
-
-)}
-
-
-{!info.image3 ? '' : (
-
-<Carousel.Item>
-<img
-  className="d-block w-100"
-  src={info.image3}
-  alt="Third slide"
-/>
-</Carousel.Item>
-
-)}
-
-
-
-
-
-</Carousel> */}
+</Carousel>
 
 
 
