@@ -129,6 +129,7 @@ const AddEvent = () => {
   const [image2, setImage2] = useState('')
   const [image3, setImage3] = useState('')
 
+
   const [validated, setValidated] = useState(false);
 
   const [showMap, setShowMap] = useState(0);
@@ -234,6 +235,14 @@ const AddEvent = () => {
     // setMapData((prevState) => ({ ...prevState, markerInfo }));
   };
 
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      console.log("Latitude is :", position.coords.latitude);
+      console.log("Longitude is :", position.coords.longitude);
+      setCoordinates(`${position.coords.latitude}, ${position.coords.longitude}`)
+    });
+  })
+
   
 
   return (
@@ -301,7 +310,8 @@ const AddEvent = () => {
               required
               readOnly
               disabled
-              onChange={(e) => setCoordinates(e.target.value)}>
+              // onChange={(e) => setCoordinates(e.target.value)}
+              >
             </Form.Control>
           </Form.Group>
           {/* <Div> */}
@@ -314,7 +324,7 @@ const AddEvent = () => {
             >
               <FaDraftingCompass /> Marcar área
             </ButtonWidth> */}
-            {coordinates && (
+            {/* {coordinates && (
                   // <Col lg="12" className="mb-3">
                     <ButtonWidth
                     
@@ -326,12 +336,11 @@ const AddEvent = () => {
                       <FaEraser /> Limpar marcação
                     </ButtonWidth>
                   // </Col>
-                )}
+                )} */}
           {/* </Div> */}
-          {true && (
+          {/* {true && (
                   <Col lg="12">
                     <Form.Group>
-                      {/* <Div id="map"></Div> */}
                       <Div className="mt-3">
                       <MapContainer
           className="Map"
@@ -351,7 +360,7 @@ const AddEvent = () => {
         </Div>
                     </Form.Group>
                   </Col>
-            )} 
+            )}  */}
 
 
 
