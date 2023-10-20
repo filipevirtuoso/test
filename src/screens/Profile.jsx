@@ -122,6 +122,7 @@ const Button = styled.button`
   width: 80%;
   height: 8vh;
   margin-top: .5rem;
+  border-radius: .8rem;
 
   background-color: #4CAF50; /* Green */
   border: none;
@@ -136,6 +137,7 @@ const Button2 = styled.button`
   width: 80%;
   height: 8vh;
   margin-top: .5rem;
+  border-radius: .8rem;
 
   background-color: #4CAF50; /* Green */
   border: none;
@@ -150,6 +152,7 @@ const Button3 = styled.button`
   width: 80%;
   height: 8vh;
   margin-top: .5rem;
+  border-radius: .8rem;
 
   background-color: #f44336;
   border: none;

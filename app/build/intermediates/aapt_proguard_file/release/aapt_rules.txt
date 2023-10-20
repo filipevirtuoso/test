@@ -1,13 +1,13 @@
 -keep class androidx.core.app.CoreComponentFactory { <init>(); }
 -keep class androidx.core.content.FileProvider { <init>(); }
+-keep class app.vercel.app_one_xi.twa.Application { <init>(); }
+-keep class app.vercel.app_one_xi.twa.DelegationService { <init>(); }
+-keep class app.vercel.app_one_xi.twa.LauncherActivity { <init>(); }
 -keep class com.google.android.gms.common.api.GoogleApiActivity { <init>(); }
 -keep class com.google.androidbrowserhelper.locationdelegation.PermissionRequestActivity { <init>(); }
 -keep class com.google.androidbrowserhelper.trusted.FocusActivity { <init>(); }
 -keep class com.google.androidbrowserhelper.trusted.ManageDataLauncherActivity { <init>(); }
 -keep class com.google.androidbrowserhelper.trusted.NotificationPermissionRequestActivity { <init>(); }
 -keep class com.google.androidbrowserhelper.trusted.WebViewFallbackActivity { <init>(); }
--keep class xyz.appmaker.qyavbi.Application { <init>(); }
--keep class xyz.appmaker.qyavbi.DelegationService { <init>(); }
--keep class xyz.appmaker.qyavbi.LauncherActivity { <init>(); }
 -keep class androidx.browser.browseractions.BrowserActionsFallbackMenuView { <init>(android.content.Context, android.util.AttributeSet); }
 

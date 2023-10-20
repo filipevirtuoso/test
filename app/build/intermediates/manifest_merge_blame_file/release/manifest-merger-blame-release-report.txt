@@ -22,9 +22,9 @@
 22     the abbreviated format.
 23-->
 24<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-25    package="xyz.appmaker.qyavbi"
-26    android:versionCode="10"
-27    android:versionName="10" >
+25    package="app.vercel.app_one_xi.twa"
+26    android:versionCode="11"
+27    android:versionName="11" >
 28
 29    <uses-sdk
 30        android:minSdkVersion="19"
@@ -62,7 +62,7 @@
 46
 47    <application
 47-->/home/lfvirtuoso/Development/conafer/app/app/src/main/AndroidManifest.xml:35:5-187:19
-48        android:name="xyz.appmaker.qyavbi.Application"
+48        android:name="app.vercel.app_one_xi.twa.Application"
 48-->/home/lfvirtuoso/Development/conafer/app/app/src/main/AndroidManifest.xml:36:9-35
 49        android:allowBackup="true"
 49-->/home/lfvirtuoso/Development/conafer/app/app/src/main/AndroidManifest.xml:37:9-35
@@ -109,7 +109,7 @@
 70        </activity>
 71        <activity
 71-->/home/lfvirtuoso/Development/conafer/app/app/src/main/AndroidManifest.xml:72:9-145:20
-72            android:name="xyz.appmaker.qyavbi.LauncherActivity"
+72            android:name="app.vercel.app_one_xi.twa.LauncherActivity"
 72-->/home/lfvirtuoso/Development/conafer/app/app/src/main/AndroidManifest.xml:72:19-50
 73            android:alwaysRetainTaskState="true"
 73-->/home/lfvirtuoso/Development/conafer/app/app/src/main/AndroidManifest.xml:73:13-49
@@ -264,7 +264,7 @@
 149
 150        <service
 150-->/home/lfvirtuoso/Development/conafer/app/app/src/main/AndroidManifest.xml:162:9-177:19
-151            android:name="xyz.appmaker.qyavbi.DelegationService"
+151            android:name="app.vercel.app_one_xi.twa.DelegationService"
 151-->/home/lfvirtuoso/Development/conafer/app/app/src/main/AndroidManifest.xml:163:13-46
 152            android:enabled="@bool/enableNotification"
 152-->/home/lfvirtuoso/Development/conafer/app/app/src/main/AndroidManifest.xml:164:13-55

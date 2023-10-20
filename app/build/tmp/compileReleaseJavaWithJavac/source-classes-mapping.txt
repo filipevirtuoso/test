@@ -1,8 +1,8 @@
-xyz/appmaker/qyavbi/Application.java
- xyz.appmaker.qyavbi.Application
-xyz/appmaker/qyavbi/LauncherActivity.java
- xyz.appmaker.qyavbi.LauncherActivity
-xyz/appmaker/qyavbi/BuildConfig.java
- xyz.appmaker.qyavbi.BuildConfig
-xyz/appmaker/qyavbi/DelegationService.java
- xyz.appmaker.qyavbi.DelegationService
+app/vercel/app_one_xi/twa/BuildConfig.java
+ app.vercel.app_one_xi.twa.BuildConfig
+app/vercel/app_one_xi/twa/DelegationService.java
+ app.vercel.app_one_xi.twa.DelegationService
+app/vercel/app_one_xi/twa/Application.java
+ app.vercel.app_one_xi.twa.Application
+app/vercel/app_one_xi/twa/LauncherActivity.java
+ app.vercel.app_one_xi.twa.LauncherActivity

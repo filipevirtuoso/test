@@ -21,11 +21,11 @@ plugins {
 }
 
 def twaManifest = [
-    applicationId: 'xyz.appmaker.qyavbi',
+    applicationId: 'app.vercel.app_one_xi.twa',
     hostName: 'app-one-xi.vercel.app', // The domain being opened in the TWA.
     launchUrl: '/', // The start path for the TWA. Must be relative to the domain.
     name: 'Monitoramento HÃMUGÃY', // The application name.
-    launcherName: 'hamu', // The name shown on the Android Launcher.
+    launcherName: 'HÃMUGÃY', // The name shown on the Android Launcher.
     themeColor: '#000000', // The color used for the status bar.
     themeColorDark: '#000000', // The color used for the dark status bar.
     navigationColor: '#000000', // The color used for the navigation bar.
@@ -53,11 +53,11 @@ def twaManifest = [
 android {
     compileSdkVersion 33
     defaultConfig {
-        applicationId "xyz.appmaker.qyavbi"
+        applicationId "app.vercel.app_one_xi.twa"
         minSdkVersion 19
         targetSdkVersion 33
-        versionCode 10
-        versionName "10"
+        versionCode 11
+        versionName "11"
 
         // The name for the application
         resValue "string", "appName", twaManifest.name

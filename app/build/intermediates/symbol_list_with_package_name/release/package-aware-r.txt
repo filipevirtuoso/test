@@ -1,4 +1,4 @@
-xyz.appmaker.qyavbi
+app.vercel.app_one_xi.twa
 attr alpha
 attr buttonSize
 attr circleCrop

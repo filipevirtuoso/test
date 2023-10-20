@@ -38,7 +38,7 @@ INJECTED from /home/lfvirtuoso/Development/conafer/app/app/src/main/AndroidManif
 INJECTED from /home/lfvirtuoso/Development/conafer/app/app/src/main/AndroidManifest.xml:22:1-188:12
 INJECTED from /home/lfvirtuoso/Development/conafer/app/app/src/main/AndroidManifest.xml:22:1-188:12
 	package
-		ADDED from /home/lfvirtuoso/Development/conafer/app/app/src/main/AndroidManifest.xml:23:5-34
+		ADDED from /home/lfvirtuoso/Development/conafer/app/app/src/main/AndroidManifest.xml:23:5-40
 		INJECTED from /home/lfvirtuoso/Development/conafer/app/app/src/main/AndroidManifest.xml
 		INJECTED from /home/lfvirtuoso/Development/conafer/app/app/src/main/AndroidManifest.xml
 	android:versionName
@@ -115,7 +115,7 @@ ADDED from /home/lfvirtuoso/Development/conafer/app/app/src/main/AndroidManifest
 		ADDED from /home/lfvirtuoso/Development/conafer/app/app/src/main/AndroidManifest.xml:68:17-50
 	android:name
 		ADDED from /home/lfvirtuoso/Development/conafer/app/app/src/main/AndroidManifest.xml:67:17-83
-activity#xyz.appmaker.qyavbi.LauncherActivity
+activity#app.vercel.app_one_xi.twa.LauncherActivity
 ADDED from /home/lfvirtuoso/Development/conafer/app/app/src/main/AndroidManifest.xml:72:9-145:20
 	android:label
 		ADDED from /home/lfvirtuoso/Development/conafer/app/app/src/main/AndroidManifest.xml:74:13-49
@@ -267,7 +267,7 @@ ADDED from /home/lfvirtuoso/Development/conafer/app/app/src/main/AndroidManifest
 		ADDED from /home/lfvirtuoso/Development/conafer/app/app/src/main/AndroidManifest.xml:159:17-50
 	android:name
 		ADDED from /home/lfvirtuoso/Development/conafer/app/app/src/main/AndroidManifest.xml:158:17-67
-service#xyz.appmaker.qyavbi.DelegationService
+service#app.vercel.app_one_xi.twa.DelegationService
 ADDED from /home/lfvirtuoso/Development/conafer/app/app/src/main/AndroidManifest.xml:162:9-177:19
 	android:enabled
 		ADDED from /home/lfvirtuoso/Development/conafer/app/app/src/main/AndroidManifest.xml:164:13-55

@@ -78,6 +78,7 @@ const MyButton = styled.button`
   width: 100%;
   height: 8vh;
   margin-top: .5rem;
+  border-radius: 1.3rem;
 
   background-color: #4CAF50; /* Green */
   border: none;
@@ -87,7 +88,7 @@ const MyButton = styled.button`
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  border-radius: 5px;
+  // border-radius: 5px;
 `
 
 const icon = L.icon({

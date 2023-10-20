@@ -1,8 +1,8 @@
 {
-  "packageId": "xyz.appmaker.qyavbi",
+  "packageId": "app.vercel.app_one_xi.twa",
   "host": "app-one-xi.vercel.app",
   "name": "Monitoramento HÃMUGÃY",
-  "launcherName": "hamu",
+  "launcherName": "HÃMUGÃY",
   "display": "standalone",
   "themeColor": "#000000",
   "themeColorDark": "#000000",
@@ -19,8 +19,8 @@
     "path": "/home/lfvirtuoso/android.keystore",
     "alias": "android"
   },
-  "appVersionName": "10",
-  "appVersionCode": 10,
+  "appVersionName": "11",
+  "appVersionCode": 11,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
   "webManifestUrl": "https://app-one-xi.vercel.app/manifest.json",
@@ -42,5 +42,5 @@
   "fingerprints": [],
   "additionalTrustedOrigins": [],
   "retainedBundles": [],
-  "appVersion": "10"
+  "appVersion": "11"
 }

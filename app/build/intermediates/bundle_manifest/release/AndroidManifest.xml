@@ -22,9 +22,9 @@
      the abbreviated format.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="xyz.appmaker.qyavbi"
-    android:versionCode="10"
-    android:versionName="10" >
+    package="app.vercel.app_one_xi.twa"
+    android:versionCode="11"
+    android:versionName="11" >
 
     <uses-sdk
         android:minSdkVersion="19"
@@ -45,7 +45,7 @@
     </queries>
 
     <application
-        android:name="xyz.appmaker.qyavbi.Application"
+        android:name="app.vercel.app_one_xi.twa.Application"
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:icon="@mipmap/ic_launcher"
@@ -69,7 +69,7 @@
                 android:value="@string/launchUrl" />
         </activity>
         <activity
-            android:name="xyz.appmaker.qyavbi.LauncherActivity"
+            android:name="app.vercel.app_one_xi.twa.LauncherActivity"
             android:alwaysRetainTaskState="true"
             android:exported="true"
             android:label="@string/launcherName" >
@@ -148,7 +148,7 @@
         </provider>
 
         <service
-            android:name="xyz.appmaker.qyavbi.DelegationService"
+            android:name="app.vercel.app_one_xi.twa.DelegationService"
             android:enabled="@bool/enableNotification"
             android:exported="@bool/enableNotification" >
             <meta-data

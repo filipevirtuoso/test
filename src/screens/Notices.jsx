@@ -75,9 +75,9 @@ const Notices = (props) => {
   };  
 
 
-  console.log(pathname)
+  // console.log(pathname)
 
-  console.log(info.image)
+  // console.log(info.image)
 
   return (
     <>
@@ -101,17 +101,21 @@ const Notices = (props) => {
 
 
 <>
-<Carousel activeIndex={index} onSelect={handleSelect} className="mb-4">
 
-<Carousel.Item>
-  <img
-    className="d-block w-100"
-    src={info.image}
-    alt="First slide"
-  />
-</Carousel.Item>
+{info.image ? (
+  <Carousel activeIndex={index} onSelect={handleSelect} className="mb-4">
 
-</Carousel>
+  <Carousel.Item>
+    <img
+      className="d-block w-100"
+      src={info.image}
+      alt="First slide"
+    />
+  </Carousel.Item>
+  
+  </Carousel>
+) : null}
+
 
 
 

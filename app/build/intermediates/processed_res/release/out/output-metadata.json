@@ -4,14 +4,14 @@
     "type": "PROCESSED_RES",
     "kind": "Directory"
   },
-  "applicationId": "xyz.appmaker.qyavbi",
+  "applicationId": "app.vercel.app_one_xi.twa",
   "variantName": "processReleaseResources",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
-      "versionCode": 10,
-      "versionName": "10",
+      "versionCode": 11,
+      "versionName": "11",
       "outputFile": "resources-release.ap_"
     }
   ]
