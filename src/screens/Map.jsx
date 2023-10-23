@@ -72,7 +72,7 @@ const Map = () => {
   const mapContainerStyle = {
     // marginTop: "5rem",
     width: "100%",
-    height: "65vh",
+    height: "85vh",
   }
 
   const position = [-14.2400732, -53.1805017]
@@ -81,7 +81,7 @@ const Map = () => {
       { isLoading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
         <>
           <BackButton page="/" />
-          <TribalBG />
+          {/* <TribalBG /> */}
           <MapContainer style={mapContainerStyle}  center={position}  zoom={3}  scrollWheelZoom={false}>
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -95,7 +95,7 @@ const Map = () => {
               </Marker>
             ))}
           </MapContainer>
-          <TribalBG />
+          {/* <TribalBG /> */}
         </>
       )}
     </>

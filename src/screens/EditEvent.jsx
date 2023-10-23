@@ -12,6 +12,7 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Col from 'react-bootstrap/Col';
 import {  FaDraftingCompass } from "react-icons/fa";
+import BackButton from '../components/BackButton';
 
 import { MapContainer, TileLayer, useMapEvents } from "react-leaflet";
 
@@ -29,8 +30,10 @@ import { useUserDetailQuery } from '../slices/usersSlice';
 
 const Title = styled.h2`
   text-align: center;
-  margin-top: 1rem;
+  margin-top: .5rem;
   font-size: 1.3rem;
+  color: #C95A00;
+
 `
 
 const FormContainer = styled.section`
@@ -39,10 +42,12 @@ const FormContainer = styled.section`
   flex-direction: column;
   padding: 2rem;
   justify-content: flex-start;
+  background-color: #000;
+  color: #fff;
 `
 const ButtonWidth = styled(Button)`
   width: 100%;
-  
+
 `
 
 const Div = styled.div`
@@ -79,7 +84,7 @@ const MyButton = styled.button`
   height: 8vh;
   margin-top: .5rem;
 
-  background-color: #4CAF50; /* Green */
+  background-color: #EB6900; /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -122,17 +127,17 @@ const EditEvent = () => {
     const [image1, setImage1] = useState('')
     const [image2, setImage2] = useState('')
     const [image3, setImage3] = useState('')
-  
+
     const [showMap, setShowMap] = useState(0);
     const center = [-19.5124837, -42.5636109];
-  
-  
+
+
     const [editEvent, { isLoading }] = useEditEventMutation()
     const navigate = useNavigate()
-  
+
     const { data, isLoading: isLoadingUser, error } = useUserDetailQuery();
     const { data: event, isLoading: isLoadingEvent, error: errorEvent } = useGetEventDetailsQuery(id);
-  
+
 
     useEffect(() => {
       if(event) {
@@ -143,47 +148,47 @@ const EditEvent = () => {
         setCoordinates(event.coordinates)
       }
     }, event)
-  
-  
+
+
     const [mapData, setMapData] = useState([])
-  
+
     const hiddenFileInput = React.useRef(null);
-    const hiddenFileInput2 = React.useRef(null); 
+    const hiddenFileInput2 = React.useRef(null);
     const hiddenFileInput3 = React.useRef(null);
-  
-  
+
+
     const handleClick = event => {
       hiddenFileInput.current.click();
     };
-  
-  
+
+
     const handleClick2 = event => {
       hiddenFileInput2.current.click();
     };
-  
+
     const handleClick3 = event => {
       hiddenFileInput3.current.click();
     };
-  
+
     const handleMap = () => {
       setShowMap(!showMap);
       setCoordinates('')
     };
-  
+
     const removeMarkedArea = () => {
       setShowMap(!showMap);
       setCoordinates('')
     };
-  
-  
-  
+
+
+
     const submitHandler = async (e) => {
       e.preventDefault()
-  
-  
+
+
       let eventData = new FormData()
-  
-      
+
+
       eventData.append("complaint", complaint)
       eventData.append("description", description)
       eventData.append("date_occurrence", date_occurrence)
@@ -195,13 +200,13 @@ const EditEvent = () => {
       eventData.append("user", data.id)
       eventData.append("id", id)
       eventData.append("coordinates", coordinates)
-  
+
       // for (const value of eventData.values()) {
       //   console.log("eventData")
       //   console.log(value);
       // }
 
-  
+
       try {
         toast.info('Enviando')
         const res = await editEvent(eventData).unwrap();
@@ -212,40 +217,42 @@ const EditEvent = () => {
         toast.error(error?.data?.message || error.error)
       }
     }
-  
+
     const handleImage = (e) => {
       setImage1(e.target.files[0])
     }
-  
+
     const handleImage2 = (e) => {
       setImage2(e.target.files[0])
     }
-  
+
     const handleImage3 = (e) => {
       setImage3(e.target.files[0])
     }
-  
+
     const saveMarkers = (newMarkerCoords) => {
       // console.log(newMarkerCoords)
       setCoordinates(newMarkerCoords)
       setShowMap(!showMap)
       // let markerInfo = [...markerInfo, newMarkerCoords];
       // console.log(markerInfo)
-      
+
       // setMapData((prevState) => ({ ...prevState, markerInfo }));
     };
-    
+
     return (
       <>
-        <Title>Editar ocorrência</Title>
+        {/* <Title>Editar ocorrência</Title> */}
+        {/* <BackButton page="/myevents" /> */}
         <FormContainer>
+          <Title>Editar ocorrência</Title>
           <Form onSubmit={submitHandler}>
-  
-  
+
+
           <InputWrapper>
             <Form.Group controlId='image1' className='mt-3'>
               {/* <Form.Label>Selecione uma imagem</Form.Label> */}
-              <InpButton onClick={handleClick} > 
+              <InpButton onClick={handleClick} >
                 {/* <FaCamera /> */}
                 {image1 ? '1' : <FaCamera />}
               </InpButton >
@@ -256,7 +263,7 @@ const EditEvent = () => {
                 onChange={handleImage}>
               </Form.Control>
             </Form.Group>
-  
+
             <Form.Group controlId='image2' className='mt-3'>
               {/* <Form.Label>Selecione uma imagem</Form.Label> */}
               <InpButton onClick={handleClick2}>
@@ -270,7 +277,7 @@ const EditEvent = () => {
                 onChange={handleImage2}>
               </Form.Control>
             </Form.Group>
-  
+
             <Form.Group controlId='image3' className='mt-3'>
               {/* <Form.Label>Selecione uma imagem</Form.Label> */}
               <InpButton onClick={handleClick3}>
@@ -285,9 +292,9 @@ const EditEvent = () => {
               </Form.Control>
             </Form.Group>
             </InputWrapper>
-  
-  
-  
+
+
+
             <Form.Group controlId='coordinates' className=''>
               <Form.Label>Coordenadas</Form.Label>
               <Form.Control
@@ -313,7 +320,7 @@ const EditEvent = () => {
               {coordinates && (
                     // <Col lg="12" className="mb-3">
                       <ButtonWidth
-                      
+
                         block
                         variant="danger"
                         className="mt-1"
@@ -331,7 +338,7 @@ const EditEvent = () => {
                         <Div className="mt-3">
                         <MapContainer
             className="Map"
-            center={{ lat: -7.6029958, lng: -58.2951507 }} 
+            center={{ lat: -7.6029958, lng: -58.2951507 }}
             zoom={4}
             scrollWheelZoom={false}
             style={{ height: "50vh" }}
@@ -346,9 +353,9 @@ const EditEvent = () => {
                       </Form.Group>
                     </Col>
               )}
-  
-  
-  
+
+
+
             <Form.Group controlId='complaint'>
               <Form.Label className="mt-3">Tipo</Form.Label>
               <Form.Select
@@ -365,10 +372,10 @@ const EditEvent = () => {
                 <option>Outros</option>
               </Form.Select>
             </Form.Group>
-  
-          
-            
-  
+
+
+
+
             <Form.Group controlId='description' className='mt-3'>
               <Form.Label>Descrição</Form.Label>
               <Form.Control
@@ -379,7 +386,7 @@ const EditEvent = () => {
                 onChange={(e) => setDescription(e.target.value)}>
               </Form.Control>
             </Form.Group>
-  
+
             <Form.Group controlId='date_occurrence' className='mt-3'>
               <Form.Label>Informe a data</Form.Label>
               <Form.Control
@@ -389,7 +396,7 @@ const EditEvent = () => {
                 onChange={(e) => setDateOccurrence(e.target.value)}>
               </Form.Control>
             </Form.Group>
-  
+
             <Form.Group controlId='time_occurrence' className=''>
               <Form.Label>Informe o horário</Form.Label>
               <Form.Control
@@ -399,8 +406,8 @@ const EditEvent = () => {
                 onChange={(e) => setTimeOccurrence(e.target.value)}>
               </Form.Control>
             </Form.Group>
-  
-  
+
+
             <Wrapper>
               <MyButton type='submit' variant='success' className='mt-4 mb-5' >Enviar</MyButton>
               {/* { isLoading && <Loader />} */}

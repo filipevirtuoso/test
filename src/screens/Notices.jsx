@@ -20,12 +20,17 @@ import { useLocation } from 'react-router-dom';
 
 import Carousel from 'react-bootstrap/Carousel';
 
+const Wrapper = styled.section`
+  background-color: #000;
+  height: 100vh;
+`
+
 const Title = styled.h2`
   text-align: center;
   margin-top: 1rem;
   margin-bottom: 1.5rem;
   // text-decoration: underline;
-  color: #538341;
+  color: #C95A00;
   font-family: "Arboria-Bold";
 `
 
@@ -80,7 +85,7 @@ const Notices = (props) => {
   // console.log(info.image)
 
   return (
-    <>
+    <Wrapper>
     <BackButton page={pathname === '/notices' ? "/" : "/"} />
     <Title>Avisos</Title>
 
@@ -174,7 +179,7 @@ const Notices = (props) => {
       </Table>
       </>
     )}
-    </>
+    </Wrapper>
   )
 }
 

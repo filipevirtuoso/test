@@ -16,7 +16,8 @@ const SectionWrapper = styled.section`
   justify-content: space-around;
   align-items: center;
   gap: .1rem;
-  margin-top: .1rem;
+  // margin-top: .1rem;
+  background-color: #000;
 `
 
 // const Button = styled.button`
@@ -51,9 +52,10 @@ const ButtonWrapper = styled.section`
 
 const Text = styled.span`
   margin-left: .3rem;
-  color: #f2f2f2;
+  // color: #f2f2f2;
   font-size: .7rem;
   color: #444;
+  color: #f2f2f2;
 `
 
 const Test = styled.div`
@@ -73,8 +75,9 @@ const Div = styled.div`
   font-size: 1.2rem;
 
 
-  background: rgb(20,117,28);
-  background: linear-gradient(132deg, rgba(20,117,28,1) 0%, rgba(34,187,83,1) 90%);
+  // background: rgb(20,117,28);
+  // background: linear-gradient(132deg, rgba(20,117,28,1) 0%, rgba(34,187,83,1) 90%);
+  background-color: #EB6900;
 
   &:active  {
     background-color: purple;

@@ -40,11 +40,12 @@ const HeaderWrapper = styled.section`
   color: #f2f2f2;
 
   // background-color: #276939;
+  background-color: #000;
   
 
-  background-image: url(${BGImage}); 
-  background-repeat: no-repeat;
-  background-size: cover;
+  // background-image: url(${BGImage}); 
+  // background-repeat: no-repeat;
+  // background-size: cover;
   // opacity: 0.6;
 `
 
@@ -111,9 +112,10 @@ const ContentWrapper = styled.section`
   justify-content: flex-start;
   align-items: center;
   padding-top: 3rem;
+  background-color: #000;
 
   // height: 65vh;
-  height: 45vh;
+  height: 65vh;
   // background-color: red;
   width: 100%;
 `
@@ -124,7 +126,7 @@ const Button = styled.button`
   margin-top: .5rem;
   border-radius: .8rem;
 
-  background-color: #4CAF50; /* Green */
+  background-color: #EB6900; /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -139,7 +141,7 @@ const Button2 = styled.button`
   margin-top: .5rem;
   border-radius: .8rem;
 
-  background-color: #4CAF50; /* Green */
+  background-color: #EB6900; /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -252,7 +254,7 @@ const Profile = () => {
           <Link to='/edituser' style={linkStyle}><Button2>Editar perfil</Button2></Link>
           <Button3 onClick={logoutHandler}>Sair</Button3>
         </ContentWrapper>
-        <Image />
+        {/* <Image /> */}
       </>
     )}
   </>

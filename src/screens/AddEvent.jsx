@@ -28,16 +28,18 @@ const Title = styled.h2`
   text-align: center;
   margin-top: 1rem;
   font-size: 1.3rem;
-  color: #538341;
+  color: #C95A00;
   font-family: "Arboria-Bold";
 `
 
 const FormContainer = styled.section`
+  background-color: #000;
   height: 100%;
   display: flex;
   flex-direction: column;
   padding: 1.3rem;
   justify-content: flex-start;
+  color: #fff;
 `
 const ButtonWidth = styled(Button)`
   width: 100%;
@@ -80,7 +82,7 @@ const MyButton = styled.button`
   margin-top: .5rem;
   border-radius: 1.3rem;
 
-  background-color: #4CAF50; /* Green */
+  background-color: #EB6900; /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -249,8 +251,9 @@ const AddEvent = () => {
   return (
     <>
       <BackButton page="/" />
-      <Title>Abrir ocorrência</Title>
+      
       <FormContainer>
+      <Title>Abrir ocorrência</Title>
         <Form onSubmit={submitHandler}>
         <InputWrapper>
           <Form.Group controlId='image1' className='mt-3'>

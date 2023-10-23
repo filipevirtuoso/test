@@ -19,7 +19,7 @@ const UserInfoWrapper = styled.section`
   padding-left: 2rem;
   border-bottom: 2px solid #444; 
   // background-color: #2f663d;
-  background-color: #58AE3A;
+  background-color: #EB6900;
 `
 
 const NameWrapper = styled.section`

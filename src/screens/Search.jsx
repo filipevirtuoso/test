@@ -29,7 +29,8 @@ const Wrapper = styled.section`
   margin-top: 1rem;
   height: 130px;
   width: 110px;
-  background-color: #58AE3A;
+  // background-color: #58AE3A;
+  background-color: #EB6900;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -40,25 +41,27 @@ const Title = styled.h2`
   text-align: center;
   margin-top: 1rem;
   font-size: 1.3rem;
-  color: #538341;
+  color: #C95A00 ;
   font-family: "Arboria-Bold";
 `
 
 const FormContainer = styled.section`
-  height: 100%;
+  // height: 100%;
   display: flex;
   flex-direction: column;
   padding: 1.3rem;
   justify-content: flex-start;
+  background-color: #000;
 `
 
 const EventsWrapper = styled.section`
-  height: 40vh;
+  height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  // background-color: red;
+  background-color: red;
+  background-color: #000;
 `
 
 const Events = styled.section`
@@ -202,8 +205,9 @@ function Search() {
   return (
     <>
       <BackButton page="/" />
-      <Title>Busca</Title>
+      
       <FormContainer>
+      <Title>Busca</Title>
         <Form>
           <Form.Group controlId='complaint'>
             <Form.Label className="mt-3">Filtrar ocorrências pelo tipo:</Form.Label>

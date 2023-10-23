@@ -27,7 +27,7 @@ const EventsWrapper = styled.section`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  // background-color: red;
+  background-color: #000;
 `
 
 const Events = styled.section`
@@ -78,7 +78,8 @@ const Wrapper = styled.section`
   margin-top: 1rem;
   height: 130px;
   width: 110px;
-  background-color: #58AE3A;
+  // background-color: #58AE3A;
+  background-color: #EB6900;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -298,7 +299,7 @@ const Home = () => {
               page={page}
             />
           )}
-          <Image />
+          {/* <Image /> */}
         </>)}
     </EventsWrapper>
   )

@@ -15,19 +15,26 @@ import 'react-toastify/dist/ReactToastify.css';
 // Others
 import { ToastContainer } from 'react-toastify';
 
+import styled from 'styled-components';
+
+const Div = styled.div`
+background-color: #000;
+height: 100vh;
+`
+
 function App() {
 
   const { pathname } = useLocation();
 
   return (
-    <div className="App">
+    <Div className="App">
       {/* {pathname !== '/' && pathname !== '/login' && <BackButton />} */}
       {pathname === '/' && <Header />}
       {pathname === '/' && <NewButtom />}
       <Outlet />
       {pathname !== '/login' && <Footer />}
       <ToastContainer />
-    </div>
+    </Div>
   );
 }
 

@@ -37,6 +37,7 @@ export const PrevButton = styled.button`
   cursor: pointer;
   display: flex;
   align-items: center;
+  color: #fff;
 `
 
 export const NextButton = styled.button`
@@ -50,9 +51,11 @@ export const NextButton = styled.button`
   cursor: pointer;
   display: flex;
   align-items: center;
+  color: #fff;
 `
 
 export const Div = styled.div`
   display: flex;
   align-items: center;
+  color: #fff;
 `

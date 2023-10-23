@@ -19,18 +19,19 @@ const Title = styled.h2`
   text-align: center;
   margin-top: 1rem;
   font-size: 1.3rem;
-  color: #538341;
+  color: #C95A00;
   font-family: "Arboria-Bold";
 `
 
 
 
 const FormContainer = styled.section`
-  height: 100vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   padding: 2rem;
   justify-content: flex-start;
+  color: #fff;
 `
 
 const linkStyle = {
@@ -193,7 +194,7 @@ const EditUser = () => {
 
 
           <Wrapper>
-            <Button type='submit' variant='success' className='mt-2' >Alterar</Button>
+            <Button type='submit' variant='warning' className='mt-2' >Alterar</Button>
             {/* { isLoading && <Loader />} */}
           </Wrapper>
         </Form>

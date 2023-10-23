@@ -16,11 +16,12 @@ const Wrapper = styled.section`
   // background-color: #198519;
   // background: rgb(24,113,24);
   // background: linear-gradient(90deg, rgba(24,113,24,1) 43%, rgba(26,158,53,1) 100%);
-  background-color: #58AE3A;
+  // background-color: #58AE3A;
+  background-color: #EB6900;
   width: 100%;
-  height: 7vh;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  height: 8vh;
+  // border-top-left-radius: 20px;
+  // border-top-right-radius: 20px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -35,11 +36,11 @@ const Button = styled.button`
   border-radius: 50%;
   border: none;
   position: absolute;
-  bottom: 15px;
+  bottom: 25px;
 `
 
 const Icon = styled(AiFillHome)`
-  background-color: #58AE3A;
+  background-color: #C95A00;
   padding: .3rem;
   border-radius: 50%;
 `
@@ -50,7 +51,6 @@ const Div = styled.div`
   justify-content: space-around;
   align-items: center;
   gap: .5rem;
-  
 `
 
 const Footer = () => {
@@ -74,7 +74,7 @@ const Footer = () => {
       </Div>
       <Button>
         <Link to='/'>
-        <Icon color={"#f2f2f2"} size={40} />
+        <Icon color={"#f27c1d"} size={40} />
         </Link>
       </Button>
     </Wrapper>

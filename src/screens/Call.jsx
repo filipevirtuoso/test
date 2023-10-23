@@ -26,10 +26,12 @@ const Wrapper = styled.section`
   position: fixed;
   padding-top: 1rem;
   text-align: center;
+  // background-color: #000;
+  // height: 85vh;
 `
 
 const Title = styled.h5`
-  color: #538341;
+  color: #C95A00;
   font-family: "Arboria-Bold";
 `
 

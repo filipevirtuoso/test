@@ -26,16 +26,16 @@ const Title = styled.h2`
   text-align: center;
   margin-top: 1rem;
   margin-bottom: 1.5rem;
-  color: #538341;
+  color: #C95A00;
   font-family: "Arboria-Bold";
 `
 
 const Div = styled.div`
-  height: 120vh;
+  height: 95vh;
 `
 
 const Img = styled.img`
-  width: 7rem;
+  width: 5rem;
   margin-right: 1rem;
   margin-left: 1rem;
 `
@@ -46,14 +46,14 @@ const LogosWrapper = styled.section`
   display: flex;
   justify-content: center;
   align-items: start;
-  margin-top: 3rem;
+  margin-top: 1rem;
 `
 
 const Faq = () => {
   return (
     <>
       <BackButton page="/" />
-      <Image />
+      {/* <Image /> */}
       <Div>
       <Title>FAQ - Perguntas frequentes</Title>
       <Accordion defaultActiveKey="0">

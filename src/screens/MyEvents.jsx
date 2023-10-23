@@ -20,12 +20,18 @@ import { useLocation } from 'react-router-dom';
 
 import Carousel from 'react-bootstrap/Carousel';
 
+
+const Wrapper = styled.section`
+  background-color: #000;
+  height: 100vh;
+`
+
 const Title = styled.h2`
   text-align: center;
   margin-top: 1rem;
   margin-bottom: 1.5rem;
   // text-decoration: underline;
-  color: #538341;
+  color: #C95A00;
   font-family: "Arboria-Bold";
 `
 
@@ -77,7 +83,7 @@ const MyEvents = (props) => {
   // console.log(pathname)
 
   return (
-    <>
+    <Wrapper>
     <BackButton page={pathname === '/' ? "/" : "/profile"} />
     <Title>Minhas ocorrências</Title>
 
@@ -208,7 +214,7 @@ const MyEvents = (props) => {
       </Table>
       </>
     )}
-    </>
+    </Wrapper>
   )
 }
 

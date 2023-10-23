@@ -36,7 +36,7 @@ const UserInfoWrapper = styled.section`
   padding-left: 2rem;
   border-bottom: 2px solid #444;
 
-
+  background-color: #000;
   
   
 `
@@ -48,13 +48,14 @@ const NameWrapper = styled.section`
   justify-content: center;
   // align-items: center;
   margin-left: 1rem;
+  color: #fff;
 `
 
 const Name = styled.span`
   margin: 0;
   padding: 0;
   font-weight: bold;
-  color: #444;
+  color: #fff;
 `
 
 const Name2 = styled.span`
@@ -68,10 +69,10 @@ const InfoWrapper = styled.section`
   justify-content: center;
   align-items: center;
 
-  // background-color: #198519;
-  background-image: url(${infoBG}); 
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: #000;     
+  // background-image: url(${infoBG}); 
+  // background-repeat: no-repeat;
+  // background-size: cover;
 
   // background-color: grey;
   // background-color: #2f663d;
@@ -257,7 +258,7 @@ const Header = ({ name, indigenous_territory  }) => {
       <>
       <UserInfoWrapper>
         <Link to='/profile'>
-          <FaUserCircle color={"green"} size={35} />
+          <FaUserCircle color={"#EB6900"} size={35} />
         </Link>
         <NameWrapper>
           <Name>{data.name}</Name>
