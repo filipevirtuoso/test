@@ -6,7 +6,7 @@ import { FaUnderline, FaUserCircle } from 'react-icons/fa'
 //Style
 import styled from "styled-components";
 
-import infoBG from '../assets/images/profile-bg-2.jpeg'
+import infoBG from '../assets/images/profile-bg-22.png'
 
 // RTK
 import { useUserDetailQuery } from '../slices/usersSlice';
@@ -69,10 +69,10 @@ const InfoWrapper = styled.section`
   justify-content: center;
   align-items: center;
 
-  background-color: #000;     
-  // background-image: url(${infoBG}); 
-  // background-repeat: no-repeat;
-  // background-size: cover;
+  // background-color: #000;     
+  background-image: url(${infoBG}); 
+  background-repeat: no-repeat;
+  background-size: cover;
 
   // background-color: grey;
   // background-color: #2f663d;
