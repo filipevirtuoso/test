@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import React from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
-import Logo from '../assets/images/llogo.jpeg'
+import Logo from '../assets/images/llogo.png'
 import Logo2 from '../assets/images/logo2.png'
 import BGImage from '../assets/images/login.png'
 import Tribal from '../assets/images/bg-home.png'
@@ -78,7 +78,8 @@ const Input = styled.input`
 
 const Wrapper = styled.div`
   display: flex;
-  justify-content: center
+  justify-content: center;
+  gap: .3rem;
 `
 
 const Img = styled.img`
@@ -93,6 +94,13 @@ const LogosWrapper = styled.section`
   display: flex;
   justify-content: center;
   align-items: start;
+`
+
+const Link2 = styled.a`
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+
 `
 
 const TribalBG = styled.section`
@@ -187,7 +195,8 @@ const Login = () => {
             </Form.Control>
           </Form.Group>
           <Wrapper>
-            <Button type='submit' variant='success' className='mt-3' disable={isLoading}>Entrar</Button>
+            <Button type='submit' variant='success' className='mt-3 w-50' disable={isLoading}>Entrar</Button>
+            <Button variant='warning' className='mt-3 w-50' disable={isLoading}><Link2 target="_blank" href="https://conafer.org.br/plataforma-hamugay-cadastro/">Cadastre-se</Link2></Button>
             {/* { isLoading && <Loader />} */}
           </Wrapper>
         </Form>
