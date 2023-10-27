@@ -29,7 +29,7 @@ const LogoWrapper = styled.img`
 `
 
 // const InfoWrapper = styled.section`
-//   width: 100%;
+//   width: 100%;   
 //   height: 5vh;
 //   display: flex;
 //   justify-content: center;

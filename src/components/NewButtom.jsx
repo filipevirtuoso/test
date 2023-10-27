@@ -66,8 +66,8 @@ const Test = styled.div`
 `
 
 const Div = styled.div`
-  height: 9vh;
-  width: 9vh;
+  height:8vh;
+  width: 8vh;
   border-radius: 50%;
   display: flex;
   justify-content: center;
