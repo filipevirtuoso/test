@@ -76,7 +76,7 @@ const InfoWrapper = styled.section`
 
   // background-color: grey;
   // background-color: #2f663d;
-  height: 30vh;
+  height: 25vh;
   width: 100%;
   color: #444 ;
 

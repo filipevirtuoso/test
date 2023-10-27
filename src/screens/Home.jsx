@@ -16,6 +16,11 @@ import { useGetEventsQuery } from '../slices/eventsApiSlice'
 import paginate from '../utils/paginate'
 import BGImage from '../assets/images/bg-home.png'
 
+import conaferLogo from '../assets/images/conafer-logo.webp'
+import GuardiansLogo from '../assets/images/HAHA.png'
+import BrigadasLogo from '../assets/images/brigadas.png'
+import TerraLogo from '../assets/images/terra_bank.webp'
+
 import Carousel from 'react-bootstrap/Carousel';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
@@ -32,7 +37,7 @@ const EventsWrapper = styled.section`
 
 const Events = styled.section`
   width: 100%;
-  height: 60%;
+  height: 50%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -105,6 +110,27 @@ const Date = styled.p`
   font-size: .8rem;
   margin: 0;
   padding: 0;
+`
+
+const LogosWrapper = styled.section`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* background-color: red; */
+  /* padding-left: 1rem; */
+  /* padding-right: 1rem; */
+  padding: 1rem;
+  width: 100%;
+  height: 10vh;
+  
+`
+
+const Logo = styled.img`
+  height: 8vh;
+`
+
+const Logo2 = styled.img`
+  height: 11vh;
 `
 
 const Home = () => {
@@ -287,6 +313,14 @@ const Home = () => {
             }
 
           </Events>
+
+          <LogosWrapper>
+            <Logo src={conaferLogo} />
+            <Logo src={GuardiansLogo} />
+            <Logo2 src={BrigadasLogo} />
+            <Logo src={TerraLogo} />
+          </LogosWrapper> 
+
           {!!events.length && (
 
             <PageSelector
