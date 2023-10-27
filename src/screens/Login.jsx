@@ -69,6 +69,7 @@ const FormContainer = styled.section`
   padding: 3rem;
   justify-content: flex-end;
   margin-top: 1rem;
+  color: #fff;
 `
 
 
@@ -98,7 +99,8 @@ const LogosWrapper = styled.section`
 
 const Link2 = styled.a`
   text-decoration: none;
-  color: #fff;
+  /* color: #fff; */
+  color: #b0850e;
   font-weight: bold;
 
 `
