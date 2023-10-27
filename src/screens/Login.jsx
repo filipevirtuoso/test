@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import Logo from '../assets/images/llogo.png'
 import Logo2 from '../assets/images/logo2.png'
-import BGImage from '../assets/images/login.png'
+import BGImage from '../assets/images/tribal.png'
 import Tribal from '../assets/images/tribal.png'
 import Conafer from '../assets/images/conafer-logo.webp'
 import Terra from '../assets/images/terra_bank.webp'
@@ -59,7 +59,7 @@ const Image = styled.section`
   background-image: url(${BGImage}); 
   background-repeat: no-repeat;
   background-size: contain;
-  opacity: 0.5;
+  opacity: 0.9;
 `
 
 const FormContainer = styled.section`
@@ -116,7 +116,7 @@ const TribalBG = styled.section`
   background-image: url(${Tribal}); 
   background-repeat: no-repeat;
   background-size: contain;
-  opacity: 0.3;
+  opacity: 0.9;
 `
 
 const Login = () => {
