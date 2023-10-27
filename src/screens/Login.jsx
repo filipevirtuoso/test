@@ -58,7 +58,7 @@ const Image = styled.section`
 
   background-image: url(${BGImage}); 
   background-repeat: no-repeat;
-  background-size: contain;
+  /* background-size: contain; */
   opacity: 0.9;
 `
 
