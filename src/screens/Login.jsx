@@ -99,8 +99,8 @@ const LogosWrapper = styled.section`
 
 const Link2 = styled.a`
   text-decoration: none;
-  /* color: #fff; */
-  color: #b0850e;
+  color: #fff;
+  /* color: #b0850e; */
   font-weight: bold;
 
 `
@@ -117,6 +117,13 @@ const TribalBG = styled.section`
   background-repeat: no-repeat;
   background-size: contain;
   opacity: 0.9;
+`
+
+const OrangeButton = styled.button`
+  border: none;
+  border-radius: .5rem;
+  background-color: #FF7009;
+  col
 `
 
 const Login = () => {
@@ -198,7 +205,7 @@ const Login = () => {
           </Form.Group>
           <Wrapper>
             <Button type='submit' variant='success' className='mt-3 w-50' disable={isLoading}>Entrar</Button>
-            <Button variant='warning' className='mt-3 w-50' disable={isLoading}><Link2 target="_blank" href="https://conafer.org.br/plataforma-hamugay-cadastro/">Cadastre-se</Link2></Button>
+            <OrangeButton variant='warning' className='mt-3 w-50' disable={isLoading}><Link2 target="_blank" href="https://conafer.org.br/plataforma-hamugay-cadastro/">Cadastre-se</Link2></OrangeButton>
             {/* { isLoading && <Loader />} */}
           </Wrapper>
         </Form>
