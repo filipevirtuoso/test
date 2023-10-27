@@ -58,7 +58,7 @@ const Image = styled.section`
 
   background-image: url(${BGImage}); 
   background-repeat: no-repeat;
-  /* background-size: contain; */
+  background-size: contain;
   opacity: 0.9;
 `
 
@@ -107,7 +107,7 @@ const Link2 = styled.a`
 
 const TribalBG = styled.section`
   width: 100%;
-  height: 4vh;
+  height: 100%;
   display: flex;
   margin-top: 2rem;
 
