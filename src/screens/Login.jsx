@@ -110,13 +110,13 @@ const TribalBG = styled.section`
   width: 100%;
   height: 5vh;
   display: flex;
-  margin-top: 1.6rem;
+  margin-top: 1.4rem;
 
 
 
   background-image: url(${Tribal}); 
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   opacity: 0.9;
 `
 
