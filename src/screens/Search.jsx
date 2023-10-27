@@ -52,6 +52,7 @@ const FormContainer = styled.section`
   padding: 1.3rem;
   justify-content: flex-start;
   background-color: #000;
+  color: #fff;
 `
 
 const EventsWrapper = styled.section`
