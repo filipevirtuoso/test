@@ -68,7 +68,7 @@ const FormContainer = styled.section`
   flex-direction: column;
   padding: 3rem;
   justify-content: flex-end;
-  margin-top: 1rem;
+  margin-top: 1.1rem;
   color: #fff;
 `
 
@@ -109,7 +109,7 @@ const TribalBG = styled.section`
   width: 100%;
   height: 100%;
   display: flex;
-  margin-top: 2rem;
+  margin-top: 1.9rem;
 
 
 
