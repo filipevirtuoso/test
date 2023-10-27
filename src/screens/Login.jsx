@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import Logo from '../assets/images/llogo.png'
 import Logo2 from '../assets/images/logo2.png'
 import BGImage from '../assets/images/tribal.png'
-import Tribal from '../assets/images/tribal.png'
+import Tribal from '../assets/images/tribal2.png'
 import Conafer from '../assets/images/conafer-logo.webp'
 import Terra from '../assets/images/terra_bank.webp'
 import { useDispatch, useSelector } from 'react-redux'
@@ -67,8 +67,8 @@ const FormContainer = styled.section`
   display: flex;
   flex-direction: column;
   padding: 3rem;
-  justify-content: flex-end;
-  margin-top: 1.1rem;
+  justify-content: center;
+  margin-top: 1rem;
   color: #fff;
 `
 
@@ -91,10 +91,11 @@ const Img = styled.img`
 
 const LogosWrapper = styled.section`
   width: 100%;
-  height: 8vh;
+  height: 6vh;
   display: flex;
   justify-content: center;
   align-items: start;
+  margin-top: 1rem;
 `
 
 const Link2 = styled.a`
@@ -107,9 +108,9 @@ const Link2 = styled.a`
 
 const TribalBG = styled.section`
   width: 100%;
-  height: 100%;
+  height: 5vh;
   display: flex;
-  margin-top: 1.9rem;
+  margin-top: 1.6rem;
 
 
 
@@ -123,7 +124,6 @@ const OrangeButton = styled.button`
   border: none;
   border-radius: .5rem;
   background-color: #FF7009;
-  col
 `
 
 const Login = () => {
