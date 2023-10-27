@@ -17,9 +17,9 @@ import paginate from '../utils/paginate'
 import BGImage from '../assets/images/bg-home.png'
 
 import conaferLogo from '../assets/images/conafer-logo.webp'
-import GuardiansLogo from '../assets/images/HAHA.png'
-import BrigadasLogo from '../assets/images/brigadas.png'
-import TerraLogo from '../assets/images/terra_bank.webp'
+import GuardiansLogo from '../assets/images/1.png'
+import BrigadasLogo from '../assets/images/3.png'
+import TerraLogo from '../assets/images/2.png'
 
 import Carousel from 'react-bootstrap/Carousel';
 import Table from 'react-bootstrap/Table';
@@ -332,7 +332,7 @@ const Home = () => {
                     <LogosWrapper>
             <Logo src={conaferLogo} />
             <Logo src={GuardiansLogo} />
-            <Logo2 src={BrigadasLogo} />
+            <Logo src={BrigadasLogo} />
             <Logo src={TerraLogo} />
           </LogosWrapper> 
           {/* <Image /> */}
