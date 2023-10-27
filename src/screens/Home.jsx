@@ -314,12 +314,6 @@ const Home = () => {
 
           </Events>
 
-          <LogosWrapper>
-            <Logo src={conaferLogo} />
-            <Logo src={GuardiansLogo} />
-            <Logo2 src={BrigadasLogo} />
-            <Logo src={TerraLogo} />
-          </LogosWrapper> 
 
           {!!events.length && (
 
@@ -332,7 +326,15 @@ const Home = () => {
               pages={events}
               page={page}
             />
+
+            
           )}
+                    <LogosWrapper>
+            <Logo src={conaferLogo} />
+            <Logo src={GuardiansLogo} />
+            <Logo2 src={BrigadasLogo} />
+            <Logo src={TerraLogo} />
+          </LogosWrapper> 
           {/* <Image /> */}
         </>)}
     </EventsWrapper>
