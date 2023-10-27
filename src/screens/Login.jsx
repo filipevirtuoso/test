@@ -70,6 +70,7 @@ const FormContainer = styled.section`
   justify-content: flex-end;
   margin-top: 2rem;
   color: #fff;
+  /* background-color: red; */
 `
 
 
@@ -94,7 +95,7 @@ const LogosWrapper = styled.section`
   height: 6vh;
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: end;
   /* margin-top: rem; */
 `
 
