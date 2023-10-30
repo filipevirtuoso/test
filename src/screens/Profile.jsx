@@ -24,8 +24,8 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
 // Others
-import BGImage from '../assets/images/profile-bg-2.jpeg'
-import Tribal from '../assets/images/bg-home.png'
+import BGImage from '../assets/images/profile-bg-22.png'
+import Tribal from '../assets/images/tribal2.png'
 
 
 const HeaderWrapper = styled.section`
@@ -43,10 +43,10 @@ const HeaderWrapper = styled.section`
   background-color: #000;
   
 
-  // background-image: url(${BGImage}); 
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  // opacity: 0.6;
+  background-image: url(${BGImage}); 
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* opacity: 0.9; */
 `
 
 const LeftWrapper = styled.section`
@@ -115,7 +115,7 @@ const ContentWrapper = styled.section`
   background-color: #000;
 
   // height: 65vh;
-  height: 65vh;
+  height: 42vh;
   // background-color: red;
   width: 100%;
 `
@@ -175,7 +175,7 @@ const Image = styled.section`
   background-image: url(${Tribal}); 
   background-repeat: no-repeat;
   background-size: contain;
-  opacity: 0.3;
+  opacity: 0.8;
 `
 
 const ProfilePic = styled.img`
@@ -254,7 +254,7 @@ const Profile = () => {
           <Link to='/edituser' style={linkStyle}><Button2>Editar perfil</Button2></Link>
           <Button3 onClick={logoutHandler}>Sair</Button3>
         </ContentWrapper>
-        {/* <Image /> */}
+        <Image />
       </>
     )}
   </>
