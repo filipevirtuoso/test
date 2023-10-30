@@ -35,18 +35,33 @@ const Div = styled.div`
 `
 
 const Img = styled.img`
-  width: 5rem;
+  width: 3.6rem;
   margin-right: 1rem;
   margin-left: 1rem;
+  margin-bottom: .5rem;
 `
 
 const LogosWrapper = styled.section`
   width: 100%;
-  height: 8vh;
+  height: 10vh;
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: center;;
   margin-top: 1rem;
+  flex-direction: column;
+`
+
+const FooterText = styled.p`
+  padding: 0;
+  margin: 0;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  font-size: .9rem;
+`
+
+const DirectionWrapper = styled.section`
+  display: flex;
 `
 
 const Faq = () => {
@@ -112,11 +127,15 @@ const Faq = () => {
         </Accordion.Item>
       </Accordion>
       <LogosWrapper>
-        <Img src={Conafer} />
-        <Img src={Terra} />
+        <DirectionWrapper>
+          <Img src={Conafer} />
+          <Img src={Terra} />
+        </DirectionWrapper>
+        <FooterText>© 2023 HÃMUGÃY. Todos os direitos reservados.</FooterText>
       </LogosWrapper>
+  
       </Div>
-
+      ]
       {/* <Image /> */}
     </>
   )

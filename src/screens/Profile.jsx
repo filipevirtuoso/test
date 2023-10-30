@@ -184,6 +184,14 @@ const ProfilePic = styled.img`
   height: 80px;
 `
 
+const FooterText = styled.p`
+  padding: 0;
+  margin: 0;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+`
+
 const linkStyle = {
   textDecoration: "none",
   // display: "flex",
@@ -194,6 +202,8 @@ const linkStyle = {
   margin: '0',
   textAlign: 'center'
 };
+
+
 
 
 const Profile = () => {
@@ -254,7 +264,9 @@ const Profile = () => {
           <Link to='/edituser' style={linkStyle}><Button2>Editar perfil</Button2></Link>
           <Button3 onClick={logoutHandler}>Sair</Button3>
         </ContentWrapper>
+
         <Image />
+        <FooterText>© 2023 HÃMUGÃY. Todos os direitos reservados.</FooterText>
       </>
     )}
   </>
