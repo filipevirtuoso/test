@@ -31,7 +31,7 @@ const Title = styled.h2`
 `
 
 const Div = styled.div`
-  height: 95vh;
+  height: 100vh;
 `
 
 const Img = styled.img`
