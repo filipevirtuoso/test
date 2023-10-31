@@ -153,6 +153,17 @@ function Search() {
     setIndex(selectedIndex);
   };  
 
+  console.log("Items")
+  console.log(items)
+
+  console.log("Events")
+  console.log(events)
+
+  console.log("FILTER")
+  console.log(filter)
+
+  console.log("PAGE")
+  console.log(page)
 
 
   function handlePage(index) {
@@ -160,8 +171,14 @@ function Search() {
   }
 
   useEffect(() => {
+    setPage(0)
+  }, [filter])
+
+  useEffect(() => {
     if (isLoading === false) {
       if(filter) {
+        console.log("ESTOU AQUI")
+        console.log(response)
         let filtered = response.filter((event) => event.complaint === filter)
         console.log(filtered)
         setEvents(paginate(filtered))
