@@ -31,7 +31,7 @@ const Title = styled.h2`
 `
 
 const Div = styled.div`
-  height: 100vh;
+  height: 95vh;
 `
 
 const Img = styled.img`
@@ -131,11 +131,11 @@ const Faq = () => {
           <Img src={Conafer} />
           <Img src={Terra} />
         </DirectionWrapper>
-        <FooterText>© 2023 HÃMUGÃY. Todos os direitos reservados.</FooterText>
+        {/* <FooterText>© 2023 HÃMUGÃY. Todos os direitos reservados.</FooterText> */}
       </LogosWrapper>
   
       </Div>
-      ]
+      
       {/* <Image /> */}
     </>
   )
