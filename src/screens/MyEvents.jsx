@@ -55,6 +55,16 @@ const Td = styled.td`
 text-align: left;
 `
 
+const FeedbackWrapper = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  border: 3px solid #ebad1c;
+  padding: 1rem;
+`
+
 const linkStyle = {
   textDecoration: "none",
   // display: "flex",
@@ -173,6 +183,11 @@ const MyEvents = (props) => {
             <Td>{info.description}</Td>
             </tr>
           </Table>
+
+          { !info.feedback.length ? <FeedbackWrapper>Aguardando feedback</FeedbackWrapper> :  (
+          <FeedbackWrapper>
+            {info.feedback}
+          </FeedbackWrapper>)}
 
           </>
         )}
