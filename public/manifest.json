@@ -7,7 +7,7 @@
   "short_name": "Monitoramento",
   "icons": [
       {
-          "src": "./assets/icons/splash2.png",
+          "src": "./assets/icons/icon-512x512.png",
           "sizes": "512x512",
           "type": "image/png"
       }
