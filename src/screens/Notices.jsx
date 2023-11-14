@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import { useGetNoticesQuery} from '../slices/eventsApiSlice'
@@ -74,27 +74,31 @@ const Notices = (props) => {
   const handleShow = () => setShow(true);
 
   const [index, setIndex] = useState(0);
+  const [lang, setLang] = useState('')
+
+
+  useEffect(() => {
+    const lastSelected = JSON.parse(
+      localStorage.getItem("lang") ?? "[]"
+    );
+    setLang(lastSelected);
+  }, [])
 
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };  
 
-
-  // console.log(pathname)
-
-  // console.log(info.image)
-
   return (
     <Wrapper>
     <BackButton page={pathname === '/notices' ? "/" : "/"} />
-    <Title>Avisos</Title>
+    <Title>{lang === "Português" ? "Avisos" : "Wãno Këpë"}</Title>
 
     { isLoading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
       <>
 
         <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{"Detalhes"}</Modal.Title>
+          <Modal.Title>{lang === "Português" ? "Detalhes" : "Wahimikë"}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
 
@@ -129,11 +133,11 @@ const Notices = (props) => {
 
         <Table >
             <tr>
-            <Th>Título:</Th>
+            <Th>{lang === "Português" ? "Título:" : "Título:"}</Th>
             <Td>{info.title}</Td>
             </tr>
             <tr>
-            <Th>Descrição:</Th>
+            <Th>{lang === "Português" ? "Descrição:" : "Wahimiai"}</Th>
             <Td>{info.description}</Td>
             </tr>
           </Table>
@@ -158,8 +162,8 @@ const Notices = (props) => {
         <thead>
           <tr>
             <th>Título</th>
-            <th>Descrição</th>
-            <th>Data</th>
+            <th>{lang === "Português" ? "Descrição:" : "Wahimiai"}</th>
+            <th>{lang === "Português" ? "Data:" : "Thë Wakara"}</th>
 
           </tr>
         </thead>

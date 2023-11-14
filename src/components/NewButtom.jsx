@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import { FaExclamationTriangle, FaPlus, FaQuestion, FaListUl, FaHandsHelping, FaMapMarkerAlt, FaMicrophone } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
@@ -95,7 +95,16 @@ const linkStyle = {
 const NewButtom = () => {
   const { data: response, isLoading, error } = useGetEventsQuery();
   const location = useLocation()
-  console.log("🚀 ~ file: NewButtom.jsx:95 ~ NewButtom ~ location:", location.pathname)
+  const [lang, setLang] = useState('')
+
+
+  useEffect(() => {
+    const lastSelected = JSON.parse(
+      localStorage.getItem("lang") ?? "[]"
+    );
+    setLang(lastSelected);
+  }, [])
+
 
 
 
@@ -111,7 +120,7 @@ const NewButtom = () => {
           <Test>
           <Div><FaPlus color='#f2f2f2' /></Div>
           <Text>
-            Adicionar
+          {lang === "Português" ? "Adicionar" : "Taai"}
           </Text>
           </Test>
         </Link>
@@ -123,7 +132,7 @@ const NewButtom = () => {
 
           <Div><FaListUl color='#f2f2f2' /></Div>
           <Text>
-            Ocorrências
+          {lang === "Português" ? "Ocorrências" : "Kuprouwei"}
           </Text>
           </Test>
         </Link>
@@ -135,7 +144,7 @@ const NewButtom = () => {
 
           <Div><FaExclamationTriangle color='#f2f2f2' /></Div>
           <Text>
-            Avisos
+          {lang === "Português" ? "Avisos" : "Wãno Këpë"}
           </Text>
           </Test>
         </Link>
@@ -159,7 +168,7 @@ const NewButtom = () => {
 
           <Div><FaMicrophone color='#f2f2f2' /></Div>
           <Text>
-            Enviar áudio
+           {lang === "Português" ? "Enviar áudio" : "Wã ximiö"}
           </Text>
           </Test>
         </Link>

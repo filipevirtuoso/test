@@ -3,6 +3,7 @@ import React from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import Logo from '../assets/images/llogo.png'
+import Earth from '../assets/images/earth.png'
 import Logo2 from '../assets/images/logo2.png'
 import BGImage from '../assets/images/tribal.png'
 import Tribal from '../assets/images/tribal2.png'
@@ -11,8 +12,10 @@ import Terra from '../assets/images/terra_bank.webp'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../components/Loader'
 
+import { TbWorld } from "react-icons/tb";
 
-import { Form, Button, Row, Col } from 'react-bootstrap'
+
+import { Form, Button, Row, Col, Dropdown } from 'react-bootstrap'
 import { setCacheNameDetails } from 'workbox-core'
 
 import { useLoginMutation } from '../slices/usersSlice'
@@ -81,7 +84,8 @@ const Input = styled.input`
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
-  gap: .3rem;
+  gap: .2rem;
+
 `
 
 const Img = styled.img`
@@ -129,13 +133,14 @@ const OrangeButton = styled.button`
 
 const Login = () => {
 
+  const [lang, setLang] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const [login, { isLoading }] = useLoginMutation()
+  const [login, { isLoading }] = useLoginMutation ()
 
   const { userInfo } = useSelector((state) => state.auth)
 
@@ -152,6 +157,11 @@ const Login = () => {
   //     navigate('/login')
   //   }
   // }, [userInfo,  navigate])
+
+  const handleSelect=(e)=>{
+    setLang(e)
+    localStorage.setItem("lang", JSON.stringify(e));
+  }
 
 
   const submitHandler = async (e) => {
@@ -172,7 +182,6 @@ const Login = () => {
       dispatch(setCredentials({ ...res, }))
       navigate('/')
     } catch (error) {
-      // console.log(error)
       toast.error(error?.data?.error_description || error.data.error)
     }
   }
@@ -187,7 +196,7 @@ const Login = () => {
       <FormContainer>
         <Form onSubmit={submitHandler}>
           <Form.Group controlId='username'>
-            <Form.Label>Email</Form.Label>
+            <Form.Label>{ lang ===  "Português" ? "Email" : "Wãno hika" }</Form.Label>
             <Form.Control
               type='email'
               placeholder='Digite seu email'
@@ -205,9 +214,19 @@ const Login = () => {
             </Form.Control>
           </Form.Group>
           <Wrapper>
-            <Button type='submit' variant='success' className='mt-3 w-50' disable={isLoading}>Entrar</Button>
-            <OrangeButton variant='warning' className='mt-3 w-50' disable={isLoading}><Link2 target="_blank" href="https://conafer.org.br/plataforma-hamugay-cadastro/">Cadastre-se</Link2></OrangeButton>
+            <Button type='submit' variant='success' className='mt-3 w-25' disable={isLoading}>{lang === "Português" ? "Entrar" : "Rükëi"}</Button>
+            <OrangeButton variant='warning' className='mt-3 w-50' disable={isLoading}><Link2 target="_blank" href="https://conafer.org.br/plataforma-hamugay-cadastro/">{lang === "Português" ? "Cadastre-se" : "Wãhã Küo"}</Link2></OrangeButton>
             {/* { isLoading && <Loader />} */}
+            <Dropdown className="w=25 mt-3" onSelect={handleSelect}>
+              <Dropdown.Toggle variant="dark" id="dropdown-basic">
+                <TbWorld />
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item eventKey="Português">Português</Dropdown.Item>
+                <Dropdown.Item eventKey="Yanomami">Yanomami</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </Wrapper>
         </Form>
       </FormContainer>

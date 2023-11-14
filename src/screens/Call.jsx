@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect} from 'react'
 import { VoiceRecorder } from 'react-voice-recorder-player';
 
 import { styled } from 'styled-components'
@@ -53,23 +53,21 @@ const Call = () => {
   const [addHelp, { isLoading }] = useAddHelpMutation()
   const { data, isLoading: isLoadingUser, error } = useUserDetailQuery();
   const {data: helps, isLoading: isLoadingHelp, error: errorHelp, refetch} = useGetHelpQuery();
+  const [lang, setLang] = useState('')
 
-  console.log("HELP")
-  console.log(helps)
+
+  useEffect(() => {
+    const lastSelected = JSON.parse(
+      localStorage.getItem("lang") ?? "[]"
+    );
+    setLang(lastSelected);
+  }, [])
 
 
   const submitAudio = async (audioData) => {
 
-    console.log("AQUI")
-    console.log(audioData.type)
-
-    console.log(data.id)
-
-    // const url = URL.createObjectURL(blob);
-
     const file = new File([audioData], 'message')
 
-    console.log(file)
 
     let helpData = new FormData()
 
@@ -97,7 +95,7 @@ const Call = () => {
     <BackButton page="/" />
     <Wrapper>
       
-      <Title>Envie um áudio descrevendo o problema que entraremos em contato.</Title>
+      <Title>{lang === "Português" ? "Envie um áudio descrevendo o problema que entraremos em contato." : "Wa kahikiano ximīro xi warihiwë wa të wãha no wëyëranī īha yama kiano hurayopī."}</Title>
       <VoiceRecorder onRecordingEnd={submitAudio}  />
       
 
@@ -106,9 +104,9 @@ const Call = () => {
 
         <thead>
           <tr>
-            <th>Data</th>
+            <th>{lang === "Português" ? "Data:" : "Thë Wakara"}</th>
             <th>Horário</th>
-            <th>Status</th>
+            <th>{lang === "Português" ? "Status:" : "Pei Wãwãhã"}</th>
           </tr>
         </thead>
 

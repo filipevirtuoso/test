@@ -148,23 +148,19 @@ function Search() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [index, setIndex] = useState(0);
+  const [lang, setLang] = useState('')
+
+
+  useEffect(() => {
+    const lastSelected = JSON.parse(
+      localStorage.getItem("lang") ?? "[]"
+    );
+    setLang(lastSelected);
+  }, [])
 
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };  
-
-  console.log("Items")
-  console.log(items)
-
-  console.log("Events")
-  console.log(events)
-
-  console.log("FILTER")
-  console.log(filter)
-
-  console.log("PAGE")
-  console.log(page)
-
 
   function handlePage(index) {
     setPage(index)
@@ -177,10 +173,7 @@ function Search() {
   useEffect(() => {
     if (isLoading === false) {
       if(filter) {
-        console.log("ESTOU AQUI")
-        console.log(response)
         let filtered = response.filter((event) => event.complaint === filter)
-        console.log(filtered)
         setEvents(paginate(filtered))
       } else {
         setEvents(paginate(response))
@@ -225,16 +218,16 @@ function Search() {
       <BackButton page="/" />
       
       <FormContainer>
-      <Title>Busca</Title>
+      <Title>{lang === "Português" ? "Busca" : "Taeiwëi"}</Title>
         <Form>
           <Form.Group controlId='complaint'>
-            <Form.Label className="mt-3">Filtrar ocorrências pelo tipo:</Form.Label>
+            <Form.Label className="mt-3">{lang === "Português" ? "Filtrar ocorrências pelo tipo:" : "Yaiprai Kuprarionowei Pei Tewahahãmi:"}</Form.Label>
             <Form.Select
               type='select'
               required
               value={filter}
               onChange={(e) => setFilter(e.target.value)}>
-              <option>Selecione uma opção</option>
+              <option>{lang === "Português" ? "Selecione uma opção" : "Aiwatë yaiaë"}</option>
               <option>Desmate</option>
               <option>Grilagem</option>
               <option>Invasão</option>

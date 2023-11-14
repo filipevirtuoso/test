@@ -75,6 +75,16 @@ const EditUser = () => {
   const { data, isLoading: isLoadingUser, error, refetch} = useUserDetailQuery();
   const [updateUser, {isLoading: loadingUpdate}] = useUpdateUserMutation();
 
+  const [lang, setLang] = useState('')
+
+
+useEffect(() => {
+  const lastSelected = JSON.parse(
+    localStorage.getItem("lang") ?? "[]"
+  );
+  setLang(lastSelected);
+}, [])
+
   useEffect(() => {
     if(data) {
       setName(data.name);
@@ -102,11 +112,6 @@ const EditUser = () => {
       userData.append("profile_pic", profile_pic)
     }
 
-    // for (const value of eventData.values()) {
-    //   console.log("AQUi")
-    //   console.log(value);
-    // }
-
     try {
       const res = await updateUser(userData).unwrap();
       // dispatch(setCredentials({...res, }))
@@ -125,12 +130,12 @@ const EditUser = () => {
   return (
     <>
       <BackButton page="/profile" />
-      <Title>Editar perfil</Title>
+      <Title>{lang === "Português" ? "Editar perfil" : "No uhutipī tutoprarī"}</Title>
       <FormContainer>
         <Form onSubmit={submitHandler}>
 
         <Form.Group controlId='profile_pic' className='mt-3'>
-            <Form.Label>Selecione uma imagem</Form.Label>
+            <Form.Label>{lang === "Português" ? "Selecione uma imagem" : "No Uhutipë Yaiai"}</Form.Label>
             <Form.Control
               type='file'
               // value={image1}
@@ -140,7 +145,7 @@ const EditUser = () => {
           </Form.Group>
           
           <Form.Group controlId='name' className=''>
-            <Form.Label className='mt-1'>Nome</Form.Label>
+            <Form.Label className='mt-1'>{lang === "Português" ? "Nome" : "Pei wãha"}</Form.Label>
               <Form.Control
                 type='text'
                 placeholder='Ex: Lucas'
@@ -152,7 +157,7 @@ const EditUser = () => {
 
 
           <Form.Group controlId='village' className=''>
-            <Form.Label className='mt-1'>Aldeia</Form.Label>
+            <Form.Label className='mt-1'>{lang === "Português" ? "Aldeia" : "Xapöno"}</Form.Label>
             <Form.Control
               type='text'
               value={village}
@@ -162,7 +167,7 @@ const EditUser = () => {
           </Form.Group>
 
           <Form.Group controlId='indigenous_territory' className=''>
-            <Form.Label className='mt-1'>Território</Form.Label>
+            <Form.Label className='mt-1'>{lang === "Português" ? "Território" : "Urihi"}</Form.Label>
             <Form.Control
               type='text'
               value={indigenous_territory}
@@ -172,7 +177,7 @@ const EditUser = () => {
           </Form.Group>
 
           <Form.Group controlId='email' className=''>
-            <Form.Label className='mt-1'>Email</Form.Label>
+            <Form.Label className='mt-1'>{lang === "Português" ? "Email:" : "Wãno hika:"}</Form.Label>
             <Form.Control
               type='email'
               value={email}
@@ -194,7 +199,7 @@ const EditUser = () => {
 
 
           <Wrapper>
-            <Button type='submit' variant='warning' className='mt-2' >Alterar</Button>
+            <Button type='submit' variant='warning' className='mt-2' >{lang === "Português" ? "Alterar" : "Yai Taprai"}</Button>
             {/* { isLoading && <Loader />} */}
           </Wrapper>
         </Form>

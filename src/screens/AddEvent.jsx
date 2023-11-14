@@ -131,6 +131,15 @@ const AddEvent = () => {
   const [image1, setImage1] = useState('')
   const [image2, setImage2] = useState('')
   const [image3, setImage3] = useState('')
+  const [lang, setLang] = useState('')
+
+
+  useEffect(() => {
+    const lastSelected = JSON.parse(
+      localStorage.getItem("lang") ?? "[]"
+    );
+    setLang(lastSelected);
+  }, [])
 
 
   const [validated, setValidated] = useState(false);
@@ -197,10 +206,7 @@ const AddEvent = () => {
     eventData.append("user", data.id)
     eventData.append("coordinates", coordinates)
 
-    // for (const value of eventData.values()) {
-    //   console.log("eventData")
-    //   console.log(value);
-    // }
+
 
     try {
       toast.info('Enviando')
@@ -214,7 +220,6 @@ const AddEvent = () => {
   }
 
   const handleImage = (e) => {
-    console.log(e.target.files[0])
     setImage1(e.target.files[0])
   }
 
@@ -229,19 +234,13 @@ const AddEvent = () => {
 
 
   const saveMarkers = (newMarkerCoords) => {
-    // console.log(newMarkerCoords)
     setCoordinates(newMarkerCoords)
     setShowMap(!showMap)
-    // let markerInfo = [...markerInfo, newMarkerCoords];
-    // console.log(markerInfo)
-    
-    // setMapData((prevState) => ({ ...prevState, markerInfo }));
+
   };
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function(position) {
-      console.log("Latitude is :", position.coords.latitude);
-      console.log("Longitude is :", position.coords.longitude);
       setCoordinates(`${position.coords.latitude}, ${position.coords.longitude}`)
     });
   })
@@ -253,7 +252,7 @@ const AddEvent = () => {
       <BackButton page="/" />
       
       <FormContainer>
-      <Title>Abrir ocorrência</Title>
+      <Title>{lang === "Português" ? "Abrir ocorrência" : "Karoprai Kuprariowei"}</Title>
         <Form onSubmit={submitHandler}>
         <InputWrapper>
           <Form.Group controlId='image1' className='mt-3'>
@@ -305,7 +304,7 @@ const AddEvent = () => {
 
 
           <Form.Group controlId='coordinates' className=''>
-            <Form.Label>Coordenadas</Form.Label>
+            <Form.Label>{lang === "Português" ? "Coordenadas" : "Katitiöpë Kurehá"}</Form.Label>
             <Form.Control
               type='text'
               value={coordinates}
@@ -369,7 +368,7 @@ const AddEvent = () => {
 
 
           <Form.Group controlId='complaint'>
-            <Form.Label className="mt-3">Tipo</Form.Label>
+            <Form.Label className="mt-3">{lang === "Português" ? "Tipo" : "Kurenaha"}</Form.Label>
             <Form.Select
               type='select'
               required
@@ -389,7 +388,7 @@ const AddEvent = () => {
           
 
           <Form.Group controlId='description' className='mt-3'>
-            <Form.Label>Descrição</Form.Label>
+            <Form.Label>{lang === "Português" ? "Descrição" : "Wahimiai"}</Form.Label>
             <Form.Control
               as='textarea'
               
@@ -402,7 +401,7 @@ const AddEvent = () => {
           </Form.Group>
 
           <Form.Group controlId='date_occurrence' className='mt-3'>
-            <Form.Label>Informe a data</Form.Label>
+            <Form.Label>{lang === "Português" ? "Informe a data" : "Të Wakara Wahiai"}</Form.Label>
             <Form.Control
               type='date'
               value={date_occurrence}
@@ -411,8 +410,8 @@ const AddEvent = () => {
             </Form.Control>
           </Form.Group>
 
-          <Form.Group controlId='time_occurrence' className=''>
-            <Form.Label>Informe o horário</Form.Label>
+          <Form.Group controlId='time_occurrence' className='mt-2'>
+            <Form.Label>{lang === "Português" ? "Informe o horário" : "Uximoto Wahimiai"}</Form.Label>
             <Form.Control
               type='time'
               value={time_occurrence}
@@ -423,7 +422,7 @@ const AddEvent = () => {
 
 
           <Wrapper>
-            <MyButton type='submit' variant='success' className='mt-4 mb-5'>Enviar</MyButton>
+            <MyButton type='submit' variant='success' className='mt-4 mb-5'>{lang === "Português" ? "Enviar" : "Ximië"}</MyButton>
             {/* { isLoading && <Loader />} */}
           </Wrapper>
         </Form>

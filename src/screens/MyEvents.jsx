@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import { useGetUserEventsQuery } from '../slices/eventsApiSlice'
@@ -85,24 +85,32 @@ const MyEvents = (props) => {
   const handleShow = () => setShow(true);
 
   const [index, setIndex] = useState(0);
+  const [lang, setLang] = useState('')
+
+
+  useEffect(() => {
+    const lastSelected = JSON.parse(
+      localStorage.getItem("lang") ?? "[]"
+    );
+    setLang(lastSelected);
+  }, [])
 
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };  
 
-  // console.log(pathname)
-
   return (
     <Wrapper>
     <BackButton page={pathname === '/' ? "/" : "/profile"} />
-    <Title>Minhas ocorrências</Title>
+    <Title>{lang === "Português" ? "minhas ocorrências" : "Ipa Të Kuprowei"}</Title>
+    
 
     { isLoading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
       <>
 
         <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{"Detalhes"}</Modal.Title>
+          <Modal.Title>{lang === "Português" ? "Detalhes" : "Wahimikë"}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
 
@@ -161,13 +169,13 @@ const MyEvents = (props) => {
 
 
 
-        <Table >
+          <Table >
             <tr>
-            <Th>Tipo:</Th>
+            <Th>{lang === "Português" ? "Tipo:" : "Kurenaha"}</Th>
             <Td>{info.complaint}</Td>
             </tr>
             <tr>
-            <Th>Data:</Th>
+            <Th>{lang === "Português" ? "Data:" : "Thë Wakara"}</Th>
             <Td>{info.date_occurrence.split('-').reverse().join('/')}</Td>
             </tr>
             <tr>
@@ -175,11 +183,11 @@ const MyEvents = (props) => {
             <Td>{info.time_occurrence}</Td>
             </tr>
             <tr>
-            <Th>Status:</Th>
+            <Th>{lang === "Português" ? "Status:" : "Pei Wãwãhã"}</Th>
             <Td>{info.status}</Td>
             </tr>
             <tr>
-            <Th>Descrição:</Th>
+            <Th>{lang === "Português" ? "Descrição:" : "Wahimiai"}</Th>
             <Td>{info.description}</Td>
             </tr>
           </Table>
@@ -208,10 +216,10 @@ const MyEvents = (props) => {
 
         <thead>
           <tr>
-            <th>Tipo</th>
-            <th>Data</th>
-            <th>Descrição</th>
-            <th>Editar</th>
+            <th>{lang === "Português" ? "Tipo:" : "Kurenaha"}</th>
+            <th>{lang === "Português" ? "Data:" : "Thë Wakara"}</th>
+            <th>{lang === "Português" ? "Descrição:" : "Wahimiai"}</th>
+            <th>{lang === "Português" ? "Editar:" : "Köpeprai"}</th>
           </tr>
         </thead>
 

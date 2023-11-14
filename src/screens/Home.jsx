@@ -119,6 +119,7 @@ const LogosWrapper = styled.section`
   /* background-color: red; */
   /* padding-left: 1rem; */
   /* padding-right: 1rem; */
+  color: #fff;
   padding: 1rem;
   width: 100%;
   height: 10vh;
@@ -147,6 +148,15 @@ const Home = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [index, setIndex] = useState(0);
+  const [lang, setLang] = useState('')
+
+
+  useEffect(() => {
+    const lastSelected = JSON.parse(
+      localStorage.getItem("lang") ?? "[]"
+    );
+    setLang(lastSelected);
+  }, [])
 
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
@@ -194,7 +204,6 @@ const Home = () => {
   }
 
 
-  console.log(show)
   return (
 
     <EventsWrapper>
@@ -204,7 +213,7 @@ const Home = () => {
 
 <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{"Detalhes"}</Modal.Title>
+          <Modal.Title>{lang === "Português" ? "Detalhes" : "Wahimikë"}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
         { !info ? <Loader /> :  (
@@ -260,11 +269,11 @@ const Home = () => {
 
         <Table >
             <tr>
-            <Th>Tipo:</Th>
+            <Th>{lang === "Português" ? "Tipo:" : "Kurenaha"}</Th>
             <Td>{info.complaint}</Td>
             </tr>
             <tr>
-            <Th>Data:</Th>
+            <Th>{lang === "Português" ? "Data:" : "Thë Wakara"}</Th>
             <Td>{info.date_occurrence.split('-').reverse().join('/')}</Td>
             </tr>
             <tr>
@@ -272,11 +281,11 @@ const Home = () => {
             <Td>{info.time_occurrence}</Td>
             </tr>
             <tr>
-            <Th>Status:</Th>
+            <Th>{lang === "Português" ? "Status:" : "Pei Wãwãhã"}</Th>
             <Td>{info.status}</Td>
             </tr>
             <tr>
-            <Th>Descrição:</Th>
+            <Th>{lang === "Português" ? "Descrição:" : "Wahimiai"}</Th>
             <Td>{info.description}</Td>
             </tr>
           </Table>
@@ -314,7 +323,6 @@ const Home = () => {
 
           </Events>
 
-
           {!!events.length && (
 
             <PageSelector
@@ -329,7 +337,7 @@ const Home = () => {
 
             
           )}
-                    <LogosWrapper>
+          <LogosWrapper>
             <Logo src={conaferLogo} />
             <Logo src={GuardiansLogo} />
             <Logo src={BrigadasLogo} />

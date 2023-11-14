@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import { FaArrowCircleLeft } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
@@ -65,64 +65,71 @@ const DirectionWrapper = styled.section`
 `
 
 const Faq = () => {
+
+  const [lang, setLang] = useState('')
+
+
+  useEffect(() => {
+    const lastSelected = JSON.parse(
+      localStorage.getItem("lang") ?? "[]"
+    );
+    setLang(lastSelected);
+  }, [])
+
+  
   return (
     <>
       <BackButton page="/" />
       {/* <Image /> */}
       <Div>
-      <Title>FAQ - Perguntas frequentes</Title>
+      <Title>{lang === "Português" ? "FAQ - Perguntas frequentes" : "Wãrii yaimoü"}</Title>
       <Accordion defaultActiveKey="0">
         <Accordion.Item eventKey="0">
-          <Accordion.Header>Como abrir uma ocorrência?</Accordion.Header>
+          <Accordion.Header>{lang === "Português" ? "Como abrir uma ocorrência?" : "Wetinaha Karoprai Tërë?"}</Accordion.Header>
           <Accordion.Body>
-          No aplicativo, você encontrará uma opção para "Registrar Ocorrência". 
-          Clique nessa opção e siga as instruções para adicionar detalhes da ocorrência, 
-          incluindo fotos e coordenadas GPS.
+          {lang === "Português" ? "No aplicativo, você encontrará uma opção para Registrar Ocorrência. Clique nessa opção e siga as instruções para adicionar detalhes da ocorrência, incluindo fotos e coordenadas GPS." : "Aplicativo Aha, Watë Ha Tararini Kuprariowei Watë Taai Watë Ha Hutikitarënë Nosiha Tërënë Watë Pewaha Taaixoape GPS Ani Wa Taeprapë Watë Takei."}
+
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="1">
-          <Accordion.Header>Vou receber notificações sobre as ocorrências que registrei?</Accordion.Header>
+          {/* <Accordion.Header>Vou receber notificações sobre as ocorrências que registrei?</Accordion.Header> */}
+          <Accordion.Header>{lang === "Português" ? "Vou receber notificações sobre as ocorrências que registrei?" : "Pei yatë Pëwãhã Tëapë Tëpërë Kuprarionowei?"}</Accordion.Header>
           <Accordion.Body>
-          Sim, o aplicativo enviará notificações sobre as ocorrências que você registrou e possíveis atualizações das ações tomadas pelos órgãos responsáveis.
+          {lang === "Português" ? "Sim, o aplicativo enviará notificações sobre as ocorrências que você registrou e possíveis atualizações das ações tomadas pelos órgãos responsáveis." : "Awei, Aplicativo Ani Tepë Wahaximipë Tëpëre Kuprariõnowei Watëpë Wãha Re Teararenowei Ai Tutëtutë Hikari Kuprouwei órgãos Penikãi Ximipë."}
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="2">
-          <Accordion.Header>O que são os "pontos" no mapa interativo do aplicativo?</Accordion.Header>
+          <Accordion.Header>{lang === "Português" ? "O que são os pontos no mapa interativo do aplicativo?" : "Mapa Ahami Exi Tëpëwãha Tepërë Katitiowei?"}</Accordion.Header>
           <Accordion.Body>
-          Os "pontos" no mapa interativo representam as áreas afetadas pelas ocorrências registradas. 
-          Eles ajudam os gestores a visualizar e monitorar a situação em tempo real.
+          {lang === "Português" ? "Os pontos no mapa interativo representam as áreas afetadas pelas ocorrências registradas. Eles ajudam os gestores a visualizar e monitorar a situação em tempo real." : "Mapa interativo Aha Katitiowei Tëpë Wãhãwahimiopë Tëpërë Kuprariõnowei Gestores Pë Payëripramopë Tepë Miëhëtëhë Yaimamo Yëopë Tutë Të Wakaraha."}
           </Accordion.Body>
         </Accordion.Item>
 
         <Accordion.Item eventKey="3">
-          <Accordion.Header>Quem são os "gestores"?</Accordion.Header>
+          <Accordion.Header>{lang === "Português" ? "Quem são os gestores?" :  "Wëti Këpë gestores?" }</Accordion.Header>
           <Accordion.Body>
-          Os gestores são os responsáveis por acompanhar e gerenciar as ocorrências registradas por você. Eles têm acesso ao painel completo de gerenciamento de ocorrências.
+        {lang === "Portuhguês" ? "Os gestores são os responsáveis por acompanhar e gerenciar as ocorrências registradas por você. Eles têm acesso ao painel completo de gerenciamento de ocorrências." : "Kama Tëri Pëni Të Pë Miporaheni Watë Waha Nohi Rë Wëyëkenowei Ihi Të Rë Kui Kama Tëri Pëni Të Pë Miporaheni Të Rii Kai Hikarimopehe. Të Pë Wa Hano Rë Wëyëowei Të Pë Mayo Nosi Hikari Tëpou Haikia Waikirahei."}
           </Accordion.Body>
         </Accordion.Item>
 
         <Accordion.Item eventKey="4">
-          <Accordion.Header>Como posso editar minhas informações no aplicativo?</Accordion.Header>
+          <Accordion.Header>{lang === "Português" ? "Como posso editar minhas informações no aplicativo?" : "Wetinãha Yãai Kuopë Ipa Tëpë Waharé Kui aplicativo aha?"}</Accordion.Header>
           <Accordion.Body>
-          Para editar suas informações, clique no ícone do boneco, 
-          localizado no canto superior esquerdo. Em seguida, selecione a opção "Editar Perfil". 
-          Lá, você poderá atualizar suas informações conforme necessário. Lembre-se de salvar as alterações antes de sair da página.
+          {lang === "Português" ? "Para editar suas informações, clique no ícone do boneco, localizado no canto superior esquerdo. Em seguida, selecione a opção Editar Perfil. Lá, você poderá atualizar suas informações conforme necessário. Lembre-se de salvar as alterações antes de sair da página." : "Wano Hé Wa Tëpë Oni Tapë, Haihai Të Maxirë Kureha Ihiru A No Uhutipi Ta Hutikiki Ihitë Nosiki Ha Pei Wano Uhutipirë Kuowei Të Ta Yai Rë. Iha Ehë Wano wa Të Pë Tutoprapëtëpë Puhio Pë Naha. Puhi Ta Xatiiko, Wa Haiwei Tëhë, Tëpë Oni Maprou Mao Pë Tëpë Ta Tutoprai."}
           </Accordion.Body>
         </Accordion.Item>
 
         <Accordion.Item eventKey="5">
-          <Accordion.Header>Encontrei um problema técnico no aplicativo. Como posso reportá-lo?</Accordion.Header>
+          <Accordion.Header>{lang === "Português" ? "Encontrei um problema técnico no aplicativo. Como posso reportá-lo?" : "Wariaitõ técnico Yatë Taeprarema aplicativo aha. WëtinahaYatë Wãha Ximië Kuopë?"}</Accordion.Header>
           <Accordion.Body>
-          Se você encontrar um problema técnico no aplicativo, 
-          encaminhe um email para monitoramento@conafer.org.br. 
-          Sua contribuição é importante para aprimorarmos a experiência de uso do aplicativo.
+          {lang === "Português" ? "Se você encontrar um problema técnico no aplicativo, encaminhe um email para monitoramento@conafer.org.br. Sua contribuição é importante para aprimorarmos a experiência de uso do aplicativo." : "Wãrihito técnico Aplicativo Aha Watë Tapirai Tehë, E-mail Wa Ximië monitoramento@conafer.org.br Wa Payëriowei Tëhë importante Të Yai aplicativo a Katehepropë a Hupamopë."}
           </Accordion.Body>
         </Accordion.Item>
 
         <Accordion.Item eventKey="6">
-          <Accordion.Header>Preciso entrar em contato com a CONAFER!</Accordion.Header>
+          <Accordion.Header>{lang === "Português" ? "Preciso entrar em contato com a CONAFER!" : "Conafer Íha Wawa Hai Xoaopë"}</Accordion.Header>
           <Accordion.Body>
-          Email: monitoramento@conafer.org.br
+          {lang === "Português" ? "Email: monitoramento@conafer.org.br" : "Email Waximipë: monitoramento@conafer.org.br Pë Watëkãi liga Mapë...."}
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>

@@ -29,16 +29,12 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const UserInfoWrapper = styled.section`
   display: flex;
   align-items: center;
-
   height: 10vh;
   width: 100%;
   color: #444;
   padding-left: 2rem;
   border-bottom: 2px solid #444;
-
   background-color: #000;
-  
-  
 `
 
 const NameWrapper = styled.section`
@@ -187,6 +183,7 @@ const DD = styled.div`
   align-items: center;
   justify-content: center;
   gap: .3rem;
+  font-size: .8rem;
 
 `
 
@@ -219,6 +216,15 @@ const Header = ({ name, indigenous_territory  }) => {
   const {data: events, isLoading: isLoadingEvents, error: eventErrors} = useGetEventsQuery();
   const  {data: stats, isLoading: isLoadingStats, error: statsErros} = useGetStatisticsQuery();
   const [chartInfo, setChartInfo] = useState('')
+  const [lang, setLang] = useState('')
+
+
+  useEffect(() => {
+    const lastSelected = JSON.parse(
+      localStorage.getItem("lang") ?? "[]"
+    );
+    setLang(lastSelected);
+  }, [])
 
   useEffect(() => {
 
@@ -251,6 +257,9 @@ const Header = ({ name, indigenous_territory  }) => {
     
   }, stats)
 
+
+  console.log(lang)
+
   
   return (
     <>
@@ -270,17 +279,16 @@ const Header = ({ name, indigenous_territory  }) => {
       <InfoWrapper>
 
 
-
         { !!chartInfo === false ? '': error ? (<Message variant='danger'>{error?.data?.message || error.error}</Message>) : (
           <RightWrapper>
           <Pie data={chartInfo} />
           <Div>
-          <DD><Red />Desmate</DD>
-          <DD><Blue />Garimpo</DD>
-          <DD><Yellow />Grilagem</DD>
-          <DD><Green />Invasão</DD>
-          <DD><Coolor />Queimadas</DD>
-          <DD><Cooolor />Outros</DD>
+          <DD><Red />{lang === "Português" ? "Desmate" : "Urihi peprai"}</DD>
+          <DD><Blue />{lang === "Português" ? "Garimpo" : "Makatahu Xii Praãhawë Teaiwei"}</DD>
+          <DD><Yellow />{lang === "Português" ? "Grilagem" : "Urihi tomiai"}</DD>
+          <DD><Green />{lang === "Português" ? "Invasão" : "Rukëi Katiowei"}</DD>
+          <DD><Coolor />{lang === "Português" ? "Queimadas" : "Wakë Yaëaiwei"}</DD>
+          <DD><Cooolor />{lang === "Português" ? "Outros" : "Ai thëpe"}</DD>
           </Div>
           </RightWrapper>
         )}

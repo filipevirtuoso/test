@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
 // Style
 import styled from 'styled-components'
@@ -214,6 +214,15 @@ const Profile = () => {
   const navigate = useNavigate();
 
   const location = useLocation()
+  const [lang, setLang] = useState('')
+
+
+  useEffect(() => {
+    const lastSelected = JSON.parse(
+      localStorage.getItem("lang") ?? "[]"
+    );
+    setLang(lastSelected);
+  }, [])
 
 
 
@@ -252,17 +261,17 @@ const Profile = () => {
           </LeftWrapper>
           <RightWrapper>
             <InfoBG>
-              <Item><Strong>RESPONSÁVEL:</Strong></Item>
-              <Item><Strong>EMAIL:</Strong> {user.email}</Item>
-              <Item><Strong>ALDEIA:</Strong> {user.village}</Item>
-              <Item><Strong>TERRITÓRIO:</Strong> {user.indigenous_territory}</Item>
+              <Item><Strong>{lang === "Português" ? "RESPONSÁVEL:" : "Pöuwei:"}</Strong></Item>
+              <Item><Strong>{lang === "Português" ? "EMAIL:" : "Wãno hika:"}</Strong> {user.email}</Item>
+              <Item><Strong>{lang === "Português" ? "ALDEIA:" : "Xapöno:"}</Strong> {user.village}</Item>
+              <Item><Strong>{lang === "Português" ? "TERRITÓRIO:" : "Urihi:"}</Strong> {user.indigenous_territory}</Item>
             </InfoBG>
           </RightWrapper>
         </HeaderWrapper>
         <ContentWrapper>
-          <Link to='/myevents' state={{ pathname: location.pathname }} style={linkStyle}><Button>Minhas ocorrências</Button></Link>
-          <Link to='/edituser' style={linkStyle}><Button2>Editar perfil</Button2></Link>
-          <Button3 onClick={logoutHandler}>Sair</Button3>
+          <Link to='/myevents' state={{ pathname: location.pathname }} style={linkStyle}><Button>{lang === "Português" ? "Minhas ocorrências" : "Ipa Të Kuprowei"}</Button></Link>
+          <Link to='/edituser' style={linkStyle}><Button2>{lang === "Português" ? "Editar perfil" : "No uhutipī tutoprarī"}</Button2></Link>
+          <Button3 onClick={logoutHandler}>{lang === "Português" ? "Sair" : "Yaitai"}</Button3>
         </ContentWrapper>
 
         <Image />

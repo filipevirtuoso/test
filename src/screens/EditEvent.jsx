@@ -201,12 +201,6 @@ const EditEvent = () => {
       eventData.append("id", id)
       eventData.append("coordinates", coordinates)
 
-      // for (const value of eventData.values()) {
-      //   console.log("eventData")
-      //   console.log(value);
-      // }
-
-
       try {
         toast.info('Enviando')
         const res = await editEvent(eventData).unwrap();
@@ -231,13 +225,8 @@ const EditEvent = () => {
     }
 
     const saveMarkers = (newMarkerCoords) => {
-      // console.log(newMarkerCoords)
       setCoordinates(newMarkerCoords)
       setShowMap(!showMap)
-      // let markerInfo = [...markerInfo, newMarkerCoords];
-      // console.log(markerInfo)
-
-      // setMapData((prevState) => ({ ...prevState, markerInfo }));
     };
 
     return (

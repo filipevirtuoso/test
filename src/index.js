@@ -35,6 +35,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals'
 
+
 const router = createBrowserRouter(
   createRoutesFromElements([
     <Route path='/' element={<App />}>

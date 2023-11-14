@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
 // Style
 import styled from 'styled-components'
@@ -42,12 +42,21 @@ const linkStyle = {
 };
 
 const BackButton = ({page}) => {
+  const [lang, setLang] = useState('')
+
+
+  useEffect(() => {
+    const lastSelected = JSON.parse(
+      localStorage.getItem("lang") ?? "[]"
+    );
+    setLang(lastSelected);
+  }, [])
   return (
     <Link to={page} style={linkStyle} >
       <UserInfoWrapper>
         <FaArrowCircleLeft color={"white"} size={35} />
         <NameWrapper>
-          <Text>Voltar</Text>
+          <Text>{lang === "Português" ? "Voltar" : "Kõöima"}</Text>
         </NameWrapper>
       </UserInfoWrapper>
     </Link>
