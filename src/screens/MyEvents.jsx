@@ -102,7 +102,7 @@ const MyEvents = (props) => {
   return (
     <Wrapper>
     <BackButton page={pathname === '/' ? "/" : "/profile"} />
-    <Title>{lang === "Português" ? "minhas ocorrências" : "Ipa Të Kuprowei"}</Title>
+    <Title>{lang === "Português" ? "Minhas ocorrências" : "Ipa Të Kuprowei"}</Title>
     
 
     { isLoading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
