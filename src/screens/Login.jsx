@@ -138,6 +138,7 @@ const Login = () => {
 
   useEffect(() => {
     setLang('Português');
+    localStorage.setItem('lang', JSON.stringify('Português'));
   }, []);
 
   // const { search } = useLocation()
