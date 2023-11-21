@@ -1,38 +1,37 @@
-import { useState, useEffect } from 'react'
-import React from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
-import styled from 'styled-components'
-import Logo from '../assets/images/llogo.png'
-import Earth from '../assets/images/earth.png'
-import Logo2 from '../assets/images/logo2.png'
-import BGImage from '../assets/images/tribal.png'
-import Tribal from '../assets/images/tribal2.png'
-import Conafer from '../assets/images/conafer-logo.webp'
-import Terra from '../assets/images/terra_bank.webp'
-import { useDispatch, useSelector } from 'react-redux'
-import Loader from '../components/Loader'
+import { useState, useEffect } from 'react';
+import React from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import Logo from '../assets/images/llogo.png';
+import Earth from '../assets/images/earth.png';
+import Logo2 from '../assets/images/logo2.png';
+import BGImage from '../assets/images/tribal.png';
+import Tribal from '../assets/images/tribal2.png';
+import Conafer from '../assets/images/conafer-logo.webp';
+import Terra from '../assets/images/terra_bank.webp';
+import { useDispatch, useSelector } from 'react-redux';
+import Loader from '../components/Loader';
 
-import { TbWorld } from "react-icons/tb";
+import { TbWorld } from 'react-icons/tb';
 
+import { Form, Button, Row, Col, Dropdown } from 'react-bootstrap';
+import { setCacheNameDetails } from 'workbox-core';
 
-import { Form, Button, Row, Col, Dropdown } from 'react-bootstrap'
-import { setCacheNameDetails } from 'workbox-core'
-
-import { useLoginMutation } from '../slices/usersSlice'
-import { setCredentials } from '../slices/authSlice'
-import { toast } from 'react-toastify'
+import { useLoginMutation } from '../slices/usersSlice';
+import { setCredentials } from '../slices/authSlice';
+import { toast } from 'react-toastify';
 
 const LogoWrapper = styled.img`
   height: 45vh;
   width: 100%;
-  // background-image: url(${Logo2}); 
+  // background-image: url(${Logo2});
   // background-repeat: no-repeat;
   // background-size: cover
   object-fit: cover;
-`
+`;
 
 // const InfoWrapper = styled.section`
-//   width: 100%;   
+//   width: 100%;
 //   height: 5vh;
 //   display: flex;
 //   justify-content: center;
@@ -49,7 +48,6 @@ const LogoWrapper = styled.img`
 //   position: absolute;
 //   top: 17rem;
 
-
 // `
 
 const Image = styled.section`
@@ -59,11 +57,11 @@ const Image = styled.section`
   justify-content: center;
   // margin-top: -.9rem;
 
-  background-image: url(${BGImage}); 
+  background-image: url(${BGImage});
   background-repeat: no-repeat;
   background-size: contain;
   opacity: 0.9;
-`
+`;
 
 const FormContainer = styled.section`
   height: 27vh;
@@ -74,25 +72,23 @@ const FormContainer = styled.section`
   margin-top: 2rem;
   color: #fff;
   /* background-color: red; */
-`
-
+`;
 
 const Input = styled.input`
   width: 80%;
-`
+`;
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
-  gap: .2rem;
-
-`
+  gap: 0.2rem;
+`;
 
 const Img = styled.img`
   width: 4rem;
   margin-right: 1rem;
   margin-left: 1rem;
-`
+`;
 
 const LogosWrapper = styled.section`
   width: 100%;
@@ -101,15 +97,14 @@ const LogosWrapper = styled.section`
   justify-content: center;
   align-items: end;
   /* margin-top: rem; */
-`
+`;
 
 const Link2 = styled.a`
   text-decoration: none;
   color: #fff;
   /* color: #b0850e; */
   font-weight: bold;
-
-`
+`;
 
 const TribalBG = styled.section`
   width: 100%;
@@ -117,35 +112,35 @@ const TribalBG = styled.section`
   display: flex;
   margin-top: 1.4rem;
 
-
-
-  background-image: url(${Tribal}); 
+  background-image: url(${Tribal});
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 0.9;
-`
+`;
 
 const OrangeButton = styled.button`
   border: none;
-  border-radius: .5rem;
-  background-color: #FF7009;
-`
+  border-radius: 0.5rem;
+  background-color: #ff7009;
+`;
 
 const Login = () => {
+  const [lang, setLang] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-  const [lang, setLang] = useState('')
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const [login, { isLoading }] = useLoginMutation();
 
-  const [login, { isLoading }] = useLoginMutation ()
+  const { userInfo } = useSelector((state) => state.auth);
 
-  const { userInfo } = useSelector((state) => state.auth)
+  useEffect(() => {
+    setLang('Português');
+  }, []);
 
-
-  // const { search } = useLocation() 
+  // const { search } = useLocation()
   // const sp = new URLSearchParams(search)
   // const redirect = sp.get('redirect') || '/'
   // sp.get('redirect')
@@ -158,33 +153,30 @@ const Login = () => {
   //   }
   // }, [userInfo,  navigate])
 
-  const handleSelect=(e)=>{
-    setLang(e)
-    localStorage.setItem("lang", JSON.stringify(e));
-  }
-
+  const handleSelect = (e) => {
+    setLang(e);
+    localStorage.setItem('lang', JSON.stringify(e));
+  };
 
   const submitHandler = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     const userData = {
-      grant_type: "password",
+      grant_type: 'password',
       client_id: process.env.REACT_APP_CLIENT_ID,
       client_secret: process.env.REACT_APP_CLIENT_SECRET,
       username,
       password,
-    }
-
-
+    };
 
     try {
       const res = await login(userData).unwrap();
-      dispatch(setCredentials({ ...res, }))
-      navigate('/')
+      dispatch(setCredentials({ ...res }));
+      navigate('/');
     } catch (error) {
-      toast.error(error?.data?.error_description || error.data.error)
+      toast.error(error?.data?.error_description || error.data.error);
     }
-  }
+  };
 
   return (
     <>
@@ -196,35 +188,55 @@ const Login = () => {
       <FormContainer>
         <Form onSubmit={submitHandler}>
           <Form.Group controlId='username'>
-            <Form.Label>{ lang ===  "Português" ? "Email" : "Wãno hika" }</Form.Label>
+            <Form.Label>
+              {lang === 'Português' ? 'Email' : 'Wãno hika'}
+            </Form.Label>
             <Form.Control
               type='email'
               placeholder='Digite seu email'
               value={username}
-              onChange={(e) => setUsername(e.target.value)}>
-            </Form.Control>
+              onChange={(e) => setUsername(e.target.value)}
+            ></Form.Control>
           </Form.Group>
           <Form.Group controlId='password'>
-            <Form.Label className="mt-2">Senha</Form.Label>
+            <Form.Label className='mt-2'>Senha</Form.Label>
             <Form.Control
               type='password'
               placeholder='Informe sua senha'
               value={password}
-              onChange={(e) => setPassword(e.target.value)}>
-            </Form.Control>
+              onChange={(e) => setPassword(e.target.value)}
+            ></Form.Control>
           </Form.Group>
           <Wrapper>
-            <Button type='submit' variant='success' className='mt-3 w-25' disable={isLoading}>{lang === "Português" ? "Entrar" : "Rükëi"}</Button>
-            <OrangeButton variant='warning' className='mt-3 w-50' disable={isLoading}><Link2 target="_blank" href="https://conafer.org.br/plataforma-hamugay-cadastro/">{lang === "Português" ? "Cadastre-se" : "Wãhã Küo"}</Link2></OrangeButton>
+            <Button
+              type='submit'
+              variant='success'
+              className='mt-3 w-25'
+              disable={isLoading}
+            >
+              {lang === 'Português' ? 'Entrar' : 'Rükëi'}
+            </Button>
+            <OrangeButton
+              variant='warning'
+              className='mt-3 w-50'
+              disable={isLoading}
+            >
+              <Link2
+                target='_blank'
+                href='https://conafer.org.br/plataforma-hamugay-cadastro/'
+              >
+                {lang === 'Português' ? 'Cadastre-se' : 'Wãhã Küo'}
+              </Link2>
+            </OrangeButton>
             {/* { isLoading && <Loader />} */}
-            <Dropdown className="w=25 mt-3" onSelect={handleSelect}>
-              <Dropdown.Toggle variant="dark" id="dropdown-basic">
+            <Dropdown className='w=25 mt-3' onSelect={handleSelect}>
+              <Dropdown.Toggle variant='dark' id='dropdown-basic'>
                 <TbWorld />
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item eventKey="Português">Português</Dropdown.Item>
-                <Dropdown.Item eventKey="Yanomami">Yanomami</Dropdown.Item>
+                <Dropdown.Item eventKey='Português'>Português</Dropdown.Item>
+                <Dropdown.Item eventKey='Yanomami'>Yanomami</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </Wrapper>
@@ -236,7 +248,7 @@ const Login = () => {
       </LogosWrapper>
       <TribalBG />
     </>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
