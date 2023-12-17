@@ -197,7 +197,7 @@ const Home = () => {
     });
   };
 
-  console.log(events);
+  // log(events);
 
   return (
     <EventsWrapper>

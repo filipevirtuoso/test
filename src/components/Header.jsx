@@ -250,7 +250,7 @@ const Header = ({ name, indigenous_territory }) => {
     }
   }, stats);
 
-  console.log(lang);
+  // console.log(lang);
 
   return (
     <>

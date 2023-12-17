@@ -29,6 +29,7 @@ import PrivateRoute from './components/PrivateRoute';
 import Call from './screens/Call';
 import Search from './screens/Search';
 import Notices from './screens/Notices';
+import Offline from './screens/Offline';
 
 // Style
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -54,6 +55,7 @@ const router = createBrowserRouter(
         <Route path='/call' element={<Call />} />
         <Route path='/search' element={<Search />} />
         <Route path='/notices' element={<Notices />} />
+        <Route path='/offline' element={<Offline />} />
       </Route>
     </Route>,
   ])
