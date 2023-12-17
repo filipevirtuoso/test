@@ -224,10 +224,12 @@ const AddEvent = () => {
     });
   });
 
+  console.log('DATA');
+  console.log(data);
   return (
     <>
       <BackButton page='/' />
-
+      {/* <div>{data.id}</div> */}
       <FormContainer>
         <Title>
           {lang === 'Português' ? 'Abrir ocorrência' : 'Karoprai Kuprariowei'}
